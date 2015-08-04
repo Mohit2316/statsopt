@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Page Rendered At: 2015-06-29 16:29:24 -0700
+   /\\\\\
+  /\\\///\\\          /\\\\\\\\\\\\\      /\\\\\\\\\     /\\\             /\\\\\\\\\     /\\\\\     /\\\  /\\\\\\\\\\\\\\\  /\\\\\\\\\\\    /\\\\\\\\\
+ /\\\/  \///\\\       \/\\\/////////\\\  /\\\\\\\\\\\\\  \/\\\           /\\\\\\\\\\\\\  \/\\\\\\   \/\\\ \///////\\\/////  \/////\\\///   /\\\///////\\\
+ /\\\      \//\\\      \/\\\       \/\\\ /\\\/////////\\\ \/\\\          /\\\/////////\\\ \/\\\/\\\  \/\\\       \/\\\           \/\\\     \/\\\     \/\\\
+ \/\\\       \/\\\      \/\\\\\\\\\\\\\/ \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\//\\\ \/\\\       \/\\\           \/\\\     \/\\\\\\\\\\\/
+  \//\\\      /\\\       \/\\\/////////   \/\\\\\\\\\\\\\\\ \/\\\         \/\\\\\\\\\\\\\\\ \/\\\\//\\\\/\\\       \/\\\           \/\\\     \/\\\//////\\\
+    \///\\\  /\\\         \/\\\            \/\\\/////////\\\ \/\\\         \/\\\/////////\\\ \/\\\ \//\\\/\\\       \/\\\           \/\\\     \/\\\    \//\\\
+       \///\\\\\/          \/\\\            \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\  \//\\\\\\       \/\\\           \/\\\     \/\\\     \//\\\
+  /\\\   \/////   /\\\      \/\\\            \/\\\       \/\\\ \/\\\\\\\\\\\ \/\\\       \/\\\ \/\\\   \//\\\\\       \/\\\        /\\\\\\\\\\\ \/\\\      \//\\\
+    \//\\\       /\\\        \///             \///        \///  \///////////  \///        \///  \///     \/////        \///        \///////////  \///        \///
+      \//\\\    /\\\
+          \//\\\\\
+-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" sizes="16x16 32x32" type="image/x-icon">
+<title>Fully Interactive JTables (aka Mouseover Editing) | Palantir</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="description" content="Palantir builds software that connects data, technologies, humans and environments.">
+
+<meta name="keywords" content="Palantir, home, data, technology, software, solutions, environments, analysis">
+<link rel="stylesheet" href="/build/css/style.css?v=20150629162924" media="screen">
+<link rel="alternate" type="application/rss+xml"  href="https://palantir.com/feed/index.xml" title="Palantir RSS">
+<!-- Modernizr -->
+<script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/build/js/respond-1.4.2.min.js"></script>
+<link rel="stylesheet" href="/build/css/ie.css?v=20150629162924" media="screen, projection" type="text/css">
+<![endif]-->
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Fully Interactive JTables (aka Mouseover Editing)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palantir.com/2007/05/jtable-mouseover-editing">
+
+<meta property="og:image" content="">
+
+<meta property="og:site_name" content="Palantir">
+<meta property="og:description" content="">
+
+
+</head>
+<body id="blog" class="blog-post">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=448433878601301&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="site-wrapper">
+    <!-- Header -->
+    
+<header id="site-header">
+  <!-- Nav: Main -->
+  <nav class="navbar" role="navigation">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <h1 id="site-name" class="logo">
+          <a href="/">
+            <div id="logo-svg">
+              <!--[if gte IE 9]><!-->
+                <svg width="100" height="25" viewBox="0 0 100 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.076 2.98h6.237c2.27 0 3.814.139 5.092 1.548.935.992 1.373 2.302 1.373 3.75 0 1.468-.458 2.738-1.469 3.79-.992 1.012-2.27 1.667-5.626 1.667h-3.013v8.611h-2.575v-19.365h-.019zm2.575 8.492h3.071c1.717 0 4.31-.139 4.31-3.294 0-3.036-2.422-3.036-3.776-3.036h-3.605v6.329z"/><path d="M45.132 22.365c-.191-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.558-1.746-4.558-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.441 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.992-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.193v.04zm-1.678-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.439-.04-.801-.079-1.392-.079z" id="a"/><path d="M49.366 2.98h2.422v19.385h-2.422v-19.385z"/><path d="M62.24 22.365c-.172-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.577-1.746-4.577-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.46 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.973-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.174v.04zm-1.697-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.42-.04-.782-.079-1.392-.079z"/><path d="M66.493 10.44l-.019-1.567h2.422l.019 2.183c.286-.556 1.202-2.44 4.158-2.44 1.163 0 4.692.456 4.692 4.583v9.147h-2.479v-8.571c0-.893-.095-1.687-.706-2.302-.629-.615-1.469-.913-2.289-.913-1.755 0-3.376 1.31-3.376 4.028v7.758h-2.422v-11.905z"/><path d="M78.528 8.873h2.289v-2.877l2.403-.813v3.671h2.899v1.845h-2.899v8.036c0 .675 0 1.806 1.736 1.806.496 0 .954-.079 1.163-.139v1.964c-.439.079-1.144.159-2.022.159-2.212 0-3.28-.675-3.28-2.877v-8.909h-2.289v-1.865z"/><path d="M87.816 2.98h2.918v2.817h-2.918v-2.817zm.267 5.893h2.422v13.472h-2.422v-13.472z"/><path d="M92.755 11.611c0-.913-.057-1.845-.134-2.738h2.46l.057 2.599c.458-1.885 2.022-2.5 3.09-2.659.725-.099 1.259-.079 1.678-.06v2.46c-.134-.06-.286-.079-.458-.099-.172-.02-.42-.02-.706-.02-2.861 0-3.547 1.766-3.547 4.087v7.163h-2.441v-10.734z"/><path d="M9.866-.04c-5.211 0-9.45 4.226-9.45 9.464s4.22 9.464 9.45 9.464c5.211 0 9.45-4.226 9.45-9.464s-4.24-9.464-9.45-9.464zm0 16.012c-3.606 0-6.538-2.937-6.538-6.548s2.932-6.548 6.538-6.548c3.606 0 6.538 2.937 6.538 6.548-.02 3.631-2.932 6.548-6.538 6.548zM18.306 18.056l-8.44 3.651-8.46-3.651-1.387 2.698 9.847 4.206 9.847-4.206-1.407-2.698z"/>
+              <!--<![endif]-->
+              </svg>
+            </div>
+          </a>
+        </h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/careers/">Careers</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form role="search" method="get" class="search" action="/search/">
+              <input id="main-search-query" type="text" name="q" value="" class="search-input search_field_main" maxlength="50" placeholder="Search Palantir">
+              <input type="submit" class="search-trigger search_submit_main">
+            </form>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+</header><!-- /header -->
+
+
+    <div id="hero-wrapper-auto" data-image-bg='["/build/images/blog/blog-hero.jpg", "/build/images/blog/blog-hero@2x.jpg"]'>
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-xs-12">
+            <h1 class="main"><a href="/category/blogs">The Palantir Blog</a></h1>
+          </article>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div id="hero-subnav">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <nav>
+                <ul class="blog-meta transparent">
+                  <li class="blog-meta-date"><span class="icon-pt-icon-time"></span> May 17, 2007</li>
+                  <li class="blog-meta-author"><span class="icon-pt-icon-person"></span> <a href="/author/ksimler">Kevin Simler</a></li>
+                  
+                  <li class="post_tags">
+                    <span class="icon-pt-icon-tag"></span>
+                    
+                    <span class="tags"><a href="/tag/coding">coding</a></span>
+                    
+                    <span class="tags"><a href="/tag/swing">swing</a></span>
+                    
+                    <span class="tags"><a href="/tag/tips and tricks">tips and tricks</a></span>
+                    
+                  </li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#hero-wrapper-auto -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div id="post-content" class="col-md-offset-1 col-md-7">
+          <h1>Fully Interactive JTables (aka Mouseover Editing)</h1>
+          <p>What sucks about <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JTable.html">JTables</a>? Everything, of course—but that’s a developer’s perspective.  To the user, <strong>cell editing</strong> is rough around the edges: when and where to click, and how many times—it’s never perfectly clear.  Cells in a table just don’t provide the mouseover feedback that regular components do.  If only a <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JTable.html">JTable</a> behaved like a bunch of components thrown into a giant <a href="http://java.sun.com/docs/books/tutorial/uiswing/layout/gridbag.html">GridBag</a> or <a href="http://java.sun.com/products/jfc/tsc/articles/tablelayout/">TableLayout</a>…</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2007/05/mouseover-screenshot1.png" alt="mouseover-screenshot.png" /></p>
+
+<p>Mouseover Editing simulates just that.  The idea is to attach a <a href="http://java.sun.com/docs/books/tutorial/uiswing/events/mouselistener.html">MouseListener</a> to the JTable and call <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JTable.html#editCellAt(int,%20int)">editCellAt(row, col)</a> whenever the cursor moves over a new cell.  In other words, even though only one cell in a table can be fully interactive (the editing cell) at any given time, as long as we keep moving that cell to stay underneath the user’s cursor, the whole table will appear to be fully interactive.  If done correctly, this will appear to the user as though he’s interacting with a bunch of real components (rather than rendered stamps) inside a   giant Grid/GridBag/TableLayout.</p>
+
+<p>Most importantly, the user will get mouseover feedback about which cells are editable, and how to edit them.  Checkboxes, buttons, and comboboxes (if the <a href="http://today.java.net/pub/a/today/2004/02/27/laf.html">L&amp;F</a> supports it) will highlight to indicate press-ability and the cursor will turn to a text caret when hovering over cells that contain textfields.  When done correctly, the effect is nearly seamless and very satisfying.</p>
+
+<p>Here’s a <a href="/wp-assets/wp-content/static/techblog/2007/04/launch_mouseoverjtable.jnlp" title="launch_mouseoverjtable.jnlp">webstart demo</a>.  Read on for the solution in code.</p>
+
+<p>There are three parts to the Mouseover Editing solution (over and above what’s needed for typical JTable editing).</p>
+
+<h2 id="part-1--identical-editors-and-renderers">Part 1:  Identical Editors and Renderers</h2>
+
+<p>This is important.  Typically, a table will use a <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JLabel.html">JLabel</a> to render a cell and a <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JTextField.html">JTextField</a> to edit the cell.   When the editor is swapped in to replace the renderer, there’s a slight flicker—the textfield might have a different background color, the text mayb be in a slightly different location, etc.  This is all well and good when the user has to click or double-click to engage the editor, because the click can be perceived as granting permission to the program to do something on its own.  However, a simple mouseover is a different story.  Here, the look, feel, and placement of the editor should exactly match up with the look, feel, and placement of the renderer; otherwise, there will be a flicker trail every time the cursor passes through the JTable.</p>
+
+<p>In order to make editors and renderers look and behave identically, (a) we need them to start out identical and (b) we need to apply the same transformations to them.</p>
+
+<p>The easiest way to make an identical editor and renderer is to produce two objects from a combined EditorRenderer class. Here’s how that might work for a checkbox:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CheckBoxEditorRenderer</span> <span class="kd">extends</span> <span class="n">AbstractCellEditor</span> <span class="kd">implements</span> <span class="n">TableCellRenderer</span>
+<span class="o">{</span>
+  <span class="kd">private</span> <span class="n">JCheckBox</span> <span class="n">checkbox</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">JCheckBox</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="nf">CheckBoxEditorRenderer</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">();</span>
+    <span class="n">checkbox</span><span class="o">.</span><span class="na">setFocusable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">Component</span> <span class="nf">getTableCellRendererComponent</span><span class="o">(</span><span class="n">JTable</span> <span class="n">table</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">isSelected</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">hasFocus</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">column</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="k">instanceof</span> <span class="n">Boolean</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">checkbox</span><span class="o">.</span><span class="na">setSelected</span><span class="o">((</span><span class="n">Boolean</span><span class="o">)</span> <span class="n">value</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">checkbox</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">Component</span> <span class="nf">getTableCellEditorComponent</span><span class="o">(</span><span class="n">JTable</span> <span class="n">table</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">isSelected</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">column</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="k">instanceof</span> <span class="n">Boolean</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">checkbox</span><span class="o">.</span><span class="na">setSelected</span><span class="o">((</span><span class="n">Boolean</span><span class="o">)</span> <span class="n">value</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">checkbox</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">Object</span> <span class="nf">getCellEditorValue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">checkbox</span><span class="o">.</span><span class="na">isSelected</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Notice how CheckBoxEditorRenderer implements both the <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/table/TableCellRenderer.html">TableCellRenderer</a> and <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/table/TableCellEditor.html">TableCellEditor</a> interfaces (the latter via <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/AbstractCellEditor.html">AbstractCellEditor</a>).</p>
+
+<p>Editors and renderers must also be subjected to the same transformations.  In a subclass of JTable, say one called MouseoverJTable, use the following format for your <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JTable.html#prepareEditor(javax.swing.table.TableCellEditor,%20int,%20int)">prepareEditor()</a> and <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JTable.html#prepareRenderer(javax.swing.table.TableCellRenderer,%20int,%20int)">prepareRenderer()</a> methods:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Component</span> <span class="nf">prepareRenderer</span><span class="o">(</span><span class="n">TableCellRenderer</span> <span class="n">renderer</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">column</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">Component</span> <span class="n">c</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">prepareRenderer</span><span class="o">(</span><span class="n">renderer</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="n">column</span><span class="o">);</span>
+    <span class="k">return</span> <span class="nf">prepareEditorRenderer</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="n">column</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">Component</span> <span class="nf">prepareEditor</span><span class="o">(</span><span class="n">TableCellEditor</span> <span class="n">editor</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">column</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Component</span> <span class="n">c</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">prepareEditor</span><span class="o">(</span><span class="n">editor</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="n">column</span><span class="o">);</span>
+    <span class="k">return</span> <span class="nf">prepareEditorRenderer</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">row</span><span class="o">,</span> <span class="n">column</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">private</span> <span class="n">Component</span> <span class="nf">prepareEditorRenderer</span><span class="o">(</span><span class="n">Component</span> <span class="n">stamp</span><span class="o">,</span> <span class="kt">int</span> <span class="n">row</span><span class="o">,</span> <span class="kt">int</span> <span class="n">column</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ... All sorts of shenanigans can go on here.</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p>This ensures that both the editor and the renderer will go through the same decoration path.</p>
+
+<h2 id="part-2--two-stage-editing">Part 2:  Two-stage editing</h2>
+
+<p>What we’ve presented thus far works really well for buttons and checkboxes, which are minimally interactive.  With comboboxes and textfields, there’s a problem.  Suppose you mouse over a cell with a combobox.  First the combobox will become highlighted (if the L&amp;F supports it) to indicate that it’s clickable; this is expected and reasonable behavior. If you click on it, the combobox flyout will appear; this is also expected and reasonable behavior.  Now move your mouse just a little bit….  oh no!  You accidentally moused over another cell, and the table decided to swap out the editor you were using (the combobox) and swap in a new editor.  Goodbye flyout.</p>
+
+<p>To make sure this doesn’t happen, we need editors with two states:  temporarily engaged and fully engaged.  When the cursor first moves over a cell, we call editCellAt(r, c), and plop the editor into place, temporarily engaged.  This means it’s an interactive <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/swing/JComponent.html">JComponent</a> that responds to mouse events, but that it’s okay to swap it out and replace it with a new editor if the cursor changes location.  Then, if the user starts interacting with the Editor in a way that requires the editor to keep around a bit of state (like the visibility of a flyout for a combobox), we say that the editor is fully engaged, and that the table isn’t allowed to swap it out until the user disengages it.</p>
+
+<p>What this looks like in code:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">TwoStageTableCellEditor</span> <span class="kd">extends</span> <span class="n">TableCellEditor</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFullyEngaged</span><span class="o">();</span>
+<span class="o">}</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComboBoxEditorRenderer</span> <span class="kd">extends</span> <span class="n">AbstractCellEditor</span> <span class="kd">implements</span> <span class="n">TwoStageTableCellEditor</span><span class="o">,</span> <span class="n">TableCellRenderer</span>
+<span class="o">{</span>
+    <span class="kd">private</span> <span class="n">JComboBox</span> <span class="n">combobox</span><span class="o">;</span>
+    <span class="o">...</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">getCellEditorValue</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">combobox</span><span class="o">.</span><span class="na">getSelectedItem</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFullyEngaged</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">combobox</span><span class="o">.</span><span class="na">isPopupVisible</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<h2 id="part-3--mouseover-swapping">Part 3:  Mouseover swapping</h2>
+
+<p>Here’s where it all comes together.  Mouseover swapping is what your (subclass of) JTable does in order to keep track of which cell is being edited, where the cursor is, and  whether to swap the editor from one cell to another.  This is kind of boring, and only really makes sense in code, so here you go:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// In the constructor...</span>
+<span class="c1">// listeners for two-stage editing</span>
+<span class="k">this</span><span class="o">.</span><span class="na">addMouseListener</span><span class="o">(</span><span class="n">twoStageEditingListener</span><span class="o">);</span>
+<span class="k">this</span><span class="o">.</span><span class="na">addMouseMotionListener</span><span class="o">(</span><span class="n">twoStageEditingListener</span><span class="o">);</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// In the body of your JTable subclass...</span>
+<span class="kd">private</span> <span class="kd">final</span> <span class="n">FullMouseAdapter</span> <span class="n">twoStageEditingListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">FullMouseAdapter</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseMoved</span><span class="o">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">possiblySwitchEditors</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseEntered</span><span class="o">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">possiblySwitchEditors</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseExited</span><span class="o">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">possiblySwitchEditors</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">mouseClicked</span><span class="o">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">possiblySwitchEditors</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">possiblySwitchEditors</span><span class="o">(</span><span class="n">MouseEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="na">getPoint</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">p</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">row</span> <span class="o">=</span> <span class="n">rowAtPoint</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">col</span> <span class="o">=</span> <span class="n">columnAtPoint</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">!=</span> <span class="n">getEditingRow</span><span class="o">()</span> <span class="o">||</span> <span class="n">col</span> <span class="o">!=</span> <span class="n">getEditingColumn</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">isEditing</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">TableCellEditor</span> <span class="n">editor</span> <span class="o">=</span> <span class="n">getCellEditor</span><span class="o">();</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">editor</span> <span class="k">instanceof</span> <span class="n">TwoStageTableCellEditor</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="o">!((</span><span class="n">TwoStageTableCellEditor</span><span class="o">)</span><span class="n">editor</span><span class="o">).</span><span class="na">isInStageTwo</span><span class="o">())</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(!</span><span class="n">editor</span><span class="o">.</span><span class="na">stopCellEditing</span><span class="o">())</span> <span class="o">{</span>
+                        <span class="n">editor</span><span class="o">.</span><span class="na">cancelCellEditing</span><span class="o">();</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">isEditing</span><span class="o">())</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">isCellEditable</span><span class="o">(</span><span class="n">row</span><span class="o">,</span> <span class="n">col</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="n">editCellAt</span><span class="o">(</span><span class="n">row</span><span class="o">,</span> <span class="n">col</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This solution works pretty well.  There are a couple flaws (e.g. start editing a textfield and then mouseover a button—no feedback, because the text field is fully engaged), but overall it is much better than an unadorned JTable, and not too much of a burden on the developer.  Be warned, though:  it may wreak havoc on the focus system.</p>
+
+<p>Extra credit:  Is it possible to achieve a similar effect by forwarding MouseEvents through to the renderers/stamps?</p>
+
+        </div>
+        <aside id="category-links" class="col-md-offset-1 col-md-3">
+          <h4>Categories</h4>
+          <nav id="blog-category-list">
+  <ul>
+  
+    <li class="blog-category tech"><a href="/category/tech/" name="Tech">Tech</a></li>
+  
+    <li class="blog-category analysis"><a href="/category/analysis/" name="Analysis">Analysis</a></li>
+  
+    <li class="blog-category news-events"><a href="/category/news-events/" name="News &amp; Events">News &amp; Events</a></li>
+  
+    <li class="blog-category philanthropy"><a href="/category/philanthropy/" name="Philanthropy">Philanthropy</a></li>
+  
+    <li class="blog-category pcl"><a href="/category/pcl/" name="P/CL">P/CL</a></li>
+  
+  </ul>
+</nav>
+
+          <h4>Save &amp; Share</h4>
+          
+<nav id="blog-share">
+  <ul>
+    <li><a href="/feed/index.xml" class="button button-small no-arrow"><span class="icon-pt-icon-feed"></span> Subscribe via RSS</a></li>
+    <li><div class="fb-share-button" data-href="https://palantir.com/2007/05/jtable-mouseover-editing" data-type="button_count"></div></li>
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+  </ul>
+</nav>
+
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="patterned" role="contentinfo">
+
+  <div class="container">
+        <div class="row">
+          <nav id="products" class="col-sm-2 footer-menu">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav id="uses" class="col-sm-4 footer-menu">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="people" class="col-sm-2 footer-menu">
+            <h2><a href="/careers/">Careers</a></h2>
+            <ul id="menu-people" class="">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="about" class="col-sm-2 footer-menu">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav id="ancillary-menu" class="col-sm-2 footer-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/partnerships/">Partnerships</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.row -->
+
+        <div id="footer-copyright" class="row">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2015 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a href="https://www.facebook.com/Palantir" class="icon-pt-icon-facebook"></a></li>
+              <li><a href="https://www.twitter.com/palantirtech" class="icon-pt-icon-twitter"></a></li>
+              <li><a href="https://plus.google.com/106671163751935200511" rel="publisher" class="icon-pt-icon-gplus"></a></li>
+              <li><a href="https://www.github.com/Palantir" class="icon-pt-icon-github"></a></li>
+              <li><a href="https://www.youtube.com/user/Palantir" class="icon-pt-icon-youtube"></a></li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+</footer><!-- /footer -->
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- compiled.min -->
+  <script src="/build/js/compiled.min.js?v=20150629162924"></script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+
+
+  <script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'www.fullstory.com';
+  window['_fs_org'] = 'Vcq';
+  (function(m,n,e,t,l,o,g,y){
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+    g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+  })(window,document,'FS','script','user');
+</script>
+
+</body>
+</html>

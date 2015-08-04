@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Page Rendered At: 2015-06-29 16:29:24 -0700
+   /\\\\\
+  /\\\///\\\          /\\\\\\\\\\\\\      /\\\\\\\\\     /\\\             /\\\\\\\\\     /\\\\\     /\\\  /\\\\\\\\\\\\\\\  /\\\\\\\\\\\    /\\\\\\\\\
+ /\\\/  \///\\\       \/\\\/////////\\\  /\\\\\\\\\\\\\  \/\\\           /\\\\\\\\\\\\\  \/\\\\\\   \/\\\ \///////\\\/////  \/////\\\///   /\\\///////\\\
+ /\\\      \//\\\      \/\\\       \/\\\ /\\\/////////\\\ \/\\\          /\\\/////////\\\ \/\\\/\\\  \/\\\       \/\\\           \/\\\     \/\\\     \/\\\
+ \/\\\       \/\\\      \/\\\\\\\\\\\\\/ \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\//\\\ \/\\\       \/\\\           \/\\\     \/\\\\\\\\\\\/
+  \//\\\      /\\\       \/\\\/////////   \/\\\\\\\\\\\\\\\ \/\\\         \/\\\\\\\\\\\\\\\ \/\\\\//\\\\/\\\       \/\\\           \/\\\     \/\\\//////\\\
+    \///\\\  /\\\         \/\\\            \/\\\/////////\\\ \/\\\         \/\\\/////////\\\ \/\\\ \//\\\/\\\       \/\\\           \/\\\     \/\\\    \//\\\
+       \///\\\\\/          \/\\\            \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\  \//\\\\\\       \/\\\           \/\\\     \/\\\     \//\\\
+  /\\\   \/////   /\\\      \/\\\            \/\\\       \/\\\ \/\\\\\\\\\\\ \/\\\       \/\\\ \/\\\   \//\\\\\       \/\\\        /\\\\\\\\\\\ \/\\\      \//\\\
+    \//\\\       /\\\        \///             \///        \///  \///////////  \///        \///  \///     \/////        \///        \///////////  \///        \///
+      \//\\\    /\\\
+          \//\\\\\
+-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" sizes="16x16 32x32" type="image/x-icon">
+<title>Fun and Games with the Palantir Finance Spreadsheet Application | Palantir</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="description" content="Palantir builds software that connects data, technologies, humans and environments.">
+
+<meta name="keywords" content="Palantir, home, data, technology, software, solutions, environments, analysis">
+<link rel="stylesheet" href="/build/css/style.css?v=20150629162924" media="screen">
+<link rel="alternate" type="application/rss+xml"  href="https://palantir.com/feed/index.xml" title="Palantir RSS">
+<!-- Modernizr -->
+<script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/build/js/respond-1.4.2.min.js"></script>
+<link rel="stylesheet" href="/build/css/ie.css?v=20150629162924" media="screen, projection" type="text/css">
+<![endif]-->
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Fun and Games with the Palantir Finance Spreadsheet Application">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palantir.com/2011/08/mandelbrot-testing-with-hh-lang">
+
+<meta property="og:image" content="">
+
+<meta property="og:site_name" content="Palantir">
+<meta property="og:description" content="">
+
+
+</head>
+<body id="blog" class="blog-post">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=448433878601301&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="site-wrapper">
+    <!-- Header -->
+    
+<header id="site-header">
+  <!-- Nav: Main -->
+  <nav class="navbar" role="navigation">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <h1 id="site-name" class="logo">
+          <a href="/">
+            <div id="logo-svg">
+              <!--[if gte IE 9]><!-->
+                <svg width="100" height="25" viewBox="0 0 100 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.076 2.98h6.237c2.27 0 3.814.139 5.092 1.548.935.992 1.373 2.302 1.373 3.75 0 1.468-.458 2.738-1.469 3.79-.992 1.012-2.27 1.667-5.626 1.667h-3.013v8.611h-2.575v-19.365h-.019zm2.575 8.492h3.071c1.717 0 4.31-.139 4.31-3.294 0-3.036-2.422-3.036-3.776-3.036h-3.605v6.329z"/><path d="M45.132 22.365c-.191-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.558-1.746-4.558-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.441 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.992-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.193v.04zm-1.678-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.439-.04-.801-.079-1.392-.079z" id="a"/><path d="M49.366 2.98h2.422v19.385h-2.422v-19.385z"/><path d="M62.24 22.365c-.172-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.577-1.746-4.577-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.46 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.973-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.174v.04zm-1.697-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.42-.04-.782-.079-1.392-.079z"/><path d="M66.493 10.44l-.019-1.567h2.422l.019 2.183c.286-.556 1.202-2.44 4.158-2.44 1.163 0 4.692.456 4.692 4.583v9.147h-2.479v-8.571c0-.893-.095-1.687-.706-2.302-.629-.615-1.469-.913-2.289-.913-1.755 0-3.376 1.31-3.376 4.028v7.758h-2.422v-11.905z"/><path d="M78.528 8.873h2.289v-2.877l2.403-.813v3.671h2.899v1.845h-2.899v8.036c0 .675 0 1.806 1.736 1.806.496 0 .954-.079 1.163-.139v1.964c-.439.079-1.144.159-2.022.159-2.212 0-3.28-.675-3.28-2.877v-8.909h-2.289v-1.865z"/><path d="M87.816 2.98h2.918v2.817h-2.918v-2.817zm.267 5.893h2.422v13.472h-2.422v-13.472z"/><path d="M92.755 11.611c0-.913-.057-1.845-.134-2.738h2.46l.057 2.599c.458-1.885 2.022-2.5 3.09-2.659.725-.099 1.259-.079 1.678-.06v2.46c-.134-.06-.286-.079-.458-.099-.172-.02-.42-.02-.706-.02-2.861 0-3.547 1.766-3.547 4.087v7.163h-2.441v-10.734z"/><path d="M9.866-.04c-5.211 0-9.45 4.226-9.45 9.464s4.22 9.464 9.45 9.464c5.211 0 9.45-4.226 9.45-9.464s-4.24-9.464-9.45-9.464zm0 16.012c-3.606 0-6.538-2.937-6.538-6.548s2.932-6.548 6.538-6.548c3.606 0 6.538 2.937 6.538 6.548-.02 3.631-2.932 6.548-6.538 6.548zM18.306 18.056l-8.44 3.651-8.46-3.651-1.387 2.698 9.847 4.206 9.847-4.206-1.407-2.698z"/>
+              <!--<![endif]-->
+              </svg>
+            </div>
+          </a>
+        </h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/careers/">Careers</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form role="search" method="get" class="search" action="/search/">
+              <input id="main-search-query" type="text" name="q" value="" class="search-input search_field_main" maxlength="50" placeholder="Search Palantir">
+              <input type="submit" class="search-trigger search_submit_main">
+            </form>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+</header><!-- /header -->
+
+
+    <div id="hero-wrapper-auto" data-image-bg='["/build/images/blog/blog-hero.jpg", "/build/images/blog/blog-hero@2x.jpg"]'>
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-xs-12">
+            <h1 class="main"><a href="/category/blogs">The Palantir Blog</a></h1>
+          </article>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div id="hero-subnav">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <nav>
+                <ul class="blog-meta transparent">
+                  <li class="blog-meta-date"><span class="icon-pt-icon-time"></span> August 11, 2011</li>
+                  <li class="blog-meta-author"><span class="icon-pt-icon-person"></span> <a href="/author/rchiu">Rico Chiu</a></li>
+                  
+                  <li class="post_tags">
+                    <span class="icon-pt-icon-tag"></span>
+                    
+                    <span class="tags"><a href="/tag/fun">fun</a></span>
+                    
+                    <span class="tags"><a href="/tag/visualization">visualization</a></span>
+                    
+                    <span class="tags"><a href="/tag/user interface">user interface</a></span>
+                    
+                  </li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#hero-wrapper-auto -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div id="post-content" class="col-md-offset-1 col-md-7">
+          <h1>Fun and Games with the Palantir Finance Spreadsheet Application</h1>
+          <p><img title="Mandelbrot" src="/wp-assets/wp-content/static/techblog/2011/08/mandelbrot-15-1-to-51-tiny-thumb.jpg" /></p>
+
+<blockquote>
+  <p>“You’re asking us to test our platform’s programming language?  How am I supposed to do that?”</p>
+</blockquote>
+
+<p>My head itches from trying to recall the bits and pieces of what I learned in high school about programming, specifically the semantics of a programming language.  Sure, I did a bit of programming for homework assignments in college, but I was no CS major.  This was a much different challenge for a QA engineer to test.  Compared to an application, a programming language is completely open ended; there are no specifications to test, guidelines to follow, or limits to break.</p>
+
+<p>The <a href="/2011/06/tech-talk-the-hedgehog-programming-language/">Hedgehog language</a> had the basic set of tools laid out for me already: I could declare variables, create data structures, and use loops for iteration.  As I was trying out individual usage examples, such as how to structure <code>if</code> statements or how to cast an object to a different type, I realized that this was no way to test something as powerful and flexible as an entire language.  It would be like a doctor who claims that since each individual organ works fine, there are no problems with the entire system.  This is insufficient: <a href="/2010/07/help-is-there-a-doctor-in-the-network/">one needs to look at the system as a whole, including examining the interactions between each component</a>.  I decided I needed to create much larger and elaborate code samples in order to test the Hedgehog language in a larger scope.</p>
+
+<p>Using the Hedgehog language, I had programmed several algorithms, solving puzzles that would output a number.  This was getting bit boring, since once the output value was matched the expected number, there was nothing more to be done.  I wanted to create something more dynamic, a toy I could play around and experiment with.  And opportunity presented itself in the form of one of our newest tools: the spreadsheet application.  With the capability of setting the value of each cell programmatically and then coloring them depending on their value… hmm what could I do with this?</p>
+
+<p>Hedgehog is a powerful tool in coding functions and workflows that directly interact with our applications. Most of the time, the language is used to write expressions for an input value, create custom metrics that return values after a set of calculations, or even to set inputs, calculate, and save documents. Given the language’s ability to integrate with Spreadsheet, the capabilities of the Hedgehog language can literally be visually shown to the user, resulting in some stunning displays.</p>
+
+<p>Below are three examples I’ve coded in Palantir Finance’s own language: calculating and drawing the Mandelbrot fractal, simulating Conway’s Game of Life, and solving a Nonograms puzzle.</p>
+
+<h2 id="the-mandelbrot-fractal">The Mandelbrot fractal</h2>
+
+<p>The <a title="Mandelbrot Set" href="http://en.wikipedia.org/wiki/Mandelbrot_set" target="_self">Mandelbrot set</a> is one of the most recognized images among fractals. Fractals are unique images due to their self-similarity, such that they have infinite detail: as you zoom in on a fractal border, detailed structures will continue to appear indefinitely.</p>
+
+<p>Since the Mandelbrot set is an example of an escape time fractal, we can write a function that counts the number of iterations it takes for a given point to escape a threshold value. Applying this function to each point within a grid of specified range and resolution, we can generate a field of values to be set in a spreadsheet. After resizing the spreadsheet cells into small squares and applying conditional formatting, specifically a heat map that colors the cell based on its value, the below images can be generated:</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/mandelbrot-15-1-to-51.jpg" title="Mandelbrot Fractal drawn from (-1.5, -1) to (0.5, 1)" />
+Fig M1. Mandelbrot Fractal drawn from (-1.5, -1) to (0.5, 1), with the top left quadrant visible</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/mandelbrot2-thumb.jpg" title="Mandelbrot Fractal drawn from (0.27205, 0.00451) to (0.27505, 0.00751)" />
+Fig M2. Mandelbrot Fractal drawn from (0.27205, 0.00451) to (0.27505, 0.00751)</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/manual-heat-map-thumb.jpg" title="Mandelbrot Fractal with manually created heat map" />
+Fig M3. Mandelbrot Fractal with manually created rainbow heat map</p>
+
+<h2 id="the-game-of-life">The Game of Life</h2>
+
+<p>John Conway’s <a title="Game of Life" href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a> is a simple cellular automaton that shows the evolution of an initial state of cells governed by a set of rules. In the classic scenario, cells can be alive or dead, indicated by a filled or empty cell respectively. When evaluating the next generation of cells, each cell checks the number of live neighbors among its adjacent 8 cells. If the cell is alive with 2 or 3 live neighbors, it remains alive. If a dead cell has 3 live neighbors, it becomes alive. All other scenarios, the cell evolves into a dead cell.</p>
+
+<p>In this example, we rely heavily on spreadsheet’s cell dependency tree. Cells are able to reference the value of other cells within their expression, creating a directed acyclic graph. If the value of a cell changes, all cells that point towards the changed cell need to recalculate their value. In this specific case, the user can change the value of which generation to view, which causes the recalculation of the grid of cells representing the game.</p>
+
+<p>In the spreadsheet below, the initial state, or generation 0, of “Noah’s Ark” is shown. The initial data for Noah’s Ark is derived from an external spreadsheet document containing a grid of 0’s and 1’s.</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/initial-noahs-ark.jpg" title="Initial generation for Noah's Ark" />
+Initial generation for Noah’s Ark</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/animation.gif" title="Animation of Noah's Ark up to 10th Generation" />
+An animated image of the evolution of Noah’s Ark from generation 0 to generation 10</p>
+
+<p>One problem encountered is that it takes increasingly longer to calculate a larger generation number. Because the only generation that is saved is the initial generation, calculations must always start from generation 0 when the user changes the generation number. This triggers a lot of redundant calculations: if I am at generation 10 and want to see generation 11, the calculation starts from generation 0, repeats all the same calculations up to generation 10, and finally calculates one more iteration to reach generation 11.  To prevent unnecessary calculations, the results of previous calculations can be written to a cache file: a separate spreadsheet document containing the generation data that was calculated previously. When caching is enabled, previous generation calculations can be retrieved so the same calculation never happens twice.</p>
+
+<p>Below is an animated image of a “Gospel Glider Gun” from generation 0 to generation 40, shown in increments of 2 generations. The glider gun will continue to oscillate over time while producing a 5 cell glider object that floats away from the gun diagonally down to the right. Without the caching functionality, the 40<sup>th</sup> generation would take approximately 4 times as long as the 10<sup>th</sup> generation. By enabling caching, each animation frame takes approximately the same time to calculate since only 2 generations are computed per frame.</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/211.gif" title="Animation of Glider Gun up to 40th generation" /></p>
+
+<h2 id="nonograms-solver">Nonograms Solver</h2>
+
+<p><a href="http://http://en.wikipedia.org/wiki/Nonogram">Nonograms</a>, sometimes better known as Picross, are a type of logic puzzle where the user is given a blank grid with a set of numbers for each row and column. The numbers represent the number of consecutively filled blocks in the final solution within that row or column. Using these numbers as clues, it can be deduced whether or not a space is filled or not, until the entire grid simultaneously satisfies all given conditions. Solving puzzles is a NP-complete problem: it is very easy to verify a solution by checking if each row and column satisfies its set of numbers, but becomes increasingly difficult to solve larger puzzles. Time it takes to check a puzzle increases linearly with puzzle size, but the time to solve increases much faster due to the increase in number of iterations over each row or column crossed with an increased number of permutation possibilities for each set of numbers per iteration. Solving a 25x25 nonogram puzzle by hand usually takes about 30 minutes for an experienced solver.</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/nonogram-permutation.jpg" title="Possible permutations of [2,1] in a row of 5 spaces" /></p>
+
+<p>Given the initial set of values for each row and column, the algorithm iterates through each row or column individually. The simplest method to solve is to find all possible permutations of the given numbers over the length of the row or column and check if there are any spaces that are consistently filled or unfilled across all possibilities. Let’s consider a simple example: In a row of 5 spaces, the set of values given is [2,1]. Thus the possible permutations are shown on the right, where 1 is a filled space, -1 is an unfilled space, and 0 is undetermined.</p>
+
+<p>Additional optimizations, such as queuing the order of rows and columns to solve, trimming the solved ends of a range of spaces, and avoiding unnecessary calculations, were made to improve the performance of the algorithm such that the average time to solve a 25x25 puzzle is 5 minutes. This is fairly impressive given that the Hedgehog language is by no means optimized to handle such calculations and array manipulations. Below are some examples of solved puzzles:</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/10x10.jpg" title="10x10 nonogram solution, solved in less than a second" />
+Fig N1. 10x10 nonogram solution, solved in less than a second</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/20x20.jpg" title="20x20 nonograms solution, solved in 20 seconds" />
+Fig 2. 20x20 nonograms solution, solved in 20 seconds</p>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2011/07/25x25.jpg" title="25x25 nonograms solution, solved in 3 minutes" />
+Fig N3. 25x25 nonograms solution, solved in 3 minutes</p>
+
+<p>The initial spark that ignited this series of code examples started from just a simple curiosity of, “I wonder if it would be possible to write this in Hedgehog?”  In a way, it was also an exercise for me to learn more about the Hedgehog language, extending the use of its capabilities and libraries of metrics, in order to inject more complicated expressions while testing other applications on our platform. Throughout the process of developing the finished product, I was able to expose issues with the language that may have gone unnoticed with smaller, simpler test cases.</p>
+
+<p>But of course, the driving motivation behind all this was to have fun, which is a big part of what it means to be working at Palantir.</p>
+
+        </div>
+        <aside id="category-links" class="col-md-offset-1 col-md-3">
+          <h4>Categories</h4>
+          <nav id="blog-category-list">
+  <ul>
+  
+    <li class="blog-category tech"><a href="/category/tech/" name="Tech">Tech</a></li>
+  
+    <li class="blog-category analysis"><a href="/category/analysis/" name="Analysis">Analysis</a></li>
+  
+    <li class="blog-category news-events"><a href="/category/news-events/" name="News &amp; Events">News &amp; Events</a></li>
+  
+    <li class="blog-category philanthropy"><a href="/category/philanthropy/" name="Philanthropy">Philanthropy</a></li>
+  
+    <li class="blog-category pcl"><a href="/category/pcl/" name="P/CL">P/CL</a></li>
+  
+  </ul>
+</nav>
+
+          <h4>Save &amp; Share</h4>
+          
+<nav id="blog-share">
+  <ul>
+    <li><a href="/feed/index.xml" class="button button-small no-arrow"><span class="icon-pt-icon-feed"></span> Subscribe via RSS</a></li>
+    <li><div class="fb-share-button" data-href="https://palantir.com/2011/08/mandelbrot-testing-with-hh-lang" data-type="button_count"></div></li>
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+  </ul>
+</nav>
+
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="" role="contentinfo">
+
+  <div class="container">
+        <div class="row">
+          <nav id="products" class="col-sm-2 footer-menu">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav id="uses" class="col-sm-4 footer-menu">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="people" class="col-sm-2 footer-menu">
+            <h2><a href="/careers/">Careers</a></h2>
+            <ul id="menu-people" class="">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="about" class="col-sm-2 footer-menu">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav id="ancillary-menu" class="col-sm-2 footer-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/partnerships/">Partnerships</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.row -->
+
+        <div id="footer-copyright" class="row">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2015 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a href="https://www.facebook.com/Palantir" class="icon-pt-icon-facebook"></a></li>
+              <li><a href="https://www.twitter.com/palantirtech" class="icon-pt-icon-twitter"></a></li>
+              <li><a href="https://plus.google.com/106671163751935200511" rel="publisher" class="icon-pt-icon-gplus"></a></li>
+              <li><a href="https://www.github.com/Palantir" class="icon-pt-icon-github"></a></li>
+              <li><a href="https://www.youtube.com/user/Palantir" class="icon-pt-icon-youtube"></a></li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+</footer><!-- /footer -->
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- compiled.min -->
+  <script src="/build/js/compiled.min.js?v=20150629162924"></script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+
+
+  <script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'www.fullstory.com';
+  window['_fs_org'] = 'Vcq';
+  (function(m,n,e,t,l,o,g,y){
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+    g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+  })(window,document,'FS','script','user');
+</script>
+
+</body>
+</html>

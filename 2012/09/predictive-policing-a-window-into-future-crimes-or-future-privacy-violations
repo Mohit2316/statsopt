@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Page Rendered At: 2015-06-29 16:29:24 -0700
+   /\\\\\
+  /\\\///\\\          /\\\\\\\\\\\\\      /\\\\\\\\\     /\\\             /\\\\\\\\\     /\\\\\     /\\\  /\\\\\\\\\\\\\\\  /\\\\\\\\\\\    /\\\\\\\\\
+ /\\\/  \///\\\       \/\\\/////////\\\  /\\\\\\\\\\\\\  \/\\\           /\\\\\\\\\\\\\  \/\\\\\\   \/\\\ \///////\\\/////  \/////\\\///   /\\\///////\\\
+ /\\\      \//\\\      \/\\\       \/\\\ /\\\/////////\\\ \/\\\          /\\\/////////\\\ \/\\\/\\\  \/\\\       \/\\\           \/\\\     \/\\\     \/\\\
+ \/\\\       \/\\\      \/\\\\\\\\\\\\\/ \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\//\\\ \/\\\       \/\\\           \/\\\     \/\\\\\\\\\\\/
+  \//\\\      /\\\       \/\\\/////////   \/\\\\\\\\\\\\\\\ \/\\\         \/\\\\\\\\\\\\\\\ \/\\\\//\\\\/\\\       \/\\\           \/\\\     \/\\\//////\\\
+    \///\\\  /\\\         \/\\\            \/\\\/////////\\\ \/\\\         \/\\\/////////\\\ \/\\\ \//\\\/\\\       \/\\\           \/\\\     \/\\\    \//\\\
+       \///\\\\\/          \/\\\            \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\  \//\\\\\\       \/\\\           \/\\\     \/\\\     \//\\\
+  /\\\   \/////   /\\\      \/\\\            \/\\\       \/\\\ \/\\\\\\\\\\\ \/\\\       \/\\\ \/\\\   \//\\\\\       \/\\\        /\\\\\\\\\\\ \/\\\      \//\\\
+    \//\\\       /\\\        \///             \///        \///  \///////////  \///        \///  \///     \/////        \///        \///////////  \///        \///
+      \//\\\    /\\\
+          \//\\\\\
+-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" sizes="16x16 32x32" type="image/x-icon">
+<title>Predictive policing: A window into future crimes or future privacy violations? | Palantir</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="description" content="Palantir builds software that connects data, technologies, humans and environments.">
+
+<meta name="keywords" content="Palantir, home, data, technology, software, solutions, environments, analysis">
+<link rel="stylesheet" href="/build/css/style.css?v=20150629162924" media="screen">
+<link rel="alternate" type="application/rss+xml"  href="https://palantir.com/feed/index.xml" title="Palantir RSS">
+<!-- Modernizr -->
+<script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/build/js/respond-1.4.2.min.js"></script>
+<link rel="stylesheet" href="/build/css/ie.css?v=20150629162924" media="screen, projection" type="text/css">
+<![endif]-->
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Predictive policing: A window into future crimes or future privacy violations?">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palantir.com/2012/09/predictive-policing-a-window-into-future-crimes-or-future-privacy-violations">
+
+<meta property="og:image" content="">
+
+<meta property="og:site_name" content="Palantir">
+<meta property="og:description" content="">
+
+
+</head>
+<body id="blog" class="blog-post">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=448433878601301&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="site-wrapper">
+    <!-- Header -->
+    
+<header id="site-header">
+  <!-- Nav: Main -->
+  <nav class="navbar" role="navigation">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <h1 id="site-name" class="logo">
+          <a href="/">
+            <div id="logo-svg">
+              <!--[if gte IE 9]><!-->
+                <svg width="100" height="25" viewBox="0 0 100 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.076 2.98h6.237c2.27 0 3.814.139 5.092 1.548.935.992 1.373 2.302 1.373 3.75 0 1.468-.458 2.738-1.469 3.79-.992 1.012-2.27 1.667-5.626 1.667h-3.013v8.611h-2.575v-19.365h-.019zm2.575 8.492h3.071c1.717 0 4.31-.139 4.31-3.294 0-3.036-2.422-3.036-3.776-3.036h-3.605v6.329z"/><path d="M45.132 22.365c-.191-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.558-1.746-4.558-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.441 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.992-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.193v.04zm-1.678-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.439-.04-.801-.079-1.392-.079z" id="a"/><path d="M49.366 2.98h2.422v19.385h-2.422v-19.385z"/><path d="M62.24 22.365c-.172-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.577-1.746-4.577-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.46 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.973-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.174v.04zm-1.697-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.42-.04-.782-.079-1.392-.079z"/><path d="M66.493 10.44l-.019-1.567h2.422l.019 2.183c.286-.556 1.202-2.44 4.158-2.44 1.163 0 4.692.456 4.692 4.583v9.147h-2.479v-8.571c0-.893-.095-1.687-.706-2.302-.629-.615-1.469-.913-2.289-.913-1.755 0-3.376 1.31-3.376 4.028v7.758h-2.422v-11.905z"/><path d="M78.528 8.873h2.289v-2.877l2.403-.813v3.671h2.899v1.845h-2.899v8.036c0 .675 0 1.806 1.736 1.806.496 0 .954-.079 1.163-.139v1.964c-.439.079-1.144.159-2.022.159-2.212 0-3.28-.675-3.28-2.877v-8.909h-2.289v-1.865z"/><path d="M87.816 2.98h2.918v2.817h-2.918v-2.817zm.267 5.893h2.422v13.472h-2.422v-13.472z"/><path d="M92.755 11.611c0-.913-.057-1.845-.134-2.738h2.46l.057 2.599c.458-1.885 2.022-2.5 3.09-2.659.725-.099 1.259-.079 1.678-.06v2.46c-.134-.06-.286-.079-.458-.099-.172-.02-.42-.02-.706-.02-2.861 0-3.547 1.766-3.547 4.087v7.163h-2.441v-10.734z"/><path d="M9.866-.04c-5.211 0-9.45 4.226-9.45 9.464s4.22 9.464 9.45 9.464c5.211 0 9.45-4.226 9.45-9.464s-4.24-9.464-9.45-9.464zm0 16.012c-3.606 0-6.538-2.937-6.538-6.548s2.932-6.548 6.538-6.548c3.606 0 6.538 2.937 6.538 6.548-.02 3.631-2.932 6.548-6.538 6.548zM18.306 18.056l-8.44 3.651-8.46-3.651-1.387 2.698 9.847 4.206 9.847-4.206-1.407-2.698z"/>
+              <!--<![endif]-->
+              </svg>
+            </div>
+          </a>
+        </h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/careers/">Careers</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form role="search" method="get" class="search" action="/search/">
+              <input id="main-search-query" type="text" name="q" value="" class="search-input search_field_main" maxlength="50" placeholder="Search Palantir">
+              <input type="submit" class="search-trigger search_submit_main">
+            </form>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+</header><!-- /header -->
+
+
+    <div id="hero-wrapper-auto" data-image-bg='["/build/images/blog/blog-hero.jpg", "/build/images/blog/blog-hero@2x.jpg"]'>
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-xs-12">
+            <h1 class="main"><a href="/category/blogs">The Palantir Blog</a></h1>
+          </article>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div id="hero-subnav">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <nav>
+                <ul class="blog-meta transparent">
+                  <li class="blog-meta-date"><span class="icon-pt-icon-time"></span> September 24, 2012</li>
+                  <li class="blog-meta-author"><span class="icon-pt-icon-person"></span> <a href="/author/cbowman">Courtney Bowman</a></li>
+                  
+                  <li class="post_tags">
+                    <span class="icon-pt-icon-tag"></span>
+                    
+                    <span class="tags"><a href="/tag/Law Enforcement">Law Enforcement</a></span>
+                    
+                  </li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#hero-wrapper-auto -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div id="post-content" class="col-md-offset-1 col-md-7">
+          <h1>Predictive policing: A window into future crimes or future privacy violations?</h1>
+          <p>In some sense, police have long been in the business of going beyond reactive law enforcement, using information from various sources (e.g., anonymous tips and leads) as well as historical analyses to draw inferences from which to anticipate and address crime before it happens. But as policing budgets shrink and applications of predictive analytics (the catch-all phrase for a broad array of statistical analysis, machine learning, and myriad other algorithmic techniques) to the social sciences and commercial markets become more proven and ubiquitous, local law enforcement agencies have also begun to shift interest to formal, quantitative research programs collectively dubbed “predictive policing”. As paths to the systematic forecasting of criminal activities, these programs are intended to help agencies more efficiently allocate the increasingly scarce resources needed to fight crime.</p>
+
+<p>Perhaps not surprisingly, however, predictive policing has also generated waves of often sensationalistic media coverage and raised serious concerns among privacy advocates. The prevailing focus on this sensationalism unfortunately obscures the more meaningful discourse on how this quantitative realm of predictive policing might—under the appropriate conditions and with applicable caveats—become a valuable and constitutionally viable component of the law enforcement arsenal. Indeed, a measured analysis of the privacy risks at stake provides an occasion to remind us that police are by and large committed to and have a vested interest in not simply enforcing the law and stopping bad guys, but doing so in a manner that can be rigorously defended if challenged in the criminal justice system. As such, it is in the interest of law enforcement sponsors of predictive policing programs to carefully evaluate how their efforts uphold privacy and civil liberty standards.</p>
+
+<p>A <a href="http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2050001">recent article</a> (Emory Law Journal, Volume 62, forthcoming 2012) by University of District Columbia Assistant Law Professor Andrew Guthrie Ferguson addresses the question of whether and to what extent these emerging approaches to predictive policing can impact the reasonable suspicion calculus (i.e., the set of considerations weighing individuals’ Fourth Amendment interests against countervailing governmental interests at stake in policing efforts such as pat-down searches when it is believed “that criminal activity may be afoot” (<em>Terry v. Ohio</em> 392 U.S. at 1)). In his discussion, Ferguson does an excellent job of both elucidating the landscape of predictive modeling regimes as well as outlining their respective privacy and Fourth Amendment implications. The article thereby provides a good framework for considering the privacy implications of predictive policing in general.</p>
+
+<p>As a starting point, Ferguson provides a survey of the various techniques that have been employed under the heading of “predictive policing.” In so doing, the reader begins to appreciate that treating all predictive analytical approaches monolithically oversimplifies this landscape and does a disservice to those seeking a measured understanding of this field. The broad spectrum of analytical approaches entails a similarly broad range of privacy implications. At one extreme, algorithms that profile particular persons tend to evoke <em>Minority Report</em> anxieties amongst privacy advocates (i.e., concerns around wholly, almost mystically, opaque systems profiling citizens and accusing them of misdeeds they have yet to commit). Arguably more palatable approaches, such as event-based “near-repeat theory” models, focus on identifying behaviors (rather than people) that repeat known patterns under circumstances where specific environmental vulnerabilities are known to exist. These latter types are not only close kin to the well-established “high crime areas” policing paradigm, but also, as Ferguson suggests, offer a potential privacy protective refinement over the existing model.</p>
+
+<p>But even the more agreeable end of the predictive policing spectrum is not wholly exempt from privacy considerations when it comes to assertions of reasonable suspicion of criminal activity. The phrase “reasonable suspicion” points to a standard of certainty less than the probable cause standard explicit in the Fourth Amendment (<em>Terry v. Ohio</em> 392 U.S. 1) and, in that sense, can be thought of as nothing more than a lower probability of certitude. Ferguson argues that while a notion of probability inheres in both Fourth Amendment “probable cause” (and, by extension, “reasonable suspicion”) considerations and also in the “probability scoring” of many predictive policing models, the resemblance is superficial. The two are, in fact, far from constituting comparable notions of predictability and an important distinction should be drawn between the “clinical” and “statistical” applications of prediction. While the former focuses on the particularities or “specific and articulable facts” of a given investigation “taken together with rational inferences from those facts” (<em>Terry v. Ohio</em>, 392 U.S. at 21) in order to derive specific assertions of criminal involvement, the latter attempts to apply a statistical modeling framework to infer possible criminal involvement based entirely on training data from previously observed circumstances that (more likely than not) have no direct relationship to the particular circumstances to which the model’s predictions are applied. It’s the difference between stopping and frisking an individual observed to engage in activity that, for example, has all the outward appearances of a drug deal versus stopping and frisking a person who happens to be standing in a particular place and time at which a statistical model predicts an occurrence of a drug deal.</p>
+
+<p>What distinguishes the clinical, human-driven predictions of traditional policing practice from the machine-driven, statistical variant can be further elaborated by analysis of the (albeit imperfect) analogy to anonymous tips, which have long been in use by law enforcement to trigger or assist investigations. Ferguson identifies four principles that courts have historically relied upon to differentiate between the degree of certitude implied by an “inchoate and unparticularized suspicion or ‘hunch’” (<em>Terry v. Ohio</em> 392 U.S. 1, 27) provided by a tip and the reasonable suspicion threshold required to motivate police action: 1) predictive tips must be individualized, i.e. specific to persons and ongoing criminal activity in which they are suspected of being implicated; 2) predictive tips must be further corroborated by police observations related to those specific persons and their suspected criminal activities; 3) the predictive value of those tips turns on the level of particularized information involved; and 4) predictions may only remain viable for a relatively short period of time absent new corroborating evidence or fresh analysis.</p>
+
+<p>Put another way, it may be legitimate and defensible to employ predictive models as a preliminary factor in reasonable suspicion analysis, but, as with suspicious activity reports, tips, or leads, “the use of predictive policing forecasts, alone, will not constitute sufficient information to justify reasonable suspicion or probable cause for a Fourth Amendment stop.” (Ferguson, 26) What is lacking from the statistical prediction is the particular detail linking abstract modeling outputs to the totality of circumstances constituting the actual observed particularities of a presumed crime. Moreover, even where a predictive model is intended to be applied to augment the evaluation of such particulars, timing is critical. Models do not have an interminable shelf-life, because the environmental factors underlying their predictive power are subject to change.</p>
+
+<p>Even more importantly, the models themselves are only as reliable as experience—real, hard empirical evidence—dictates. A viable and defensible predictive algorithm (i.e. one that can be justified as a legitimate aid to law enforcement), must be backed by demonstrable proof of success under well-understood circumstances not only in order to impede criminal activity but also to stand up to scrutiny if and when a well-resourced individual challenges it. The defensible application of predictive policing is therefore contingent upon a number of factors: the continued existence of environmental vulnerabilities (e.g., poor lighting making a storefront or home vulnerable to burglary), a causal logic that plausibly explains how those factors precipitate specific criminal activities, reliable and accurate data and reporting on which to base the model, and finally a sound experimental framework for evaluation of the fidelity of those predictions. In other words, insofar as predictive policing aspires to science over clairvoyance (by and large it is scientists—e.g., sociologists, applied mathematicians, statisticians—who are leading predictive policing research on behalf of sponsoring law enforcement agencies), it must adhere to sound methodology to pass empirical muster.</p>
+
+<p>But even beyond methodological considerations, Ferguson hints at another set of concerns that come into play in Fourth Amendment analysis of the merits of predictive policing models: the explicability and defensibility of algorithms in the courtroom. Much as criminal prosecutions today involve defensive challenges to the methodological steps by which probable cause for arrest is constructed, future criminal prosecutions of predictive policing cases will likely require a qualified witness to speak to the questions of the underlying predictive model’s provenance, accuracy, timeliness, and reliability. Certainly few police officers would have the background or be expected to attest to these qualities. Hence, qualified statisticians and program administrators will likely need to be able to explain, when challenged in court, how these algorithms work and how their predictions are translated into actionable intelligence for police. This may be less challenging for simpler algorithms, but may become increasingly problematic as a model’s complexity swells and algorithms become increasingly opaque.</p>
+
+<p>As successes accumulate, sponsoring law enforcement agencies are likely to be tempted to stretch predictive models to accommodate more general crime types, a move that will typically entail introducing increased complexity. Program administrators and researchers may be tempted to generalize models to go beyond the circumscribed categories for which they were initially developed and tested and to apply them to categories of criminal activity that may not have clean, causal, pattern-based explanations (e.g., crimes of passion), or that require adaptation to dynamic adversaries and/or changing environmental vulnerabilities. Machine learning algorithms, for example, may be employed in an attempt to address these onerous desiderata—the machine is expected to adapt in response to changing modeling parameters and/or feedback from historical applications of predictions in a way that would otherwise require laborious, iterative manual modeling effort.</p>
+
+<p>Beyond the aforementioned difficulties of providing a clear explanation of how a complex predictive algorithm works when challenged in trial, machine learning surfaces a novel and perhaps more daunting set of challenges to the demands of courtroom justification. Absent human supervision to ensure empirical soundness, adaptive machine learning models may develop in ways that are either resistant or wholly opaque to introspection and later explanation. If the trajectory of predictive analytics in other disciplines is any kind of leading indicator, one can reasonably anticipate that machine learning techniques will increasingly become the focus of predictive policing research and that these seemingly speculative concerns will become all the more relevant.</p>
+
+<p>As these algorithms become ever more inscrutable black boxes, the lines between reality and the mystical fiction of <em>Minority Report</em> “precognition” indeed begin to blur. So it isn’t any wonder that the popularized fiction of predictive policing as a kind of clairvoyance seduces not only journalists reporting on predictive policing, but also some researchers as well. Still, Ferguson’s analysis dictates a more sober and circumscribed role for predictive analytics in policing wherein defensible algorithms have the following common features:</p>
+
+<ol>
+  <li>They cannot be over-reaching, i.e., they focus on a narrow set of crime types, all of which relate to environmental factors that are known to persist over time. Once those environmental factors change, the predictions lose their applicability. This also implies that most crimes of passion (including many violent crimes) do not lend themselves to predictive modeling.</li>
+  <li>They look at near-term predictions. They do not forecast years in advance. As with the weather, there are far too many complex variables at play to be fully modeled and, over time, the compounded influence of these exogenous factors will degrade even the most carefully calibrated predictions.</li>
+  <li>They are evaluated and proven in controlled experimental circumstances to, as much as possible, account for the influence of exogenous factors. Even in the best of circumstances, however, it is not possible to control for everything nor can it be expected that experimental circumstances will inhere in typical policing scenarios. Which is why…</li>
+  <li>Outcomes demonstrating crime reduction improvements are likely to be modest, and must be reported with careful attention to applicable caveats. The most credible predictive policing studies to date tend to suggest moderate improvements in reductions of certain classes of crime along with pointing to the need for continued study (see, for example,<a href="http://www.santacruzsentinel.com/rss/ci_20050377?source=rss"> Modest Gains in First Six Months of Santa Cruz’s Predictive Police Program, Santa Cruz Sentinel</a> (Feb. 26, 2012)</li>
+</ol>
+
+<p>All of this is not to suggest that every effort under the predictive policing umbrella is legally intractable or practically unjustifiable, but rather to call out necessary considerations of the scope and limitations of plausible predictive policing regimes. When thoughtfully approached, as Ferguson points out, certain methods may in fact enhance privacy protections. For example, near-repeat predictive models (of the type currently being tested by the Santa Cruz and Los Angeles Police Departments) may offer a legitimate opportunity to tighten notions of “high crime areas” (already in heavy currency with many police forces) by refining the temporal and spatial dimensions of the high crime calculus. If—through such modeling—a police force can surgically apply pressure to specific areas at specific times and directed at specific criminal activities, the risk of privacy/civil liberties infringements can potentially be reduced. Moreover, scarce policing resources can be more efficiently utilized through such an approach.</p>
+
+<p>Now, granted, all of this hinges on an “if” that is ultimately at best an empirical matter and must be borne out through careful experimentation. It also assumes the persistence of specific environmental vulnerabilities, and even with those in place, it must be recognized that the prediction alone—no matter how reliable—is not enough to constitute reasonable suspicion of a person or persons who happen to be found in the temporal and spatial crosshairs of a particular predictive model.</p>
+
+<p>As a company, Palantir is proud to support the work of the law enforcement community and to enable initiatives that allow the police forces to do more with less. At the same time, we recognize that the development of predictive policing initiatives should be informed by careful consideration of the attendant privacy implications. In that vein, we approach potential engagements with predictive policing with a commitment to doing so in a thoughtful, rigorous, and ethically and legally responsible manner.</p>
+
+        </div>
+        <aside id="category-links" class="col-md-offset-1 col-md-3">
+          <h4>Categories</h4>
+          <nav id="blog-category-list">
+  <ul>
+  
+    <li class="blog-category tech"><a href="/category/tech/" name="Tech">Tech</a></li>
+  
+    <li class="blog-category analysis"><a href="/category/analysis/" name="Analysis">Analysis</a></li>
+  
+    <li class="blog-category news-events"><a href="/category/news-events/" name="News &amp; Events">News &amp; Events</a></li>
+  
+    <li class="blog-category philanthropy"><a href="/category/philanthropy/" name="Philanthropy">Philanthropy</a></li>
+  
+    <li class="blog-category pcl"><a href="/category/pcl/" name="P/CL">P/CL</a></li>
+  
+  </ul>
+</nav>
+
+          <h4>Save &amp; Share</h4>
+          
+<nav id="blog-share">
+  <ul>
+    <li><a href="/feed/index.xml" class="button button-small no-arrow"><span class="icon-pt-icon-feed"></span> Subscribe via RSS</a></li>
+    <li><div class="fb-share-button" data-href="https://palantir.com/2012/09/predictive-policing-a-window-into-future-crimes-or-future-privacy-violations" data-type="button_count"></div></li>
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+  </ul>
+</nav>
+
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="" role="contentinfo">
+
+  <div class="container">
+        <div class="row">
+          <nav id="products" class="col-sm-2 footer-menu">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav id="uses" class="col-sm-4 footer-menu">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="people" class="col-sm-2 footer-menu">
+            <h2><a href="/careers/">Careers</a></h2>
+            <ul id="menu-people" class="">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="about" class="col-sm-2 footer-menu">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav id="ancillary-menu" class="col-sm-2 footer-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/partnerships/">Partnerships</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.row -->
+
+        <div id="footer-copyright" class="row">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2015 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a href="https://www.facebook.com/Palantir" class="icon-pt-icon-facebook"></a></li>
+              <li><a href="https://www.twitter.com/palantirtech" class="icon-pt-icon-twitter"></a></li>
+              <li><a href="https://plus.google.com/106671163751935200511" rel="publisher" class="icon-pt-icon-gplus"></a></li>
+              <li><a href="https://www.github.com/Palantir" class="icon-pt-icon-github"></a></li>
+              <li><a href="https://www.youtube.com/user/Palantir" class="icon-pt-icon-youtube"></a></li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+</footer><!-- /footer -->
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- compiled.min -->
+  <script src="/build/js/compiled.min.js?v=20150629162924"></script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+
+
+  <script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'www.fullstory.com';
+  window['_fs_org'] = 'Vcq';
+  (function(m,n,e,t,l,o,g,y){
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+    g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+  })(window,document,'FS','script','user');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Page Rendered At: 2015-06-29 16:29:24 -0700
+   /\\\\\
+  /\\\///\\\          /\\\\\\\\\\\\\      /\\\\\\\\\     /\\\             /\\\\\\\\\     /\\\\\     /\\\  /\\\\\\\\\\\\\\\  /\\\\\\\\\\\    /\\\\\\\\\
+ /\\\/  \///\\\       \/\\\/////////\\\  /\\\\\\\\\\\\\  \/\\\           /\\\\\\\\\\\\\  \/\\\\\\   \/\\\ \///////\\\/////  \/////\\\///   /\\\///////\\\
+ /\\\      \//\\\      \/\\\       \/\\\ /\\\/////////\\\ \/\\\          /\\\/////////\\\ \/\\\/\\\  \/\\\       \/\\\           \/\\\     \/\\\     \/\\\
+ \/\\\       \/\\\      \/\\\\\\\\\\\\\/ \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\//\\\ \/\\\       \/\\\           \/\\\     \/\\\\\\\\\\\/
+  \//\\\      /\\\       \/\\\/////////   \/\\\\\\\\\\\\\\\ \/\\\         \/\\\\\\\\\\\\\\\ \/\\\\//\\\\/\\\       \/\\\           \/\\\     \/\\\//////\\\
+    \///\\\  /\\\         \/\\\            \/\\\/////////\\\ \/\\\         \/\\\/////////\\\ \/\\\ \//\\\/\\\       \/\\\           \/\\\     \/\\\    \//\\\
+       \///\\\\\/          \/\\\            \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\  \//\\\\\\       \/\\\           \/\\\     \/\\\     \//\\\
+  /\\\   \/////   /\\\      \/\\\            \/\\\       \/\\\ \/\\\\\\\\\\\ \/\\\       \/\\\ \/\\\   \//\\\\\       \/\\\        /\\\\\\\\\\\ \/\\\      \//\\\
+    \//\\\       /\\\        \///             \///        \///  \///////////  \///        \///  \///     \/////        \///        \///////////  \///        \///
+      \//\\\    /\\\
+          \//\\\\\
+-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" sizes="16x16 32x32" type="image/x-icon">
+<title>XML Pull Parsing and Enums: like chocolate and peanut butter | Palantir</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="description" content="Palantir builds software that connects data, technologies, humans and environments.">
+
+<meta name="keywords" content="Palantir, home, data, technology, software, solutions, environments, analysis">
+<link rel="stylesheet" href="/build/css/style.css?v=20150629162924" media="screen">
+<link rel="alternate" type="application/rss+xml"  href="https://palantir.com/feed/index.xml" title="Palantir RSS">
+<!-- Modernizr -->
+<script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/build/js/respond-1.4.2.min.js"></script>
+<link rel="stylesheet" href="/build/css/ie.css?v=20150629162924" media="screen, projection" type="text/css">
+<![endif]-->
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="XML Pull Parsing and Enums: like chocolate and peanut butter">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palantir.com/2007/05/life-on-earth">
+
+<meta property="og:image" content="">
+
+<meta property="og:site_name" content="Palantir">
+<meta property="og:description" content="">
+
+
+</head>
+<body id="blog" class="blog-post">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=448433878601301&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="site-wrapper">
+    <!-- Header -->
+    
+<header id="site-header">
+  <!-- Nav: Main -->
+  <nav class="navbar" role="navigation">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <h1 id="site-name" class="logo">
+          <a href="/">
+            <div id="logo-svg">
+              <!--[if gte IE 9]><!-->
+                <svg width="100" height="25" viewBox="0 0 100 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.076 2.98h6.237c2.27 0 3.814.139 5.092 1.548.935.992 1.373 2.302 1.373 3.75 0 1.468-.458 2.738-1.469 3.79-.992 1.012-2.27 1.667-5.626 1.667h-3.013v8.611h-2.575v-19.365h-.019zm2.575 8.492h3.071c1.717 0 4.31-.139 4.31-3.294 0-3.036-2.422-3.036-3.776-3.036h-3.605v6.329z"/><path d="M45.132 22.365c-.191-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.558-1.746-4.558-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.441 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.992-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.193v.04zm-1.678-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.439-.04-.801-.079-1.392-.079z" id="a"/><path d="M49.366 2.98h2.422v19.385h-2.422v-19.385z"/><path d="M62.24 22.365c-.172-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.577-1.746-4.577-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.46 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.973-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.174v.04zm-1.697-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.42-.04-.782-.079-1.392-.079z"/><path d="M66.493 10.44l-.019-1.567h2.422l.019 2.183c.286-.556 1.202-2.44 4.158-2.44 1.163 0 4.692.456 4.692 4.583v9.147h-2.479v-8.571c0-.893-.095-1.687-.706-2.302-.629-.615-1.469-.913-2.289-.913-1.755 0-3.376 1.31-3.376 4.028v7.758h-2.422v-11.905z"/><path d="M78.528 8.873h2.289v-2.877l2.403-.813v3.671h2.899v1.845h-2.899v8.036c0 .675 0 1.806 1.736 1.806.496 0 .954-.079 1.163-.139v1.964c-.439.079-1.144.159-2.022.159-2.212 0-3.28-.675-3.28-2.877v-8.909h-2.289v-1.865z"/><path d="M87.816 2.98h2.918v2.817h-2.918v-2.817zm.267 5.893h2.422v13.472h-2.422v-13.472z"/><path d="M92.755 11.611c0-.913-.057-1.845-.134-2.738h2.46l.057 2.599c.458-1.885 2.022-2.5 3.09-2.659.725-.099 1.259-.079 1.678-.06v2.46c-.134-.06-.286-.079-.458-.099-.172-.02-.42-.02-.706-.02-2.861 0-3.547 1.766-3.547 4.087v7.163h-2.441v-10.734z"/><path d="M9.866-.04c-5.211 0-9.45 4.226-9.45 9.464s4.22 9.464 9.45 9.464c5.211 0 9.45-4.226 9.45-9.464s-4.24-9.464-9.45-9.464zm0 16.012c-3.606 0-6.538-2.937-6.538-6.548s2.932-6.548 6.538-6.548c3.606 0 6.538 2.937 6.538 6.548-.02 3.631-2.932 6.548-6.538 6.548zM18.306 18.056l-8.44 3.651-8.46-3.651-1.387 2.698 9.847 4.206 9.847-4.206-1.407-2.698z"/>
+              <!--<![endif]-->
+              </svg>
+            </div>
+          </a>
+        </h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/careers/">Careers</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form role="search" method="get" class="search" action="/search/">
+              <input id="main-search-query" type="text" name="q" value="" class="search-input search_field_main" maxlength="50" placeholder="Search Palantir">
+              <input type="submit" class="search-trigger search_submit_main">
+            </form>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+</header><!-- /header -->
+
+
+    <div id="hero-wrapper-auto" data-image-bg='["/build/images/blog/blog-hero.jpg", "/build/images/blog/blog-hero@2x.jpg"]'>
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-xs-12">
+            <h1 class="main"><a href="/category/blogs">The Palantir Blog</a></h1>
+          </article>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div id="hero-subnav">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <nav>
+                <ul class="blog-meta transparent">
+                  <li class="blog-meta-date"><span class="icon-pt-icon-time"></span> May 31, 2007</li>
+                  <li class="blog-meta-author"><span class="icon-pt-icon-person"></span> <a href="/author/regs">Ari Gesher</a></li>
+                  
+                  <li class="post_tags">
+                    <span class="icon-pt-icon-tag"></span>
+                    
+                    <span class="tags"><a href="/tag/coding">coding</a></span>
+                    
+                    <span class="tags"><a href="/tag/javatech">javatech</a></span>
+                    
+                  </li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#hero-wrapper-auto -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div id="post-content" class="col-md-offset-1 col-md-7">
+          <h1>XML Pull Parsing and Enums: like chocolate and peanut butter</h1>
+          <p><img src="/wp-assets/wp-content/static/techblog/2007/03/enum-screenshot.png" alt="Enumeration Screenshot" />.<br />
+There comes a time in every developer’s life when they need to write code that processes some XML. Lately, we’ve seen the proliferation of APIs that make XML processing easier, like <a href="http://java.sun.com/webservices/jaxb/index.jsp">JAXB (Java API for XML Binding)</a>.  However, when speed and scale are required, chances are you’re going to need to roll your own processor.  Before I continue, let me clear up some terminology, when I say <em>“processor”</em>, I mean the code of yours that’s wrapped around a <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/xml/parsers/SAXParser.html">SAX</a> <a href="http://java.sun.com/j2ee/1.4/docs/tutorial/doc/JAXPSAX.html#wp69937">(tutorial)</a>, <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/xml/parsers/DocumentBuilder.html">DOM</a> <a href="http://java.sun.com/j2ee/1.4/docs/tutorial/doc/JAXPDOM.html#wp79994">(tutorial)</a>, or an <a href="http://xmlpull.org/v1/doc/api/org/xmlpull/v1/XmlPullParser.html">XPP</a> <a href="http://www.xmlpull.org/v1/download/unpacked/doc/quick_intro.html">(tutorial)</a> parser, not the guts of the parser itself.</p>
+
+<p>At the end of the day, that’s the interesting part of what you’re doing - the grammar of your data model rather than the minutiae of start and end tags.  Building a processor is the interface between the data interchange format and the internal data model of your application.</p>
+
+<p>Click through for a tour of XML parsers and a look at a novel technique for encoding processors that use pull parsers (as usual, we’ve included a <a href="/wp-assets/wp-content/static/techblog/2007/05/launch_lifeonearth.jnlp" title="launch_lifeonearth.jnlp">WebStart demo</a>, as well as a <a href="/wp-assets/wp-content/static/techblog/2007/05/lifeonearth.jar" title="lifeonearth.jar">jar file containing the compiled example along with all of its source code</a>).</p>
+
+<h2 id="xml-parsers">XML Parsers</h2>
+
+<p>Each of the three most common types of XML parsers has its own strengths and weaknesses.  DOM, in particular, does not scale well.  The DOM technique of reading the entire document into memory and creating first-class language objects for every explicit and implied element makes it slow and resource intensive.  Allegorically, this is balanced against the ease of programming against the <a href="http://java.sun.com/j2se/1.5.0/docs/api/org/w3c/dom/package-summary.html">DOM API</a>, although I personally find the DOM API to be a bit cumbersome.  The upshot is that DOM is not well suited for large documents (because of its memory requirements) or applications that need low-latency and overall throughput (since you a) don’t see the DOM until the whole thing is done being built and b) objects are expensive to construct).</p>
+
+<p>SAX Parsing scales very well, but it uses a <a href="http://en.wikipedia.org/wiki/Callback_(computer_science)">callback pattern</a> which can be awkward to code against for large grammars. This problem has been addressed in various ways.  Gianluigi Colaiacomo of IBM wrote this article detailing a method that ends up looking a lot like pull parsing for SAX: <a href="http://www-128.ibm.com/developerworks/xml/library/x-dochan.html">Simplify document handler programs with the SAX parser</a>.</p>
+
+<p>In the case of XML Pull Parsing <a href="http://www.sujal.net/tech/briefs/XPP-TB.html">(excellent tech brief on XPP here)</a>, it’s optimized for parsing tasks that require all elements in a document to be processed and leads to an event stream style of programming that is much more intuitive and easy-to-follow than SAX.  In the past few years, the work on pull parsing has come together into a standard called <a href="http://www.xmlpull.org/history/index.html">StAX</a>, or <em><strong>St</strong>reaming <strong>A</strong>PI for <strong>X</strong>ML</em>.</p>
+
+<p>StAX has more or less replaced XmlPull as the standard for XML streaming, but the XPP parsers still exist and are very, very fast. XPP became our parser of choice when looking at things like real-time serialization of data and high-speed import of object graphs from XML for our integration interfaces.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Scientific_classification"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Biological_classification_L_Pengo.svg/150px-Biological_classification_L_Pengo.svg.png" alt="Taxonomy" /></a></p>
+
+<h2 id="life-on-earth">Life On Earth</h2>
+
+<p>First, let’s set the stage: rather than going into the detail and complexity of the Palantir XML formats, I’ve designed a somewhat simpler example to make this all easier to digest.  Note that the <a href="/wp-assets/wp-content/static/techblog/2007/05/lifeonearth.xsd" title="LifeOnEarth Schema definition">LifeOnEarth schema document</a>, source code, and  <a href="/wp-assets/wp-content/static/techblog/2007/05/species-0.xml" title="LifeOnEarth example instance document">example LifeOnEarth instance document</a> are included in the JAR file.</p>
+
+<p>In this example, what will we be encoding? Organisms!  That’s right, <a href="http://en.wikipedia.org/wiki/Taxon">biological taxonomy</a>. The biological taxonomy is the set of official Latin names for all the living things in the world.  It’s basically a straight hierarchy, with one notable exception: <em>Phylum</em> vs. <em>Division</em>.  Plant biologists use the term <em>division</em> to describe the same broad morphological grouping that their zoological counterparts call a <em>phyla</em>.</p>
+
+<p>This is great for our example: after all, who wants to have a straight hierarchy?  We need something a little out of the ordinary to make things interesting.</p>
+
+<h2 id="the-xml-schema-lifeonearth">The XML schema: <em>lifeOnEarth</em></h2>
+
+<p>The idea here is that we’ll build an <a href="http://www.w3.org/XML/Schema">XML Schema</a> document describing an instance document format for encoding information about the biological taxonomy.  We make extensive use of <a href="http://www.w3.org/TR/2005/WD-xmlschema11-1-20050224/structures.html#element-complexType">complexType</a> elements in the schema to afford us a sort of code reuse. The <em>Class-&gt;Family-&gt;Order-&gt;Genus-&gt;Species</em> hierarchy logically repeated underneath <em>Phylum</em> and <em>Division</em> in the taxonomy model.  However, so as to be as <a href="http://en.wikipedia.org/wiki/Don">DRY</a> as possible, we use complex type declarations instead of defining complex types in-line when declaring the elements . It’s a lot like using declared types instead of <a href="http://www.javaworld.com/javaworld/javaqa/2000-03/02-qa-innerclass.html">anonymous inner classes</a> in Java.</p>
+
+<p>Using the complexType elements, we define the names, attributes, and allowed members for every step of the hierarchy. We then define the document itself by declaring a single top level element, <em>lifeOnEarth</em>:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;lifeOnEarth&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:lifeOnEarth&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span></code></pre></div>
+
+<p>You can see that the <strong>element</strong> <em>lifeOnEarth</em> is of <strong>complexType</strong> <em>lifeOnEarth</em>; the same name in different namespaces. The type <em>lifeOnEarth</em> is defined thusly:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;xsd:complextype</span> <span class="na">name=</span><span class="s">&quot;lifeOnEarth&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;domain&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:domain&quot;</span> <span class="na">maxoccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+    <span class="nt">&lt;/xsd:sequence&gt;</span>
+<span class="nt">&lt;/xsd:complextype&gt;</span></code></pre></div>
+
+<p>An element of type <em>lifeOnEarth</em> contains one or more elements (<em><a href="http://www.w3.org/TR/2005/WD-xmlschema11-1-20050224/structures.html#element-sequence">sequence</a></em>, in XSD parlance) of type <em>domain</em>.  An element of type <em>domain</em> contains a sequence of elements of type <em>kingdom</em>.  So on and so forth, all the way down to <em>species</em> (with the double hierarchy for the <em>phylum</em> / <em>division</em> duality).</p>
+
+<p>Here’s the schema document:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;xsd:schema</span> <span class="na">xmlns:xsd=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>
+            <span class="na">targetNamespace=</span><span class="s">&quot;http://www.palantirtech.com/schema/examples/lifeOnEarth&quot;</span>
+            <span class="na">xmlns:tns=</span><span class="s">&quot;http://www.palantirtech.com/schema/examples/lifeOnEarth&quot;</span>
+            <span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xsd:annotation&gt;</span>
+        <span class="nt">&lt;xsd:documentation&gt;</span>This schema is based on alpha taxonomy, he science of describing, categorizing and naming organisms.  For a good overview, see http://en.wikipedia.org/wiki/Taxon<span class="nt">&lt;/xsd:documentation&gt;</span>
+    <span class="nt">&lt;/xsd:annotation&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;lifeOnEarth&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;domain&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:domain&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;species&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;commonName&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;genus&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;species&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:species&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;genus&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:genus&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;order&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:family&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;class&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;order&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:order&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;phylum&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;class&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:class&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;division&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;class&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:class&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;kingdom&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:choice</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;phylum&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:phylum&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;division&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:division&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:choice&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:complexType</span> <span class="na">name=</span><span class="s">&quot;domain&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;xsd:sequence</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;kingdom&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:kingdom&quot;</span> <span class="na">maxOccurs=</span><span class="s">&quot;unbounded&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+        <span class="nt">&lt;/xsd:sequence&gt;</span>
+        <span class="nt">&lt;xsd:attribute</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span> <span class="na">type=</span><span class="s">&quot;xsd:string&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/xsd:complexType&gt;</span>
+    <span class="nt">&lt;xsd:element</span> <span class="na">name=</span><span class="s">&quot;lifeOnEarth&quot;</span> <span class="na">type=</span><span class="s">&quot;tns:lifeOnEarth&quot;</span><span class="nt">&gt;&lt;/xsd:element&gt;</span>
+<span class="nt">&lt;/xsd:schema&gt;</span></code></pre></div>
+
+<p>The upside of making the schema document comes from being able to leverage existing validation mechanisms.  Using a validator, any document can be verified to be a well-form instance of the schema.  <strong>This allows the processor to be able to assume valid documents</strong>, greatly reducing the error handling burden on the developer when writing the processor.  Additionally, if you’re writing both sides of the XML transaction, you can validate the output of the renderer to perform early error detection. And finally, the validator is the perfect thing for using in <a href="http://en.wikipedia.org/wiki/Unit_testing">unit testing</a> related to your XML processing.  Sun included a <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/xml/validation/package-summary.html#example-1">simple validation example</a> in the Javadocs for the <a href="http://java.sun.com/j2se/1.5.0/docs/api/javax/xml/validation/package-summary.html">javax.xml.validation</a> package.  For a more in-depth look at using validation, see <a href="/wp-assets/wp-content/static/techblog/2007/05/lifeonearthschema.java" title="LifeOnEarthSchema.java">LifeOnEarthSchema.java</a>, part of this example that shows how create a shared schema object (using the <a href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton pattern</a>) from an XSD file loaded from the classpath.</p>
+
+<h2 id="encoding-the-xml-schemas-fsa-peanut-butter">Encoding the XML schema’s FSA (peanut butter)</h2>
+
+<p><img src="/wp-assets/wp-content/static/techblog/2007/03/lifeonearth-fsa.png" alt="Life On Earth XML Parsing Finite State Automata" /></p>
+
+<p>So it turns out that processing XML, just like any parsing task, can be represented by <a href="http://en.wikipedia.org/wiki/Finite_state_machine">Finite State Automata</a>.  Finite state automatas (FSAs) can be encoded by a list of valid states and the valid transitions between states.  Since XML is nicely hierarchical, encoding the information is fairly straightforward. A tag name maps to a state in the FSA and its valid transitions are to any of its parents or any of its children.</p>
+
+<p>With this in mind, I sat down to design our XML formats for integration, realizing that I needed a way to represent all the states the parser could be in as it parsed the document.  That context would drive how the parser events were handled and the routing of parsed data to the proper places.</p>
+
+<p>So I started thinking: “I’ll bet I can do this really cleanly with <a href="http://java.sun.com/j2se/1.5.0/docs/guide/language/enums.html">enums</a>.” Here’s what I came up with:</p>
+
+<p>We encode all the states of the parser into a Java <a href="http://java.sun.com/j2se/1.5.0/docs/guide/language/enums.html">Enum</a>.  The Enum constructor takes two arguments: one or more ParserStates that are valid parent states and the text that corresponds to the text representation of the XML tag in the document. Since most states only have one parent, we overload the constructor for convenience and readability to only take a single state instead of an array.</p>
+
+<p>After the constructors, we define an instance method that will check that a passed state is a valid transition from this state and some static members and initialization to allow us to map strings passed by the XML parser into the Enum objects.</p>
+
+<p>Here’s the Enum’s definition:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">enum</span> <span class="n">ParserState</span> <span class="o">{</span>
+  <span class="n">ROUND</span><span class="o">(</span><span class="k">new</span> <span class="n">ParserState</span><span class="o">[]{},</span><span class="s">&quot;&quot;</span><span class="o">),</span>
+  <span class="n">LIFE_ON_EARTH</span><span class="o">(</span><span class="n">GROUND</span><span class="o">,</span><span class="s">&quot;lifeOnEarth&quot;</span><span class="o">),</span>
+  <span class="n">DOMAIN</span><span class="o">(</span><span class="n">LIFE_ON_EARTH</span><span class="o">,</span><span class="s">&quot;domain&quot;</span><span class="o">),</span>
+  <span class="n">KINGDOM</span><span class="o">(</span><span class="n">DOMAIN</span><span class="o">,</span><span class="s">&quot;kingdom&quot;</span><span class="o">),</span>
+  <span class="n">PHYLUM</span><span class="o">(</span><span class="n">KINGDOM</span><span class="o">,</span><span class="s">&quot;phylum&quot;</span><span class="o">),</span>
+  <span class="n">DIVISION</span><span class="o">(</span><span class="n">KINGDOM</span><span class="o">,</span><span class="s">&quot;division&quot;</span><span class="o">),</span>
+  <span class="n">CLASS</span><span class="o">(</span><span class="k">new</span> <span class="n">ParserState</span><span class="o">[]{</span><span class="n">DIVISION</span><span class="o">,</span><span class="n">PHYLUM</span><span class="o">},</span><span class="s">&quot;class&quot;</span><span class="o">),</span>
+  <span class="n">ORDER</span><span class="o">(</span><span class="n">CLASS</span><span class="o">,</span><span class="s">&quot;order&quot;</span><span class="o">),</span>
+  <span class="n">FAMILY</span><span class="o">(</span><span class="n">ORDER</span><span class="o">,</span><span class="s">&quot;family&quot;</span><span class="o">),</span>
+  <span class="n">GENUS</span><span class="o">(</span><span class="n">FAMILY</span><span class="o">,</span><span class="s">&quot;genus&quot;</span><span class="o">),</span>
+  <span class="n">SPECIES</span><span class="o">(</span><span class="n">GENUS</span><span class="o">,</span><span class="s">&quot;species&quot;</span><span class="o">);</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Array of parent states to this one.</span>
+<span class="cm">   */</span>
+  <span class="n">ParserState</span> <span class="n">parents</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParserState</span><span class="o">[]{};</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Tag name for this state.</span>
+<span class="cm">   */</span>
+  <span class="n">String</span> <span class="n">tagName</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Constructor for ParserState with a single parent state.</span>
+<span class="cm">   * @param parent</span>
+<span class="cm">   * @param tagName</span>
+<span class="cm">   */</span>
+  <span class="n">ParserState</span><span class="o">(</span><span class="n">ParserState</span> <span class="n">parent</span><span class="o">,</span><span class="n">String</span> <span class="n">tagName</span><span class="o">){</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">parents</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParserState</span><span class="o">[]{</span><span class="n">parent</span><span class="o">};</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">tagName</span> <span class="o">=</span> <span class="n">tagName</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Constructor for ParserState with a multiple parent states.</span>
+<span class="cm">   * @param parents</span>
+<span class="cm">   * @param tagName</span>
+<span class="cm">   */</span>
+  <span class="n">ParserState</span><span class="o">(</span><span class="n">ParserState</span><span class="o">[]</span> <span class="n">parents</span><span class="o">,</span><span class="n">String</span> <span class="n">tagName</span><span class="o">){</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">parents</span> <span class="o">=</span> <span class="n">parents</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">tagName</span> <span class="o">=</span> <span class="n">tagName</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Checks whether it is valid to transition to the</span>
+<span class="cm">   * specified state from this state.</span>
+<span class="cm">   * @param newState</span>
+<span class="cm">   * @return</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">checkValid</span><span class="o">(</span><span class="n">ParserState</span> <span class="n">toState</span><span class="o">){</span>
+    <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">toState</span><span class="o">))</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">toState</span><span class="o">.</span><span class="na">parents</span><span class="o">.</span><span class="na">length</span> <span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">toState</span><span class="o">.</span><span class="na">parents</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="k">this</span><span class="o">)){</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">parents</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+      <span class="k">if</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">parents</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">equals</span><span class="o">(</span><span class="n">toState</span><span class="o">)){</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getTagName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">tagName</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="c1">// End enum instance methods and variables</span>
+  <span class="c1">// Static methods, variable, and intializations</span>
+  <span class="kd">static</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">string</span><span class="o">,</span><span class="n">ParserState</span><span class="o">&gt;</span> <span class="n">tagLookup</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">string</span><span class="o">,</span><span class="n">ParserState</span><span class="o">&gt;();</span>
+  <span class="cm">/*</span>
+<span class="cm">   * This code executes after the enums have been constructed.</span>
+<span class="cm">   *</span>
+<span class="cm">   * Because of order of execution when initializing an enum,</span>
+<span class="cm">   * you can&#39;t call static functions in an enum constructor.</span>
+<span class="cm">   * (They are constructed before static initialization).</span>
+<span class="cm">   *</span>
+<span class="cm">   * Instead, we use a static initializer to populate the lookup</span>
+<span class="cm">   * hashmap after all the enums are constructed.</span>
+<span class="cm">   */</span>
+  <span class="kd">static</span> <span class="o">{</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">ParserState</span> <span class="n">state</span> <span class="o">:</span> <span class="n">ParserState</span><span class="o">.</span><span class="na">values</span><span class="o">()){</span>
+      <span class="n">registerState</span><span class="o">(</span><span class="n">state</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Maps a tag name to a ParserState</span>
+<span class="cm">   * @param tagName</span>
+<span class="cm">   * @return the ParserState for that tag.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">ParserState</span> <span class="nf">lookupStateForTag</span><span class="o">(</span><span class="n">String</span> <span class="n">tagName</span><span class="o">){</span>
+    <span class="k">return</span> <span class="n">tagLookup</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">tagName</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">registerState</span><span class="o">(</span><span class="n">ParserState</span> <span class="n">state</span><span class="o">){</span>
+    <span class="n">tagLookup</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">state</span><span class="o">.</span><span class="na">tagName</span><span class="o">,</span> <span class="n">state</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<h2 id="xml-pull-parsing-chocolate">XML Pull Parsing (chocolate)</h2>
+
+<p>The idea with XML Pull Parsing is that the document can be represented as a stream of events describing the document content.  You <em>pull</em> the events off the stream as you process them (hence the name). These events come in five flavors: <a href="http://www.xmlpull.org/v1/doc/api/org/xmlpull/v1/XmlPullParser.html#START_DOCUMENT">START_DOCUMENT</a>, <a href="http://www.xmlpull.org/v1/doc/api/org/xmlpull/v1/XmlPullParser.html#END_DOCUMENT">END_DOCUMENT</a>, <a href="http://www.xmlpull.org/v1/doc/api/org/xmlpull/v1/XmlPullParser.html#START_TAG">START_TAG</a>, <a href="http://www.xmlpull.org/v1/doc/api/org/xmlpull/v1/XmlPullParser.html#END_TAG">END_TAG</a>, <a href="http://www.xmlpull.org/v1/doc/api/org/xmlpull/v1/XmlPullParser.html#TEXT">TEXT</a>.</p>
+
+<p>The tags names are pretty easy to understand intuitively, except for TEXT, which is the event for free text inside of an element.</p>
+
+<p>An example document like this:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;foo&gt;</span> bar <span class="nt">&lt;baz&gt;</span>jones<span class="nt">&lt;/baz&gt;</span> bleargh<span class="nt">&lt;/foo&gt;</span></code></pre></div>
+
+<p>… would produce events in the following order: START_DOCUMENT, START_TAG, TEXT, START_TAG, TEXT, END_TAG, TEXT, END_TAG, END_DOCUMENT.&lt;/p&gt;</p>
+
+<p>Pretty much every XML pull parser-based processor has a loop that looks like this at their core:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">protected void processDocument() throws XmlPullParserException, IOException, PalantirException {<span class="nt">&lt;/p&gt;</span>
+  // pull first event
+  int eventType = parser.getEventType();<span class="nt">&lt;/p&gt;</span>
+  do { // core loop
+    switch(eventType){<span class="nt">&lt;/p&gt;</span>
+    case XmlPullParser.START_DOCUMENT:
+      log.debug(&quot;Start document&quot;);
+      break;<span class="nt">&lt;/p&gt;</span>
+    case XmlPullParser.START_TAG:
+      processStartElement();
+      break;<span class="nt">&lt;/p&gt;</span>
+    case XmlPullParser.END_TAG:
+      processEndElement();
+      break;<span class="nt">&lt;/p&gt;</span>
+    case XmlPullParser.TEXT:
+      processText();
+      break;<span class="nt">&lt;/p&gt;</span>
+    // never called, here for completeness
+    case XmlPullParser.END_DOCUMENT:
+      log.debug(&quot;End document&quot;);
+      break;<span class="nt">&lt;/p&gt;</span>
+    }<span class="nt">&lt;/p&gt;</span>
+    eventType = parser.next();<span class="nt">&lt;/p&gt;</span>
+  } while (eventType != XmlPullParser.END_DOCUMENT);
+}</code></pre></div>
+
+<p>So the next logical thing to take a look at is the <strong>processStartElement()</strong> method. It turns out that here’s where the real peanut-butter &amp; chocolate synergy comes into play.  In this case, we call <a href="http://www.xmlpull.org/v1/doc/api/org/xmlpull/v1/XmlPullParser.html#getName()">getName()</a> on the parser object and it will tell us the name of the tag just started.</p>
+
+<p>We want to:</p>
+
+<ul>
+  <li>Check that it’s a valid state transition.</li>
+  <li>Change the state of the parser.</li>
+  <li>Dispatch to the appropriate method to deal with this kind of tag.</li>
+</ul>
+
+<p>Here’s the method (note that stateStack is of type [Stack<parserstate>](http://java.sun.com/j2se/1.5.0/docs/api/java/util/Stack.html)):</parserstate></p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">processStartElement</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">PalantirException</span><span class="o">,</span> <span class="n">XmlPullParserException</span> <span class="o">{</span>
+
+  <span class="n">String</span> <span class="n">tagName</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="na">getName</span><span class="o">();&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+  <span class="c1">// check for state transition</span>
+  <span class="n">ParserState</span> <span class="n">newState</span> <span class="o">=</span> <span class="n">ParserState</span><span class="o">.</span><span class="na">lookupStateForTag</span><span class="o">(</span><span class="n">tagName</span><span class="o">);</span>
+  <span class="k">if</span><span class="o">(</span><span class="n">newState</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+    <span class="c1">// we know it&#39;s a valid tag</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">parserState</span><span class="o">.</span><span class="na">checkValid</span><span class="o">(</span><span class="n">newState</span><span class="o">)){</span>
+      <span class="c1">// change FSA state</span>
+      <span class="n">stateStack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">parserState</span><span class="o">);</span>
+      <span class="n">parserState</span> <span class="o">=</span> <span class="n">newState</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">else</span><span class="o">{</span>
+      <span class="c1">// invalid transition</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Got illegal state transition in parser, suspect malformed XML.n&quot;</span> <span class="o">+</span>
+      <span class="s">&quot;At line &quot;</span> <span class="o">+</span> <span class="n">parser</span><span class="o">.</span><span class="na">getLineNumber</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;, col &quot;</span> <span class="o">+</span> <span class="n">parser</span><span class="o">.</span><span class="na">getColumnNumber</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;.n&quot;</span> <span class="o">+</span>
+      <span class="s">&quot;Invalid state transition: &quot;</span> <span class="o">+</span> <span class="n">parserState</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; -&gt; &quot;</span> <span class="o">+</span> <span class="n">newState</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">PalantirException</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="k">else</span><span class="o">{</span>
+    <span class="c1">// unknown tag: ignore</span>
+  <span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+  <span class="c1">// dispatch to handling method</span>
+  <span class="n">dispatch</span><span class="o">();</span>
+<span class="o">}</span></code></pre></div>
+
+<p>You can see how we leverage the encoding in the ParserState Enum to make this a very simple method.  Since we’re encoding tag-to-state mappings, we can easily lookup the appropriate state for this tag (go back and look at the static initializer if I lost you there).  Once we know the proposed new state, we can check whether or not the state transition is a valid one, throwing an exception on an invalid state (which implies a malformed document).  Finally, we call <strong>dispatch()</strong>, which is nothing but a big switch statement using all the possible states from the Enum:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kt">void</span> <span class="nf">dispatch</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">XmlPullParserException</span><span class="o">,</span> <span class="n">PalantirException</span> <span class="o">{</span>
+  <span class="c1">// logging statements removed for readability</span>
+  <span class="k">switch</span> <span class="o">(</span><span class="n">parserState</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nl">DOMAIN:</span>
+    <span class="n">processDomain</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">KINGDOM:</span>
+    <span class="n">processKingdom</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">PHYLUM:</span>
+    <span class="n">processPhylum</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">DIVISION:</span>
+    <span class="n">processDivision</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">CLASS:</span>
+    <span class="n">processClass</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">FAMILY:</span>
+    <span class="n">processFamily</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">ORDER:</span>
+    <span class="n">processOrder</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">GENUS:</span>
+    <span class="n">processGenus</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">SPECIES:</span>
+    <span class="n">processSpecies</span><span class="o">();</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+
+<p>The methods for doing the processing for TEXT and END_TAG methods are much simpler but also leverage the dispatch() method:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">processEndElement</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">XmlPullParserException</span><span class="o">,</span> <span class="n">PalantirException</span> <span class="o">{</span>
+  <span class="n">dispatch</span><span class="o">();</span>
+  <span class="c1">// already know to be valid, since transition</span>
+  <span class="c1">// validity is bi-directional</span>
+  <span class="n">parserState</span> <span class="o">=</span> <span class="n">stateStack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">processText</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">XmlPullParserException</span><span class="o">,</span> <span class="n">PalantirException</span> <span class="o">{</span>
+  <span class="n">dispatch</span><span class="o">();</span>
+<span class="o">}</span></code></pre></div>
+
+<p>What you end up with is a very straightforward, readable, and <a href="http://boulter.com/blog/2004/08/19/performant-is-not-a-word/">performant</a> dispatching framework in your processor.  The code practically writes itself!  All that’s left to do is to define each of the tag processing methods, which will have to understand how to process the attributes (START_TAG), any free text (TEXT),  and finally close up any data structures which the tag data is being recorded to.  They will all loosely follow this form:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">void processTag() throws XmlPullParserException {
+  switch (parser.getEventType()) {
+  case XmlPullParser.START_TAG:
+    // handle attributes and tag existence here
+    break;
+  case XmlPullParser.END_TAG:
+    // handle close-up here
+    break;
+  case XmlPullParser.TEXT:
+    // handle free text here
+    break;
+  }
+}</code></pre></div>
+
+<p>This ends up being really nice since all the logic about each tag is encapsulated in a single method, facilitating debugging, modifications, and having other people read and actually understand your code (not the easiest thing to do with SAX Parser callbacks!).</p>
+
+<h2 id="putting-it-all-together">Putting it all together</h2>
+
+<p>So the demo that shows this off parses the instance document that’s filled with entries like this:</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;tns:domain</span> <span class="na">name=</span><span class="s">&#39;Bacteria&#39;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tns:kingdom</span> <span class="na">name=</span><span class="s">&#39;Monera&#39;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;tns:phylum</span> <span class="na">name=</span><span class="s">&#39;Proteobacteria&#39;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tns:class</span> <span class="na">name=</span><span class="s">&#39;Proteobacteria&#39;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;tns:order</span> <span class="na">name=</span><span class="s">&#39;Enterobacteriales&#39;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;tns:family</span> <span class="na">name=</span><span class="s">&#39;Enterobacteriaceae&#39;</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;tns:genus</span> <span class="na">name=</span><span class="s">&#39;Escherichia&#39;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;tns:species</span> <span class="na">name=</span><span class="s">&#39;E. coli&#39;</span> <span class="na">commonName=</span><span class="s">&quot;E. coli&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/tns:genus&gt;</span>
+          <span class="nt">&lt;/tns:family&gt;</span>
+        <span class="nt">&lt;/tns:order&gt;</span>
+      <span class="nt">&lt;/tns:class&gt;</span>
+    <span class="nt">&lt;/tns:phylum&gt;</span>
+  <span class="nt">&lt;/tns:kingdom&gt;</span>
+<span class="nt">&lt;/tns:domain&gt;</span></code></pre></div>
+
+<p>It then spits out strings describing each species to our Swing-based console, like this:</p>
+
+<pre>
+Lifeform 'E. coli':
+Bacteria : Monera : Proteobacteria : Proteobacteria : Enterobacteriales : Enterobacteriaceae : Escherichia : E. coli
+</pre>
+
+<p><a href="/wp-assets/wp-content/static/techblog/2007/05/launch_lifeonearth.jnlp" title="launch_lifeonearth.jnlp">Check it out</a> and let me know about any questions or improvements or errors in the comments.</p>
+
+        </div>
+        <aside id="category-links" class="col-md-offset-1 col-md-3">
+          <h4>Categories</h4>
+          <nav id="blog-category-list">
+  <ul>
+  
+    <li class="blog-category tech"><a href="/category/tech/" name="Tech">Tech</a></li>
+  
+    <li class="blog-category analysis"><a href="/category/analysis/" name="Analysis">Analysis</a></li>
+  
+    <li class="blog-category news-events"><a href="/category/news-events/" name="News &amp; Events">News &amp; Events</a></li>
+  
+    <li class="blog-category philanthropy"><a href="/category/philanthropy/" name="Philanthropy">Philanthropy</a></li>
+  
+    <li class="blog-category pcl"><a href="/category/pcl/" name="P/CL">P/CL</a></li>
+  
+  </ul>
+</nav>
+
+          <h4>Save &amp; Share</h4>
+          
+<nav id="blog-share">
+  <ul>
+    <li><a href="/feed/index.xml" class="button button-small no-arrow"><span class="icon-pt-icon-feed"></span> Subscribe via RSS</a></li>
+    <li><div class="fb-share-button" data-href="https://palantir.com/2007/05/life-on-earth" data-type="button_count"></div></li>
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+  </ul>
+</nav>
+
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="patterned" role="contentinfo">
+
+  <div class="container">
+        <div class="row">
+          <nav id="products" class="col-sm-2 footer-menu">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav id="uses" class="col-sm-4 footer-menu">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="people" class="col-sm-2 footer-menu">
+            <h2><a href="/careers/">Careers</a></h2>
+            <ul id="menu-people" class="">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="about" class="col-sm-2 footer-menu">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav id="ancillary-menu" class="col-sm-2 footer-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/partnerships/">Partnerships</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.row -->
+
+        <div id="footer-copyright" class="row">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2015 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a href="https://www.facebook.com/Palantir" class="icon-pt-icon-facebook"></a></li>
+              <li><a href="https://www.twitter.com/palantirtech" class="icon-pt-icon-twitter"></a></li>
+              <li><a href="https://plus.google.com/106671163751935200511" rel="publisher" class="icon-pt-icon-gplus"></a></li>
+              <li><a href="https://www.github.com/Palantir" class="icon-pt-icon-github"></a></li>
+              <li><a href="https://www.youtube.com/user/Palantir" class="icon-pt-icon-youtube"></a></li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+</footer><!-- /footer -->
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- compiled.min -->
+  <script src="/build/js/compiled.min.js?v=20150629162924"></script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+
+
+  <script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'www.fullstory.com';
+  window['_fs_org'] = 'Vcq';
+  (function(m,n,e,t,l,o,g,y){
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+    g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+  })(window,document,'FS','script','user');
+</script>
+
+</body>
+</html>

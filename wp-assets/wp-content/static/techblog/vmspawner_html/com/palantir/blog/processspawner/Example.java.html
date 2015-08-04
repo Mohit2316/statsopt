@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+<HEAD>
+<LINK REL=STYLESHEET TYPE="text/css" HREF="../../../../stylesheet.css" TITLE="Style">
+<META NAME="GENERATOR" CONTENT="Java2HTML Version 1.5">
+<TITLE>com.palantir.blog.processspawner.Example (Java2HTML)</TITLE>
+</HEAD>
+<BODY><TABLE id="Header" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td colspan="2" width="33%">&nbsp;</td>
+<td align="center" colspan="2" width="33%">
+<font size="4">Example.java</font>
+</td>
+<td align="right" colspan="2" width="33%">&nbsp;</td>
+</tr>
+</TABLE>
+<pre ID="Classes">
+<FONT ID="LN">1  </FONT><A NAME="1"></A><FONT ID="Package">package</FONT> com.palantir.blog.processspawner;
+<FONT ID="LN">2  </FONT><A NAME="2"></A><FONT ID="MultiLineComment">/*
+<FONT ID="LN">3  </FONT><A NAME="3"></A> * All source code and information in this file is made
+<FONT ID="LN">4  </FONT><A NAME="4"></A> * available under the following licensing terms:
+<FONT ID="LN">5  </FONT><A NAME="5"></A> *
+<FONT ID="LN">6  </FONT><A NAME="6"></A> * Copyright (c) 2009, Palantir Technologies, Inc.
+<FONT ID="LN">7  </FONT><A NAME="7"></A> * All rights reserved.
+<FONT ID="LN">8  </FONT><A NAME="8"></A> *
+<FONT ID="LN">9  </FONT><A NAME="9"></A> * Redistribution and use in source and binary forms, with or without
+<FONT ID="LN">10 </FONT><A NAME="10"></A> * modification, are permitted provided that the following conditions are
+<FONT ID="LN">11 </FONT><A NAME="11"></A> * met:
+<FONT ID="LN">12 </FONT><A NAME="12"></A> *
+<FONT ID="LN">13 </FONT><A NAME="13"></A> *     * Redistributions of source code must retain the above copyright
+<FONT ID="LN">14 </FONT><A NAME="14"></A> *       notice, this list of conditions and the following disclaimer.
+<FONT ID="LN">15 </FONT><A NAME="15"></A> *
+<FONT ID="LN">16 </FONT><A NAME="16"></A> *     * Redistributions in binary form must reproduce the above
+<FONT ID="LN">17 </FONT><A NAME="17"></A> *       copyright notice, this list of conditions and the following
+<FONT ID="LN">18 </FONT><A NAME="18"></A> *       disclaimer in the documentation and/or other materials provided
+<FONT ID="LN">19 </FONT><A NAME="19"></A> *       with the distribution.
+<FONT ID="LN">20 </FONT><A NAME="20"></A> *
+<FONT ID="LN">21 </FONT><A NAME="21"></A> *     * Neither the name of Palantir Technologies, Inc. nor the names of its
+<FONT ID="LN">22 </FONT><A NAME="22"></A> *       contributors may be used to endorse or promote products derived
+<FONT ID="LN">23 </FONT><A NAME="23"></A> *       from this software without specific prior written permission.
+<FONT ID="LN">24 </FONT><A NAME="24"></A> *
+<FONT ID="LN">25 </FONT><A NAME="25"></A> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+<FONT ID="LN">26 </FONT><A NAME="26"></A> * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+<FONT ID="LN">27 </FONT><A NAME="27"></A> * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+<FONT ID="LN">28 </FONT><A NAME="28"></A> * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+<FONT ID="LN">29 </FONT><A NAME="29"></A> * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+<FONT ID="LN">30 </FONT><A NAME="30"></A> * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+<FONT ID="LN">31 </FONT><A NAME="31"></A> * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+<FONT ID="LN">32 </FONT><A NAME="32"></A> * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+<FONT ID="LN">33 </FONT><A NAME="33"></A> * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<FONT ID="LN">34 </FONT><A NAME="34"></A> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+<FONT ID="LN">35 </FONT><A NAME="35"></A> * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<FONT ID="LN">36 </FONT><A NAME="36"></A> *
+<FONT ID="LN">37 </FONT><A NAME="37"></A> *
+<FONT ID="LN">38 </FONT><A NAME="38"></A> */</FONT> 
+<FONT ID="LN">39 </FONT><A NAME="39"></A><FONT ID="Import">import</FONT> org.apache.log4j.Appender;
+<FONT ID="LN">40 </FONT><A NAME="40"></A><FONT ID="Import">import</FONT> org.apache.log4j.ConsoleAppender;
+<FONT ID="LN">41 </FONT><A NAME="41"></A><FONT ID="Import">import</FONT> org.apache.log4j.Layout;
+<FONT ID="LN">42 </FONT><A NAME="42"></A><FONT ID="Import">import</FONT> org.apache.log4j.Level;
+<FONT ID="LN">43 </FONT><A NAME="43"></A><FONT ID="Import">import</FONT> org.apache.log4j.LogManager;
+<FONT ID="LN">44 </FONT><A NAME="44"></A><FONT ID="Import">import</FONT> org.apache.log4j.Logger;
+<FONT ID="LN">45 </FONT><A NAME="45"></A><FONT ID="Import">import</FONT> org.apache.log4j.PatternLayout;
+<FONT ID="LN">46 </FONT><A NAME="46"></A><FONT ID="Import">import</FONT> org.junit.runner.JUnitCore;
+<FONT ID="LN">47 </FONT><A NAME="47"></A><FONT ID="Import">import</FONT> org.junit.runner.Result;
+<FONT ID="LN">48 </FONT><A NAME="48"></A><FONT ID="Import">import</FONT> org.junit.runner.notification.Failure;
+<FONT ID="LN">49 </FONT><A NAME="49"></A>
+<FONT ID="LN">50 </FONT><A NAME="50"></A><FONT ID="FormalComment">/**
+<FONT ID="LN">51 </FONT><A NAME="51"></A> * A simple main() wrapper around JUnit to avoid some formatting issues with the default runner.
+<FONT ID="LN">52 </FONT><A NAME="52"></A> * @author regs
+<FONT ID="LN">53 </FONT><A NAME="53"></A> *
+<FONT ID="LN">54 </FONT><A NAME="54"></A> */</FONT>
+<FONT ID="LN">55 </FONT><A NAME="55"></A><FONT ID="Public">public</FONT> <FONT ID="Class">class</FONT> Example {
+<FONT ID="LN">56 </FONT><A NAME="56"></A>
+<FONT ID="LN">57 </FONT><A NAME="57"></A>   <FONT ID="Public">public</FONT> <FONT ID="Static">static</FONT> <FONT ID="Void">void</FONT> main(String[] args) {
+<FONT ID="LN">58 </FONT><A NAME="58"></A>      
+<FONT ID="LN">59 </FONT><A NAME="59"></A>      <FONT ID="MultiLineComment">/*
+<FONT ID="LN">60 </FONT><A NAME="60"></A>       * Set up log4j logging
+<FONT ID="LN">61 </FONT><A NAME="61"></A>       */</FONT>
+<FONT ID="LN">62 </FONT><A NAME="62"></A>      <FONT ID="Final">final</FONT> Layout layout = <FONT ID="New">new</FONT> PatternLayout(<FONT ID="StringLiteral">"%p [%t] %c{1} - %m%n"</FONT>);
+<FONT ID="LN">63 </FONT><A NAME="63"></A>      Appender a = <FONT ID="New">new</FONT> ConsoleAppender(layout);
+<FONT ID="LN">64 </FONT><A NAME="64"></A>      Logger palantirLogger = LogManager.getLogger(<FONT ID="StringLiteral">"com.palantir"</FONT>);
+<FONT ID="LN">65 </FONT><A NAME="65"></A>      palantirLogger.setLevel(Level.INFO);
+<FONT ID="LN">66 </FONT><A NAME="66"></A>      palantirLogger.addAppender(a);
+<FONT ID="LN">67 </FONT><A NAME="67"></A>      
+<FONT ID="LN">68 </FONT><A NAME="68"></A>      <FONT ID="MultiLineComment">/*
+<FONT ID="LN">69 </FONT><A NAME="69"></A>       *  run junit ourselves to avoid the default TextListener output
+<FONT ID="LN">70 </FONT><A NAME="70"></A>       */</FONT>
+<FONT ID="LN">71 </FONT><A NAME="71"></A>      <FONT ID="Final">final</FONT> Result r = JUnitCore.runClasses(<A HREF="../../../../com/palantir/blog/processspawner/ServerSpawningTest.java.html">ServerSpawningTest</A>.<FONT ID="Class">class</FONT>);
+<FONT ID="LN">72 </FONT><A NAME="72"></A>      <FONT ID="If">if</FONT>(r.getFailureCount() == <FONT ID="IntegerLiteral">0</FONT>) {
+<FONT ID="LN">73 </FONT><A NAME="73"></A>         System.out.println(<FONT ID="StringLiteral">"SUCCESS: all "</FONT> + r.getRunCount() + <FONT ID="StringLiteral">" tests passed"</FONT>);
+<FONT ID="LN">74 </FONT><A NAME="74"></A>      } <FONT ID="Else">else</FONT> {
+<FONT ID="LN">75 </FONT><A NAME="75"></A>         System.out.println(<FONT ID="StringLiteral">"FAILURE: "</FONT> + r.getFailureCount() + 
+<FONT ID="LN">76 </FONT><A NAME="76"></A>                            <FONT ID="StringLiteral">"/"</FONT> + r.getRunCount() + <FONT ID="StringLiteral">" failed"</FONT>);
+<FONT ID="LN">77 </FONT><A NAME="77"></A>         <FONT ID="For">for</FONT>(Failure f : r.getFailures()) {
+<FONT ID="LN">78 </FONT><A NAME="78"></A>            System.out.println(<FONT ID="StringLiteral">"\t"</FONT> + f.getTestHeader() + <FONT ID="StringLiteral">": "</FONT> + f.getMessage());
+<FONT ID="LN">79 </FONT><A NAME="79"></A>         }
+<FONT ID="LN">80 </FONT><A NAME="80"></A>      }
+<FONT ID="LN">81 </FONT><A NAME="81"></A>   }
+<FONT ID="LN">82 </FONT><A NAME="82"></A>}
+<FONT ID="LN">83 </FONT><A NAME="83"></A></pre>
+</BODY>
+</HTML>

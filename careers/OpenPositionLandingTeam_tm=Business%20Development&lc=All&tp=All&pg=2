@@ -1,0 +1,379 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+  <html>
+    <head>
+<script src="/careers/static/111213/js/perf/stub.js" type="text/javascript"></script><script src="/faces/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript?rel=1435261068000" type="text/javascript"></script><script src="/careers/jslibrary/1429195372000/sfdc/SfdcCore.js" type="text/javascript"></script><script src="/careers/static/111213/js/picklist.js" type="text/javascript"></script><script src="/careers/jslibrary/1427810574000/sfdc/VFState.js" type="text/javascript"></script><meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+<meta HTTP-EQUIV="Expires" content="Mon, 01 Jan 1990 12:00:00 GMT" />
+
+      <meta charset="utf-8" />
+      <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+      <link href="/favicon.ico" rel="shortcut icon" sizes="16x16 32x32" type="image/x-icon" />
+      <title>Open Positions | Palantir</title>
+      <meta content="width=device-width,user-scalable=no,initial-scale=1.0" name="viewport" />
+      <meta content="yes" name="apple-mobile-web-app-capable" />
+      <meta name="description" />
+      <link href="/build/css/style.css" media="screen" rel="stylesheet" />
+      <link href="https://palantir.com/feed/index.xml" rel="alternate" title="Palantir RSS" type="application/rss+xml" />
+      
+      <script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+      
+      <script src="/build/js/compiled.min.js"></script>
+      
+      
+      <!--[if lt IE 9]>
+      <script src="/build/js/respond-1.4.2.min.js"></script>
+      <link rel="stylesheet" href="/build/css/ie.css" media="screen, projection" type="text/css">
+      <![endif]-->
+    
+      
+      <meta content="Open Positions" property="og:title" />
+      <meta content="website" property="og:type" />
+      <meta content="https://palantir.com/careers/index.html" property="og:url" />
+      <meta property="og:image" />
+      <meta content="Palantir" property="og:site_name" />
+      <meta property="og:description" />
+    </head>    
+
+
+    <body id="page_op-landing">
+      <div id="site-wrapper"><span id="page:OpenPositionTemplate:j_id1">
+<header id="site-header">
+  
+  <nav class="navbar" role="navigation">
+    
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <h1 class="logo" id="site-name">
+              <a href="/">
+                <div id="logo-svg"><svg height="25" viewBox="0 0 99 25" width="99" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.167 2.56h6.155c2.24 0 3.764.139 5.025 1.548.922.992 1.355 2.302 1.355 3.75 0 1.468-.452 2.738-1.449 3.79-.979 1.012-2.24 1.667-5.552 1.667h-2.974v8.611h-2.541v-19.365h-.019zm2.541 8.492h3.03c1.694 0 4.254-.139 4.254-3.294 0-3.036-2.39-3.036-3.727-3.036h-3.557v6.329z"></path><path d="M44.945 21.944c-.188-.675-.226-1.31-.226-2.024-1.148 2.222-2.88 2.44-3.952 2.44-2.936 0-4.498-1.746-4.498-3.968 0-1.071.358-2.798 2.24-3.948 1.374-.813 3.407-.893 4.423-.893.602 0 .998.02 1.732.079 0-1.667 0-2.401-.452-2.976-.489-.675-1.525-.893-2.221-.893-2.409 0-2.541 1.746-2.579 2.282h-2.39c.075-.694.151-1.647.885-2.56.979-1.131 2.786-1.448 4.122-1.448 1.863 0 3.84.615 4.536 1.984.414.813.433 1.448.433 2.063l-.094 6.448c0 .218.019 2.024.207 3.373h-2.164v.04zm-1.656-6.647c-.96 0-4.611 0-4.611 2.738 0 .853.508 2.341 2.654 2.341 1.223 0 2.146-.516 2.729-1.448.527-.913.565-1.667.602-3.552-.433-.04-.79-.079-1.374-.079z"></path><path d="M49.124 2.56h2.39v19.385h-2.39v-19.385z"></path><path d="M61.828 21.944c-.169-.675-.226-1.31-.226-2.024-1.148 2.222-2.88 2.44-3.952 2.44-2.936 0-4.517-1.746-4.517-3.968 0-1.071.358-2.798 2.24-3.948 1.374-.813 3.407-.893 4.423-.893.602 0 .998.02 1.732.079 0-1.667 0-2.401-.452-2.976-.489-.675-1.525-.893-2.221-.893-2.428 0-2.541 1.746-2.579 2.282h-2.39c.075-.694.151-1.647.885-2.56.96-1.131 2.786-1.448 4.122-1.448 1.863 0 3.84.615 4.536 1.984.414.813.433 1.448.433 2.063l-.094 6.448c0 .218.019 2.024.207 3.373h-2.146v.04zm-1.675-6.647c-.96 0-4.611 0-4.611 2.738 0 .853.508 2.341 2.654 2.341 1.223 0 2.146-.516 2.729-1.448.527-.913.565-1.667.602-3.552-.414-.04-.772-.079-1.374-.079z"></path><path d="M66.025 10.02l-.019-1.567h2.39l.019 2.183c.282-.556 1.186-2.44 4.103-2.44 1.148 0 4.63.456 4.63 4.583v9.147h-2.447v-8.571c0-.893-.094-1.687-.696-2.302-.621-.615-1.449-.913-2.259-.913-1.732 0-3.331 1.31-3.331 4.028v7.758h-2.39v-11.905z"></path><path d="M77.901 8.452h2.259v-2.877l2.371-.813v3.671h2.861v1.845h-2.861v8.036c0 .675 0 1.806 1.713 1.806.489 0 .941-.079 1.148-.139v1.964c-.433.079-1.129.159-1.995.159-2.183 0-3.237-.675-3.237-2.877v-8.909h-2.259v-1.865z"></path><path d="M87.067 2.56h2.88v2.817h-2.88v-2.817zm.263 5.893h2.39v13.472h-2.39v-13.472z"></path><path d="M91.942 11.19c0-.913-.056-1.845-.132-2.738h2.428l.056 2.599c.452-1.885 1.995-2.5 3.049-2.659.715-.099 1.242-.079 1.656-.06v2.46c-.132-.06-.282-.079-.452-.099-.169-.02-.414-.02-.696-.02-2.823 0-3.501 1.766-3.501 4.087v7.163h-2.409v-10.734z"></path><path d="M9.373-.04c-4.95 0-8.978 4.226-8.978 9.464s4.009 9.464 8.978 9.464c4.95 0 8.978-4.226 8.978-9.464s-4.028-9.464-8.978-9.464zm0 16.012c-3.425 0-6.211-2.937-6.211-6.548s2.786-6.548 6.211-6.548c3.425 0 6.211 2.937 6.211 6.548-.019 3.631-2.786 6.548-6.211 6.548zM17.391 18.056l-8.018 3.651-8.037-3.651-1.317 2.698 9.354 4.206 9.354-4.206-1.336-2.698z"></path>
+                  </svg>
+              </div>
+            </a>
+          </h1>
+          <button class="navbar-toggle" data-target="#main-navbar" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      </div>
+      
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;#38;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/engineering-culture/">People</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li class="current-page"><a href="/careers/" title="Open Positions">Open Positions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form action="/search/" class="search" method="get" role="search">
+              <input class="search-input search_field_main" id="main-search-query" maxlength="50" name="q" placeholder="Search Palantir" type="text" />
+              <input class="search-trigger search_submit_main" type="submit" />
+            </form>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+
+</nav>
+</header></span>
+        
+        
+        <div class="no-margin" data-image-bg="/build/images/careers/open-positions-team-hero.jpg" id="hero-wrapper-auto">
+          <div class="container extra-content">
+            <div class="row block block-hero block-centered">
+              <article class="col-sm-8 col-sm-offset-2">
+                <h1>Business Development</h1>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="container page_op-team">
+          <div class="row" id="career-description">
+            <div class="col-sm-8 col-sm-offset-2"><p>Some of us travel the globe and introduce Palantir to future users. Others delve into the world of the analyst to model their challenges. A large number of us build efficient implementations. We start with nebulous questions and experiment with our platforms until we discover new domains and applications for strategic focus. Our teams are fluid, better defined by capabilities than by cast-iron lines of responsibility.
+</p>
+<p> 
+Our Business Development team is different. Our team consists of a variety of people with different skill sets. We are composed of technical people doing technical work, software engineers who establish natural rapport before discussing solutions and pounding the keyboard, analysts who can tweak servers, and communicators who listen. Our goal is to implement our platform where people need it, without a surplus of jargon. We don’t do business as usual; we do business as Palantir. 
+</p>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div id="salesforce-toolbar">
+          <div class="container">
+            <div class="row" id="position-filters">
+<form id="page:OpenPositionTemplate:filter_form" name="page:OpenPositionTemplate:filter_form" method="post" action="/careers/OpenPositionLandingTeam" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="page:OpenPositionTemplate:filter_form" value="page:OpenPositionTemplate:filter_form" />
+
+                <div class="col-sm-8" id="position-selectors">
+                  <div class="row">
+                     
+                    <div class="col-sm-4 icon icon-offices">
+<script type="text/javascript" language="Javascript">function dpf(f) {var adp = f.adp;if (adp != null) {for (var i = 0;i < adp.length;i++) {adp[i].parentNode.removeChild(adp[i]);}}};function apf(f, pvp) {var adp = new Array();f.adp = adp;var ps = pvp.split(',');for (var i = 0,ii = 0;i < ps.length;i++,ii++) {var p = document.createElement("input");p.type = "hidden";p.name = ps[i];p.value = ps[i + 1];f.appendChild(p);adp[ii] = p;i += 1;}};function jsfcljs(f, pvp, t) {apf(f, pvp);var ft = f.target;if (t) {f.target = t;}f.submit();f.target = ft;dpf(f);};</script>
+<script> function j_id22_onchange(){if(typeof jsfcljs == 'function'){jsfcljs(document.forms['page:OpenPositionTemplate:filter_form'],'page:OpenPositionTemplate:filter_form:j_id22,page:OpenPositionTemplate:filter_form:j_id22','');}return false }</script><select name="page:OpenPositionTemplate:filter_form:j_id19" size="1" onchange="j_id22_onchange();">	<option value="">All Locations</option>
+	<option value="Palo Alto, CA">Palo Alto, CA</option>
+	<option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>
+	<option value="Asia">Asia</option>
+	<option value="Australia">Australia</option>
+	<option value="Europe">Europe</option>
+	<option value="Los Angeles, CA">Los Angeles, CA</option>
+	<option value="New York, NY">New York, NY</option>
+	<option value="Ottawa, Canada">Ottawa, Canada</option>
+	<option value="Seattle, WA">Seattle, WA</option>
+	<option value="Tel Aviv, Israel">Tel Aviv, Israel</option>
+	<option value="Toronto, Canada">Toronto, Canada</option>
+	<option value="Washington, D.C.">Washington, D.C.</option>
+	<option value="Wellington, New Zealand">Wellington, New Zealand</option>
+</select>
+                    </div>
+                    <div class="col-sm-4"><script> function j_id27_onchange(){if(typeof jsfcljs == 'function'){jsfcljs(document.forms['page:OpenPositionTemplate:filter_form'],'page:OpenPositionTemplate:filter_form:j_id27,page:OpenPositionTemplate:filter_form:j_id27','');}return false }</script><select name="page:OpenPositionTemplate:filter_form:j_id24" size="1" onchange="j_id27_onchange();">	<option value="">All Types</option>
+	<option value="Full Time">Full Time</option>
+	<option value="Internship">Internship</option>
+	<option value="Scholarship">Scholarship</option>
+</select>
+                    </div>
+                  </div> 
+                </div> 
+                <div class="col-sm-4" id="position-reset"><input type="submit" name="page:OpenPositionTemplate:filter_form:j_id29" value="Reset Filter" class="button no-arrow" />
+                </div><div id="page:OpenPositionTemplate:filter_form:j_id46"></div>
+</form><span id="ajax-view-state-page-container" style="display: none"><span id="ajax-view-state" style="display: none"><input type="hidden"  id="com.salesforce.visualforce.ViewState" name="com.salesforce.visualforce.ViewState" value="i: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" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateVersion" name="com.salesforce.visualforce.ViewStateVersion" value="201506251937480200" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateMAC" name="com.salesforce.visualforce.ViewStateMAC" value="AHeUjCov4wqceR4jNIHM1Rf5IMDQ" /></span></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="container">
+          <div class="row" id="positions-listing-wrapper">
+            <div class="col-sm-8 filler-right"></div>
+            <div class="col-sm-8" id="positions-listing">
+              <div class="row"><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m800000055wVIAAY" rel="bookmark" title="Permanent Link to...">Deployment Strategist: Tel Aviv</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Tel Aviv, Israel">Tel Aviv, Israel</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000006WerPAAS" rel="bookmark" title="Permanent Link to...">Deployment Strategist: Toronto</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Toronto, Canada">Toronto, Canada</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000003RDCvAAO" rel="bookmark" title="Permanent Link to...">Deployment Strategist: UAE</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Abu Dhabi, UAE">Abu Dhabi, UAE</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005XWTnAAO" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Washington, D.C.">Washington, D.C.</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000002LaXRAA0" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Ottawa, Canada">Ottawa, Canada</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000002IiWkAAK" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Australia">Australia</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000006WerUAAS" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Toronto, Canada">Toronto, Canada</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000006WdopAAC" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Australia">Australia</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000006WcmpAAC" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Australia">Australia</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000003BR6JAAW" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer Internship</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Australia">Australia</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005LOmUAAW" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer Internship</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Wellington, New Zealand">Wellington, New Zealand</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005JZNPAA4" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: Denmark</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Europe">Europe</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005LOmKAAW" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: Graduate</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Australia">Australia</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005U0ulAAC" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: Japan</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Asia">Asia</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000000M1DSAA0" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: London</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Europe">Europe</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005VMrJAAW" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: New Grad</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Washington, D.C.">Washington, D.C.</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000004mWSXAA2" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: New Grad - London</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Europe">Europe</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005VMrOAAW" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: New Grad - New York</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=New York, NY">New York, NY</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000003mnI2AAI" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: New Grad - Palo Alto</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=Palo Alto, CA">Palo Alto, CA</a></div></div><!-- /.row --></div><!-- search-result box --><div class="col-sm-12 search-result"><div class="row"><div class="position-title col-sm-6"><a href="/careers/OpenPosDetail?id=a0m80000005XWUDAA4" rel="bookmark" title="Permanent Link to...">Forward Deployed Software Engineer: New York</a></div><div class="position-location col-sm-6"><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a> in <a href="/careers/OpenPositionLandingLocation?lc=New York, NY">New York, NY</a></div></div><!-- /.row --></div><!-- search-result box -->
+              </div> 
+              <div class="row">
+                <div class="pager"><ul><li><a class="prev inactive" href="/careers/OpenPositionLandingTeam?tm=Business Development&lc=All&tp=All&pg=1">Prev</a></li><li><a class="inactive" href="/careers/OpenPositionLandingTeam?tm=Business Development&lc=All&tp=All&pg=1">1</a></li><li><a class="active" href="/careers/OpenPositionLandingTeam?tm=Business Development&lc=All&tp=All&pg=2">2</a></li><li><a class="inactive" href="/careers/OpenPositionLandingTeam?tm=Business Development&lc=All&tp=All&pg=3">3</a></li><li><a class="inactive" href="/careers/OpenPositionLandingTeam?tm=Business Development&lc=All&tp=All&pg=4">4</a></li><li><a class="next inactive" href="/careers/OpenPositionLandingTeam?tm=Business Development&lc=All&tp=All&pg=3">Next</a></li></ul>
+                </div> 
+              </div> 
+            </div> 
+            
+            <div class="col-sm-4">
+              <div class="sidebar-section">
+                <ul class="small-list">
+                  <li><a class="active" href="/careers/OpenPositionLanding">All Teams &amp; Offices</a></li>
+                </ul><h3>Our Teams</h3><ul class="small-list"><li><a href="/careers/OpenPositionLandingTeam?tm=Business Development">Business Development</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Design">Design</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Engineering">Engineering</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Finance and Accounting">Finance and Accounting</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Information Technology">Information Technology</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Legal">Legal</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Mission Operations">Mission Operations</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Operations">Operations</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=People Operations">People Operations</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Recruiting">Recruiting</a></li><li><a href="/careers/OpenPositionLandingTeam?tm=Security">Security</a></li></ul>
+              </div> 
+              <div class="sidebar-section"><h3>Our Offices</h3><ul class="small-list"><li><a href="/careers/OpenPositionLandingLocation?lc=Palo Alto, CA">Palo Alto, CA <span> (HQ)</span></a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Abu Dhabi, UAE">Abu Dhabi, UAE</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Asia">Asia</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Australia">Australia</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Europe">Europe</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Los Angeles, CA">Los Angeles, CA</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=New York, NY">New York, NY</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Ottawa, Canada">Ottawa, Canada</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Seattle, WA">Seattle, WA</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Tel Aviv, Israel">Tel Aviv, Israel</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Toronto, Canada">Toronto, Canada</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Washington, D.C.">Washington, D.C.</a></li><li><a href="/careers/OpenPositionLandingLocation?lc=Wellington, New Zealand">Wellington, New Zealand</a></li></ul>
+              </div> 
+              <div class="sidebar-section"><p class="footnote">Palantir is an Equal Employment Opportunity and Affirmative Action Employer.  Employment here is based solely upon one's individual merit and qualifications directly related to professional competence.  We do not discriminate on the basis of sex, race, color, national origin, ancestry, citizenship, pregnancy status, religion, age, physical or mental disability, medical condition, sexual orientation or veteran, marital status or any other characteristics protected by law. We will also make all reasonable accommodations to meet our obligations under the Americans with Disabilities Act (ADA) and state disability laws.</p>
+              </div> 
+            </div> 
+          </div> 
+        </div><span id="page:OpenPositionTemplate:j_id42">
+    
+    <footer class="white border-top no-margin-top" role="contentinfo">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="row">
+          <nav class="col-sm-2 footer-menu" id="products">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav class="col-sm-4 footer-menu" id="uses">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;#38;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="people">
+            <h2><a href="/engineering-culture">People</a></h2>
+            <ul id="menu-people">
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li class="current-page"><a href="/careers/" title="Open Positions">Open Positions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="about">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="ancillary-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/integrations/">Integrations</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div>
+        
+        <div class="row" id="footer-copyright">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2014 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a class="icon-pt-icon-facebook" href="https://www.facebook.com/Palantir"></a></li>
+              <li><a class="icon-pt-icon-twitter" href="https://www.twitter.com/palantirtech"></a></li>
+              <li><a class="icon-pt-icon-gplus" href="https://plus.google.com/106671163751935200511" rel="publisher"></a></li>
+              <li><a class="icon-pt-icon-youtube" href="https://www.youtube.com/user/Palantir"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+  </div>
+
+</footer></span>
+      </div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+<script>
+    window['_fs_debug'] = false;
+    window['_fs_host'] = 'www.fullstory.com';
+    window['_fs_org'] = 'Vcq';
+    (function(m,n,e,t,l,o,g,y){
+      g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+      o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+      y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+      g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+      g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+      ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+    })(window,document,'FS','script','user');
+  </script>
+
+    </body>
+  </html><script type="text/javascript">Sfdc.onReady(function(){
+	SfdcApp && SfdcApp.Visualforce && SfdcApp.Visualforce.VSManager && SfdcApp.Visualforce.VSManager.vfPrepareForms(["page:OpenPositionTemplate:filter_form"]);
+
+});</script>

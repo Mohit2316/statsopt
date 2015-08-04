@@ -1,0 +1,342 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+  <html>
+    <head>
+<script src="/careers/static/111213/js/perf/stub.js" type="text/javascript"></script><script src="/careers/jslibrary/1429195372000/sfdc/SfdcCore.js" type="text/javascript"></script><script src="/careers/static/111213/js/picklist.js" type="text/javascript"></script><script src="/careers/jslibrary/1427810574000/sfdc/VFState.js" type="text/javascript"></script><meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+<meta HTTP-EQUIV="Expires" content="Mon, 01 Jan 1990 12:00:00 GMT" />
+
+      <meta charset="utf-8" />
+      <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+      <link href="/favicon.ico" rel="shortcut icon" sizes="16x16 32x32" type="image/x-icon" />
+      <title>Open Positions | Palantir</title>
+      <meta content="width=device-width,user-scalable=no,initial-scale=1.0" name="viewport" />
+      <meta content="yes" name="apple-mobile-web-app-capable" />
+      <meta name="description" />
+      <link href="/build/css/style.css" media="screen" rel="stylesheet" />
+      <link href="https://palantir.com/feed/index.xml" rel="alternate" title="Palantir RSS" type="application/rss+xml" />
+      
+      <script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+      
+      <script src="/build/js/compiled.min.js"></script>
+      
+      
+      <!--[if lt IE 9]>
+      <script src="/build/js/respond-1.4.2.min.js"></script>
+      <link rel="stylesheet" href="/build/css/ie.css" media="screen, projection" type="text/css">
+      <![endif]-->
+    
+      
+      <meta content="Open Positions" property="og:title" />
+      <meta content="website" property="og:type" />
+      <meta content="https://palantir.com/careers/index.html" property="og:url" />
+      <meta property="og:image" />
+      <meta content="Palantir" property="og:site_name" />
+      <meta property="og:description" />
+    </head>    
+
+
+    <body id="page_op-landing">
+      <div id="site-wrapper"><span id="j_id0:OpenPositionTemplate:j_id2">
+<header id="site-header">
+  
+  <nav class="navbar" role="navigation">
+    
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <h1 class="logo" id="site-name">
+              <a href="/">
+                <div id="logo-svg"><svg height="25" viewBox="0 0 99 25" width="99" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.167 2.56h6.155c2.24 0 3.764.139 5.025 1.548.922.992 1.355 2.302 1.355 3.75 0 1.468-.452 2.738-1.449 3.79-.979 1.012-2.24 1.667-5.552 1.667h-2.974v8.611h-2.541v-19.365h-.019zm2.541 8.492h3.03c1.694 0 4.254-.139 4.254-3.294 0-3.036-2.39-3.036-3.727-3.036h-3.557v6.329z"></path><path d="M44.945 21.944c-.188-.675-.226-1.31-.226-2.024-1.148 2.222-2.88 2.44-3.952 2.44-2.936 0-4.498-1.746-4.498-3.968 0-1.071.358-2.798 2.24-3.948 1.374-.813 3.407-.893 4.423-.893.602 0 .998.02 1.732.079 0-1.667 0-2.401-.452-2.976-.489-.675-1.525-.893-2.221-.893-2.409 0-2.541 1.746-2.579 2.282h-2.39c.075-.694.151-1.647.885-2.56.979-1.131 2.786-1.448 4.122-1.448 1.863 0 3.84.615 4.536 1.984.414.813.433 1.448.433 2.063l-.094 6.448c0 .218.019 2.024.207 3.373h-2.164v.04zm-1.656-6.647c-.96 0-4.611 0-4.611 2.738 0 .853.508 2.341 2.654 2.341 1.223 0 2.146-.516 2.729-1.448.527-.913.565-1.667.602-3.552-.433-.04-.79-.079-1.374-.079z"></path><path d="M49.124 2.56h2.39v19.385h-2.39v-19.385z"></path><path d="M61.828 21.944c-.169-.675-.226-1.31-.226-2.024-1.148 2.222-2.88 2.44-3.952 2.44-2.936 0-4.517-1.746-4.517-3.968 0-1.071.358-2.798 2.24-3.948 1.374-.813 3.407-.893 4.423-.893.602 0 .998.02 1.732.079 0-1.667 0-2.401-.452-2.976-.489-.675-1.525-.893-2.221-.893-2.428 0-2.541 1.746-2.579 2.282h-2.39c.075-.694.151-1.647.885-2.56.96-1.131 2.786-1.448 4.122-1.448 1.863 0 3.84.615 4.536 1.984.414.813.433 1.448.433 2.063l-.094 6.448c0 .218.019 2.024.207 3.373h-2.146v.04zm-1.675-6.647c-.96 0-4.611 0-4.611 2.738 0 .853.508 2.341 2.654 2.341 1.223 0 2.146-.516 2.729-1.448.527-.913.565-1.667.602-3.552-.414-.04-.772-.079-1.374-.079z"></path><path d="M66.025 10.02l-.019-1.567h2.39l.019 2.183c.282-.556 1.186-2.44 4.103-2.44 1.148 0 4.63.456 4.63 4.583v9.147h-2.447v-8.571c0-.893-.094-1.687-.696-2.302-.621-.615-1.449-.913-2.259-.913-1.732 0-3.331 1.31-3.331 4.028v7.758h-2.39v-11.905z"></path><path d="M77.901 8.452h2.259v-2.877l2.371-.813v3.671h2.861v1.845h-2.861v8.036c0 .675 0 1.806 1.713 1.806.489 0 .941-.079 1.148-.139v1.964c-.433.079-1.129.159-1.995.159-2.183 0-3.237-.675-3.237-2.877v-8.909h-2.259v-1.865z"></path><path d="M87.067 2.56h2.88v2.817h-2.88v-2.817zm.263 5.893h2.39v13.472h-2.39v-13.472z"></path><path d="M91.942 11.19c0-.913-.056-1.845-.132-2.738h2.428l.056 2.599c.452-1.885 1.995-2.5 3.049-2.659.715-.099 1.242-.079 1.656-.06v2.46c-.132-.06-.282-.079-.452-.099-.169-.02-.414-.02-.696-.02-2.823 0-3.501 1.766-3.501 4.087v7.163h-2.409v-10.734z"></path><path d="M9.373-.04c-4.95 0-8.978 4.226-8.978 9.464s4.009 9.464 8.978 9.464c4.95 0 8.978-4.226 8.978-9.464s-4.028-9.464-8.978-9.464zm0 16.012c-3.425 0-6.211-2.937-6.211-6.548s2.786-6.548 6.211-6.548c3.425 0 6.211 2.937 6.211 6.548-.019 3.631-2.786 6.548-6.211 6.548zM17.391 18.056l-8.018 3.651-8.037-3.651-1.317 2.698 9.354 4.206 9.354-4.206-1.336-2.698z"></path>
+                  </svg>
+              </div>
+            </a>
+          </h1>
+          <button class="navbar-toggle" data-target="#main-navbar" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      </div>
+      
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;#38;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/engineering-culture/">People</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li class="current-page"><a href="/careers/" title="Open Positions">Open Positions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form action="/search/" class="search" method="get" role="search">
+              <input class="search-input search_field_main" id="main-search-query" maxlength="50" name="q" placeholder="Search Palantir" type="text" />
+              <input class="search-trigger search_submit_main" type="submit" />
+            </form>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+
+</nav>
+</header></span>
+    
+    <div data-image-bg="/build/images/careers/open-positions-detail-hero.jpg" id="hero-wrapper-auto">
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-sm-8 col-sm-offset-2">
+            <h3 style="color:#fff;opacity:0.5;">Business Development</h3>
+            <h1>Deployment Strategist</h1><p>
+We are the front line of Palantir's business. Behind us stand some of the best developers, designers and data scientists in the world. Before us lie the most technically complex, societally important, and morally challenging problems of the twenty-first century. Our job is to find the right problems to solve, find the right ways to solve them, and turn those solutions into reality.
+</p>
+<p>
+We are engineers and implementers, erstwhile web developers, analysts and lawyers; and the world's most important, most trusted organizations come to us for help. Our job is to deliver.
+</p>
+            <p><a class="button button-white button-hover-white button-large" href="/careers/OpenPosApply?id=a0m80000006Wdp4">Apply for this Position</a></p>
+          </article>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="container page_op-detail">
+<form id="j_id0:OpenPositionTemplate:j_id21" name="j_id0:OpenPositionTemplate:j_id21" method="post" action="/careers/OpenPosDetail?id=a0m80000006Wdp4AAC" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_id0:OpenPositionTemplate:j_id21" value="j_id0:OpenPositionTemplate:j_id21" />
+<input type="hidden" name="j_id0:OpenPositionTemplate:j_id21:j_id22" value="Public" /><div id="j_id0:OpenPositionTemplate:j_id21:j_id29"></div>
+</form><span id="ajax-view-state-page-container" style="display: none"><span id="ajax-view-state" style="display: none"><input type="hidden"  id="com.salesforce.visualforce.ViewState" name="com.salesforce.visualforce.ViewState" value="i:P47whNtm4b8mQSm7gmc5+/LLFdg/LTEvMDwbqbYCElOPRPLSmVpnDv3UJqg85u3vvLFdWHgxYLQIW4+smPosFAopqCSjZsWmlmELN5O2tf6PRnEb6xhK98ppqG4FSVlWvVHyNgWbRrkKVuVc0iFqf7hkAHErwi9XeiNNPpKE4tM7439SVUBZiPPAgLDom1qiFs8O/v0Be47ZRcRUR4Mt6hwKVQkodWveVXB1RjTiJgMdV464RG7QYl4aKtChgSOemw0/kakpG+AKWZTxGoRNLZcBV9/u5qZvX4YBKm3Dc16DUOa1z7YOWVIeIPYc7oJCfbyQxViO52mFv/OwozFcWD4IVb26Ww+JUbYuRZp6N3L5UVkzt86MvVIxenDVhb0/Ht41788Q/Y2ptXSwoKfdWbUat4JaNpMMawQps3M0yTzqbwbO+vAMYJejPQwRr+scAjIggFxWz2KxFAD2QWkVavI1ROCHQ0nIA/OOc15+5YR738oW1fvCtD3VR1ZkNHAUyheOfiRpu6ZlYNhI4wQNyr024wTXtN+dg7bGmR5rCC9/BYgoXfuVruUolkLNF8vGt6Oqp8VxRZaHbPXGs7kEAdMsmengYmc5vKqedYVZ0wGf2YUgHPLP4WsXoRy3S56kHq9pfclPTFXk+r0D+rziX3EtiQQOUtQUNkiOMNJutvtRh5BB231hczPPFtX17HlKdCcKunySitLdzigVX19LdRBTdL3Wr5bTy+53BencDF5BTY8dRIwCKRGYdt1uR9MApvFC7cz7rLZ599UeXMvnSzh5vCPUooVWlvthNqkge4SiKlI67COhQ3f/qdX0A39z3WHq9qimIDtCURMl1YhRo+zeCzr6zONmcRiCrnBKxM1Ghez/u8ZAMRUwOBluTpi2ORIuBUg5X+Zbrl3momKEb7YeNmVODJ8yeOZpqweHMOyktVlYVZg5RO0taDWj0DII8yTRDQsHX6HohBjmGb3U3DeQISOAtUC8K4zfE7lRM8QKwFy1j26hZKloUFba5R3hKdookmG0XYQsxB2qu34M7bAG3fd4CswtcLPuUIorCDZNRbDbMdytlEWP/kie/SdomVmNHqMmGHd6NIEBv1ExoB5ua55TVe2fRKST9PdrUht60Q27mR2PE0Ssdef5sjaTA17DiyGbAzCGNyx3EHG3Zt16AacubjEYA7sf0/5llgCYzTyH/l3rstFFHvpUP0ML8sv6J2zugsgwP5rJJKrQSEBdLU29T6J9s7A+3KE20zOTp3BrGdNPf5a+71y9NwtAsAd3kWmG+SogfMgd00f9a6r+1k7zf/eeXP/DXcONLLjz2IxJNRioyytKU+bWJKIkToVO+an0ct4i5eGnPOVvcqKrqKDvZQ5Af6SWqmPYtbvB1dkHajnaxXJRqpwIIuf90Bnj7RAJSTc2dGxzTQNl2BVbSmAo2k8tdu4Fqj5AMe+QG4H/9HnjxLcswdN2CDsnbIRfqxWeJk1+axW8btZWikiKsL3q9IQP34igC8pSF3MLrpb8GobKR363FFQLq2x+2D0s3mKhx3WE0GmDiL3XRzFndf6QIfD7IAnE1IIYB9qXoRXT3NVw6XGVTCFmNUOBnnEejZcHtznoia6lniwQfSzF09OEyt+hdmAian5rUgn64J+VAAU5on9OZAyhq/9GYQLlzl6derSDxPeFfF7pH+G1MsjTg50BK4wzsvMiL/2G1p2Z9nQrpIMqhwokqcQBZ3uBQ8eXD3TJVqnYezdQY9TZWK+6Xtwfdne8QCy1kCfp7g6eX+Ykmlt/eTRf0+FhvflB6pmZYIo2oCd8wEi86pWjZF0mdFGwrWtadjAVghO0G6AbDm3vaXHH3J1eZOIBd3MUbaLNrGmmwN7WLj1qa2TCu+/o7FcBCvS+DnCOnb8jPBfOZ0a7Ts4mhXbdIEiml8TkO83Du35NP/zVW2GHzFnJHLep+WAaYDvOhwJrp1mM0ltwwQzpeFliYeZNBcX/okf1pyfpRPx5OP8g4JP3SJBNOQdP0FOCFUSFi8I8FoaQ7tbr4czruQ7aP1LnLZv2qFGPyMv560POOpLoVZyNy2hLvYuLduKYsCwH0QzMOqjIsoy4iVP/T+cialkDSuHNcqy1lmpOgBRpBbcJyS153prrznGp80SXk04n31Up2ZLXOT9baEcACYNFqnWG6gxgQkWqUUMz4r4a2P4IjxTWqeiJSQxsPNNDwh4mIs8h6sESdIIzI3y6de94idN1cvtAyrOc/hiVAUm+06esv9MvvGHT9Gl4e3cnBUqNbpbdFrZgD1zqg/Bk/43hcQj45mMMtBjA+4aNGWmexLbY6iCjCmDDee0zivxcEoDCZhkgAhIQDyK7NmaXFYorPfBa53IAiJ9dmKx0yZZ9H0jj0hOvBOd2kMCD4ZsCRz2Fi2iM9ppHmnw/VDomr+ioQeq+nO5wgzukOaeKlxpyVtkK/Gb13Sx+HRnUqUdoC/4TrOdt/2nNMPe1h6kSDM4I+LKBYUrCSOgSp/TWVzyeSTLXb8ShcGGjXdmEjtATidQuR873BXoVKg2it5wqch6K8hbRFjNoaFu/EweWIhayBzpwfl/LnXYqqlQknneBh+6XKiKGvkYMHl+BQmSmN4kJnmC6YWk0aWfLelgeILSRhQJctZwDWZ4/6Nmh1FuJSdKvRRk+FbY/zWEB8zcEj08TFA6iY7FGB7F9PDjwYkGiPCW9h8VEPb2AJljAvUNyeL0Zr2nCYivh7I0YfMBMZfvxiJqtl1GH/12+xYfPewL9upp/TPKLOs9T41KdvKPmwU6sWFrL9GkioNmRpcgvBnBQeDoXEhUikzWyj1KlEHSHEnfDtuX4b0WKN2OJSAp94zDYadnconjhd1R2MCZm5l2jbm9vKAWuqABvDLJniAasNWgSu1vsfhDM0T/tWLT2INNf9xdNtes3M66wZg9GOMOdvN2ciwkKNy7zE8tSt7VZLQUXBqXmPRJ9ooJEBdcy01WBrE8qUOipZsfylDeAnaWa21eAQg+e3A05+bDHbvBEPzaE2WuL+tT+TFf46J1+3EMrpEPtgYeO6/rnYQnt+NU/e1Yy5VdPhTS7JWhJXNiR5QdJwAWsdEVTKNBoUJeAQz8R3bTDeWVKfrVLTMZFnoZ7fZr1XZvEjhFEeIRX0Pn0YEStqwQD0McEiPg8rwuVZAvwq+fX3Yt0xvxBg4LsT5v/zZ0Yj4hlmpY1Xw3EtZIyWktn6+YGljysWHgazoHrzuP2oiTNSqDjaQ/d6xOxOG767gvfXWMjc6Sz4BIJOQjJ6mpmmKmFvAJwpBYstFRhXFmJDmPwxoLjtxuE4gMIqHapG43pqL04KTRjRLNK7iOEXFyOGbsA2wGbR1A87ywj+HpfJb5+aQLiD5Hv4EylHNGsI6br524x4aPjbidivH3Ze1+ucGBzDhSoE1LIUmOQfRQNthHibIsiJi2BHdtAUJNEY8QUbk4Vn164/higlXAsVUbt4/0jIpwNslUU5pkQeiOjiULHox2OweoB6xKgq+tTp7HmR/LdKZDAwJlrE0BAdmS73LhXeq3k+yURtnMVPzqVNVlvooU8rw/6MAG/4+jHRghuHluACZn/w1uf4xtbEyZIAZKiUc+IDBCT5RHyXkBm3PVegK+cw7Qb6vtLu7SvSB/go7Kg0Y+0lWjLP17w2esPls1M1NUyZfXEyqMm6MF39coVKFp64Tnfd/z2ktXM8RlxjKuYx2d8WsDiMEuhOFSGPrMH1+O1/W1tlEU0v3xBOPlQGTXWnVako7rPx5CcCwUkg61aI/jjZcpf9/uma3hHounEjen7F3mXF1S8xa2QCE3OwvtHe19JmuokHc9PrGM31LS63q/DwOnKXcxYAQH2aBQhvbKxaWTFsc6OMSw/9HA6XbUqrIpD/VucEj9Gvhy/m1AldiCLMIQJ2HS6o/x5bHNLEnKv8X8Mncws1c1t4PcUjVsdih1R4nZic2r7jbMLv4hx6mpYurpOR/mMKKYLwMlmGHj48lOIwtwEXRDkj/huhq/wtKPwykchSzfdXnjz9HLbbxkZZqzfYC8dJtcVYwlT9r9BmE5YVfBGGys+sycMVUVQK8lZqbhdcQQsVhZIq86JEcQMyYKqJS1i7zsnVfHRVR7/oNBuQpLgzgIcJI5kG+v6f+jOmxL3rqyPGGGtOPSzhUqxgDWxjLhcxrdMb/YIJGVfU1wX5Z5e0E8dnR0KgxryGilrZZJchjahtG3D9KlxjCG8COphUHmQ2Cl/pCvOHoSFM3JAO0MwX9bDO7kuYsSNarqxK2sNIqm+mj9yf/JObUWiktIiJf3VWxOflPD/TGW8Mn6OSy6iFXYj7bL/VfPWs4MDYwH18WCqLONEmd5xV02HEFg2Z7GmqqHXeGmAoRQRBvTQdQztnFyG+5crsB+OeY96zPV92fat9K418IYC19DERvnqrzcTmzAiz7twbLCKulwPtcJu5yQzMTx4GTOf4YeURRCT7qlPFFamzb8Yp6ki4EvNgoXJBnBbUVbe2yN375cFHg5TqnF13X+QpxwVZdSU1wW/idea3IWKdQ5OZd5qlQPPv/27sS9xsexRTcFak9rSDGHgsiwMXetxR8J17eoWxJe9uMT60Za9i+a6FrSkqu/F7khapUlR55lSgMg4OfjWb0vsofV/nB3qURV8bTeVaWyxWxzWQSWVc5SY7FzgMG9TSaug0rt7H2cRtaMrAEdnBAHhgIFoftGxX5b8z81BccJLqKF38HRxvh+BNf3k3mBuh3WvKYPFnOnSkWrKs5P2Ugcqzft04zpfPQm8m9Hwq0V8v74a6rzji+6EHC4BLLAgsjXl2af5k5slllgPXPeZgGD+wrYVz5aGfIvaW5QJLodmKxLyXLZleXdJLasVAsyHxoVK6We/oFqM03Sfz4Gkv6SJpT+ATp2AqQ+/edds38+4T1IuOG5f+aqo0CY4m1JvYgyci6LzPSb9zjnCOHmPxdODEdZvphclXNspK60RG9ic6zk+dTJ/dD21b7yqeZ7Eqt0xnFRHyPlaDyoRZVNm8XwqvKtYqGqle5Iw0J4IKvT72nefwnvL5NcTlH/n3DI/iDJMNZIo6AO/i0Znk5DHzLYacxhmpC4edn+5aOeqdd/G8yW2tvhU0x/9IssWarkHitMUImymkmUT0iGTSRvx8+ZafWzxVV+8hyygqgz+d47r5vC5BktlC4xRR4Cm762M5xTE++PEksmGpHZv72gzp4TZUSq50YvJUOkbWiAwHyP764Pvr2U7OCItXAnAPyfpKt8Bepe3oXh7jAB82kaw3xDdWfgSKSq90R+2zyrLbpshXJtLqXm0N3Z9DMjrzWchMzMsnjYjeNw1lW+yZrXYSpZ5gion3TMNXL/voLkqigJlATWqXPV5fGMkX0NqdRbU/a4GUAVbvcsuG5NF3mld7SmXUP1UJeqiVsmglep9BnfsBYZMv3yqHgveLYTp1SEJ/ip1yjYLn5PSbepM2Mb5ue2IfZ7D37QT+vrfEAzkpmDAvshVOhOUGYK/9EANts4KT0lEtH6u84QerQSxafF5n5hHfOP6/+TGJWLZttMpfmXAv8rUfDfKms5g6kln+WClW/nJnPu69AuyvWBATZ9iH9i8dyDO+wFvnqH+kQsNdbGXdadCkXZrT0c225NSj/2HkNk9He/lKu4M7UOd8HvJxTLPmuUjTdIdCQnhwICcL0sYyAvwH2JtIJSeJPTmwSHkMVBwqrXoiCBczgE/WGYrgX3fV8gyQaVAlQ8l7YtFPoGZSiTww1AbTuP6hczqH2kqvGNEOfqtVwrUVMBPqXj2zE+TH/jf0XKOP6KmgUJPSX9pFHuh/rWz5verj5z15EY/NvXGdXmJvbwD3xTCr5Wq/U3V80LO8LqHRYORHNmhC9DcZ2Rh7ReqL/c8Xgy78s9MIS/X7vpdJR9DOAJgwOG3hyezx7i9RL9iNaeW2EkC6D4JbGibqoTShEEPZYrg95Zv81jl5Fb7sIXAJLOQW2uXGC4aUySwABEh7Uw/fbuYTZOOyEtz7903FabdJiFg3OB6VxfXkR7giRxXHGNCdmdUONdC+rbMRFqLwMwpjlx8wznqL9mA7AybbG7pdC2hhPuSqi/PXG7fY1wPS5xs4vNKzbGre5UkEF36iTOhv+vjoMyI5iQL9OsOKLapmHeqOwhufzPkBVbAJ18EAWghXvO4CLl34Pv6fmPV9R3ZWio2365psSyQzUWpuV/3kcKHJiXs0fnvby79Y4NClSiXl1GSwzWRPGJLcfEMZXsEBHhvxcLr04M4+r6P1sMcFLN1cdSeiudVXO0FKqhDD2PCMJExfQ4ig0PNVwKkbsHD8b/GCQl0513JIaYRfO19fL5wtfzhCGiCdgm75GRsd5XxJkBIQVsd1XcuAzs+xOivuoCmz2u6AP2VvylD5BzbFNSkkdPJz/jKgV3bcnjeCSnqBucnNboJ0D8LlkWBlAWF+WQbLjuKfZAlvhEhjfOM0r6xS1JWKEjoBJpphxN20tADVNlV/1z9CyS6odJCCWrMMkIhWkiG74rxdJyw0NqQYuV4DBWVgussm2yxoZMQNzINPx7a8p7Pr/JyMqXcVHcRiENsrzL8TA+74zeiYbDZQs2rCA/OcBDND9XCnbcvfl8bMIW86xWbFht2Ycqo8VM9umKynD+85ZflhODVGUVqqhgCq0l6HbNDps9LMgY2mzCy9WW8571+mTQsZluB0mZHZfQy57zysusgMkXzGnp6rimKgNL7kkGgmoZZfSSad6P6iCmctsm9qfJmt6SRYiD8k5YcZLA71iRYmgLPntzXARLhMVqWxhbgRuY+Ph2IjTDpXMzuZbP3bZ0NbnDRRQEL4JdnnZsZmnbTKdmpLHp0ZGE6TcLv4Da6YshJf0nf+t6rmHBda4JUdJ4T4JTeoOc2KcFe5EtAGQB5S5R4Aoaa7eKIT8J9FsTquWJPaA5TAbErWmnIvrCXNnhTbKPdD4zsw6DjAWjAhh/7GpDHRyYA2VqtNhoSeEwGw9l25/qpD3Sw98RoXCXTuiCkWqSEMTlH4S5eRlC7LpNC96+FTDiKbuDQaZ2EtZNAkQmulWlm6w21ddvWJU6Cm9l3csqBw+1RhuED58+WjUQhf2uQHN7BGQt1vJEM3zmtbDjXCb6CcHLFHAV2YbD65bYehW/Yruuoaqs1jm3ijxpUAm2qi/mM2i+ROy9c95oBgdCrCuEe8us7G24RzVhaAzu8OEcxZxEjlAjDfjS4hwUdbOBii6q20+7cg3P2Tb5AwdX4Ao7+5Yh6vNke57DNF8Gboid4IILKdOHsBk6K4MZb348vAmEt2o77o3WHTsD9wCvMX0vZ2o0zzVc0erSHgULs15E8ZQlmFI8soR0qNm277MkmDTNlqe0Cj/rtmuLLudYqEVf1ryNS2KHRaF0G7KZdsCtShWSe8PU5YThmURMLcLurPQw22/PsjdRAT20aBZYe67KuQXcWpDKaNDbdRsrjA21jUZzGfHUh+EQkOUq1n5MwyiFG5BSiyB1nDMiY/Gcjs61Z7H5Qjb1TdDx9H2S2gKwVYj18vQwwawWxO/XTk9e1OYY7g8BpMkYKSyWCgMubVyANTvq+eM6qo0LM1D4+9S3grB74dW4x7+HGFWqgs3jPHadYk+Rh/+Xyr5bnHzl+99n3L/bSYf7sXNbrXIQWHEaf/s22RoQpHIEIIsT52wyH2s4Hi2TJY8Y+0IrCo2/Wu6TvuS+/O+KLoeU0v10ANEqb9Ru/2a9d2qZnzzlonmkcdrKbVzPUDSgHHaryYYrq19TaqP/0H2iS9tvS4HCunZXFSXLKyd+ynoANcIIULf5M68BR+hliOEWvySfZ57Tg7pi132AukfoAc8a7PVU1KGqChk2I+VMmfEbfsRB9I9oOEVy/jKDOKJOktvOwOfyEDm8ZDaiaDTJfggCAUNUpsOQkks0pEnc67ic04SWu09WOIyh1b9Wy8ceNZilMUyzwFKs66WEzA5m2LLaB3VhGiA4G+eMzMxabkbIBAbtk7Vh4oCND6amGU5t0Gtqp5iximy6WIB85nI9uskQ+snEmvBQqGp3bnTwmdLXP0fV3Up+4/PZsJ9ddeHihC7FRJbG0LnFxM51ov+ogZqmJpxmgbLdT3B2dc4MYK3uMsx/T+jPRP5D50OhRoTqvsuXcp2Gn8qTD6xpWCHozjONOKV1dtPQM6nOIU7UzTzsmTTtvOdSkUNLtiSHs1Ou0vH0Hmp9Vv9vc2FZjLWXFTEaVSAZxcqDBsH5mLczKhbNS45z61IDqsGmeiDleDeXXfiJCMbPtaGnHISLGZp91AhqxbmPZdu+mO4Iam4tZrNkve4f8rivCZA+rO46UTm0PSNhcagqfIYezh7f06Kq3FI99In8WOU3VxVhu31MgFXNGPNxRtKddIxi6B5+MnuB1Ng7mj2p5cGI9qdcy6nr2PdDYxr1j4n0eROSmSKsX8MdIbf11AwphSzxF193yN+/w/ansn+j3xWxZe4ND8cx5UG7boQCcEBc4N0x28hWp7e8dND6wXjs4gbweFx8PJDeCFRjosojAI4Tx16LBguO1LBHdbSYdyGlPqw16N2AxF2UEexhHFBNRKXNhl5Eaxpy4lzf/MLy53JLXTvr/5uwoVlCdZfZRCde4SAt2k6Mg7J5CPB1etzAWr9/c1DQYt/O8PaywIORei78W1oeTeG0pu5nTWY7uEsfNGkXIHSx5WKe5o8LEdDVK1s6T" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateVersion" name="com.salesforce.visualforce.ViewStateVersion" value="201506251937480200" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateMAC" name="com.salesforce.visualforce.ViewStateMAC" value="ADvjvh2OqNpQmdgQXwlGbkQu9qdC" /></span></span><p>Deployment Strategists at Palantir own the outcomes of all the work we do in Business Development. We begin with a vision: a vision of how software can transform people&#39;s relationship to data at the heart of a problem we care deeply about. We test that vision. Do our partners share it? Can we build what they need quickly enough? Will we be able to deploy it in the right environment, to the right people? Working side by side with our Forward-Deployed Software Engineers, we refine our vision, and then find our way to it: through messy data, through bureaucratic labyrinths, through sandstorms in &quot;data centers&quot; made of tents and suitcases. Whatever it takes, we figure out how to do it.</p>
+
+<p>A team of analysts at a customer site might want training for a tool we&#39;ve built. One of our customers&#39; CEOs might need help convincing another organization to share data. A team of developers might be asking for direction on which of a dozen feature requests they should prioritize this quarter. Or a global financial organization might be on the line, reeling from a recent compliance failure and asking us what we can do to help detect and prevent such behavior in the future. These, and a hundred other everyday scenarios, are where a Deployment Strategist thrives.</p>
+
+<p>This role doesn&#39;t come neatly packaged or defined. You should expect it to change during your time at Palantir, to evolve as our organization evolves and as you do. When we interview Deployment Strategists, we aren&#39;t looking for people with a specific background. We&#39;re looking for people with exceptional analytic ability, creative brilliance, technical aptitude, and a gift for finding the details that matter. Most of all, we&#39;re looking for people who combine a calling to leave the world better than they found it with the resourcefulness necessary to realize that calling, no matter the circumstances.</p>
+
+<p>If that sounds like you, then we&#39;re interested.</p>
+
+<p>We look forward to hearing from you. You can scroll down for more specific examples of roles Deployment Strategists might take on.<br> </p>
+ 
+
+<p style="color: rgb(119, 122, 122); font-size: 15px;"><span style="color: rgb(16, 17, 19); display: block; font-family: blender,helvetica neue,helvetica,arial,sans-serif; font-size: 28px; text-align: center;">PRODUCT OWNER</span></p>
+
+<p>We&#39;re constantly building products at Palantir. Some products are very specific to particular customer workflows—specialized geospatial visualization tools, for example, that might exist as part of a more generic map application. Others, such as a lightweight document reader, are deployed to tens of thousands of our users. All of these products have their roots in a particular customer&#39;s needs, where a team of Deployment Strategists and Forward-Deployed Software Engineers sat down together with our core developers and started work.</p>
+
+<p>Deployment Strategists who gravitate towards product ownership have strong technical skills, compelling creative vision for what software can do, and an instinct for leadership. They apply those skills to leading a team that builds and supports a product: defining requirements, testing new versions, installing and configuring applications, sitting down with users and gathering feedback about what&#39;s working well and what isn&#39;t. They work across organizations and across internal teams, ensuring that we are all aligned on what we are building and why. Ultimately, they are responsible for ensuring that we deliver a product that truly transforms our customers&#39; ability to work with data.</p>
+
+<p style="color: rgb(119, 122, 122); font-size: 15px;"><span style="color: rgb(16, 17, 19); display: block; font-family: blender,helvetica neue,helvetica,arial,sans-serif; font-size: 28px; text-align: center;">PROJECT OWNER</span></p>
+
+<p>Our partnerships with our customers are at the core of what we do. Our customers trust that we are the best in the world at building and delivering enterprise software. They trust that we mean it when we say we can enable collaboration across a worldwide enterprise without sacrificing security, or that in the event of a crisis we will surge the team that supports them just as they surge their own internal team. Fundamentally, our customers—whether they&#39;re looking for a missing child, an insurgent assembling a roadside bomb, or the source of a cyber attack on their network—trust that we care as deeply about their problems as they do.</p>
+
+<p>Deployment Strategists who gravitate towards project ownership are the face of Palantir, and the custodians of that trust. They pair a passion for software with excellent communication skills, an ability to navigate organizational hurdles, and an instinct for putting the right people in the right places. A project owner might spend the morning in meetings with customers to discuss the status of a data integration, the afternoon in a CTO&#39;s office talking about best practices in cyber security, and lunch in between at our headquarters brainstorming with a technical team about the best time to perform an upgrade. Ultimately, they are responsible for the strength of our partnerships: for ensuring that our customers are excited to work with us, and that we are excited to work with our customers.</p>
+
+<p style="color: rgb(119, 122, 122); font-size: 15px;"><span style="color: rgb(16, 17, 19); display: block; font-family: blender,helvetica neue,helvetica,arial,sans-serif; font-size: 28px; text-align: center;">PROCESS OWNER</span></p>
+
+<p>The common thread across all of our work is data—lots of data. Organizations come to us when they no longer know how to make sense of the data they wish to inform their decisions, and while there are always differences, large and small, between different customers&#39; workflows in our software, there are also many areas of overlap.</p>
+
+<p>Deployment Strategists who gravitate towards process ownership are experts in deploying software and making it work for human beings. They are brilliant, articulate, and generally deeply empathetic people. They excel at sitting down with a user and within minutes understanding exactly what he or she is trying to do--and at then synthesizing that understanding into a broader vision of what we can do to help them. That might mean building a new tool, or paring superfluous features out of an existing one. It might mean implementing certain standards in data curation or analysis. It might mean a series of training sessions, or the creation of an entirely new task force. Whatever the solution, they will own it, and will ensure that our customers benefit fully from everything we&#39;ve learned over the last decade of helping humans to navigate data.<br><br><span>Our offices are located in Canberra, Melbourne and Sydney. Please specify a location preference in your cover letter.</span></p>
+      <p class="type-centered apply-button"><a class="button button-large" href="/careers/OpenPosApply?id=a0m80000006Wdp4">Apply for this Position</a></p>
+        
+    </div><span id="j_id0:OpenPositionTemplate:j_id25">
+    
+    <footer class="white border-top no-margin-top" role="contentinfo">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="row">
+          <nav class="col-sm-2 footer-menu" id="products">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav class="col-sm-4 footer-menu" id="uses">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;#38;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="people">
+            <h2><a href="/engineering-culture">People</a></h2>
+            <ul id="menu-people">
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li class="current-page"><a href="/careers/" title="Open Positions">Open Positions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="about">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="ancillary-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/integrations/">Integrations</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div>
+        
+        <div class="row" id="footer-copyright">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2014 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a class="icon-pt-icon-facebook" href="https://www.facebook.com/Palantir"></a></li>
+              <li><a class="icon-pt-icon-twitter" href="https://www.twitter.com/palantirtech"></a></li>
+              <li><a class="icon-pt-icon-gplus" href="https://plus.google.com/106671163751935200511" rel="publisher"></a></li>
+              <li><a class="icon-pt-icon-youtube" href="https://www.youtube.com/user/Palantir"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+  </div>
+
+</footer></span>
+      </div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+<script>
+    window['_fs_debug'] = false;
+    window['_fs_host'] = 'www.fullstory.com';
+    window['_fs_org'] = 'Vcq';
+    (function(m,n,e,t,l,o,g,y){
+      g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+      o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+      y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+      g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+      g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+      ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+    })(window,document,'FS','script','user');
+  </script>
+
+    </body>
+  </html><script type="text/javascript">Sfdc.onReady(function(){
+	SfdcApp && SfdcApp.Visualforce && SfdcApp.Visualforce.VSManager && SfdcApp.Visualforce.VSManager.vfPrepareForms(["j_id0:OpenPositionTemplate:j_id21"]);
+
+});</script>

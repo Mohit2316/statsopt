@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Page Rendered At: 2015-06-29 16:29:24 -0700
+   /\\\\\
+  /\\\///\\\          /\\\\\\\\\\\\\      /\\\\\\\\\     /\\\             /\\\\\\\\\     /\\\\\     /\\\  /\\\\\\\\\\\\\\\  /\\\\\\\\\\\    /\\\\\\\\\
+ /\\\/  \///\\\       \/\\\/////////\\\  /\\\\\\\\\\\\\  \/\\\           /\\\\\\\\\\\\\  \/\\\\\\   \/\\\ \///////\\\/////  \/////\\\///   /\\\///////\\\
+ /\\\      \//\\\      \/\\\       \/\\\ /\\\/////////\\\ \/\\\          /\\\/////////\\\ \/\\\/\\\  \/\\\       \/\\\           \/\\\     \/\\\     \/\\\
+ \/\\\       \/\\\      \/\\\\\\\\\\\\\/ \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\//\\\ \/\\\       \/\\\           \/\\\     \/\\\\\\\\\\\/
+  \//\\\      /\\\       \/\\\/////////   \/\\\\\\\\\\\\\\\ \/\\\         \/\\\\\\\\\\\\\\\ \/\\\\//\\\\/\\\       \/\\\           \/\\\     \/\\\//////\\\
+    \///\\\  /\\\         \/\\\            \/\\\/////////\\\ \/\\\         \/\\\/////////\\\ \/\\\ \//\\\/\\\       \/\\\           \/\\\     \/\\\    \//\\\
+       \///\\\\\/          \/\\\            \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\  \//\\\\\\       \/\\\           \/\\\     \/\\\     \//\\\
+  /\\\   \/////   /\\\      \/\\\            \/\\\       \/\\\ \/\\\\\\\\\\\ \/\\\       \/\\\ \/\\\   \//\\\\\       \/\\\        /\\\\\\\\\\\ \/\\\      \//\\\
+    \//\\\       /\\\        \///             \///        \///  \///////////  \///        \///  \///     \/////        \///        \///////////  \///        \///
+      \//\\\    /\\\
+          \//\\\\\
+-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" sizes="16x16 32x32" type="image/x-icon">
+<title>Turtle Breakout Trading Strategy Simulation | Palantir</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="description" content="Palantir builds software that connects data, technologies, humans and environments.">
+
+<meta name="keywords" content="Palantir, home, data, technology, software, solutions, environments, analysis">
+<link rel="stylesheet" href="/build/css/style.css?v=20150629162924" media="screen">
+<link rel="alternate" type="application/rss+xml"  href="https://palantir.com/feed/index.xml" title="Palantir RSS">
+<!-- Modernizr -->
+<script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/build/js/respond-1.4.2.min.js"></script>
+<link rel="stylesheet" href="/build/css/ie.css?v=20150629162924" media="screen, projection" type="text/css">
+<![endif]-->
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Turtle Breakout Trading Strategy Simulation">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palantir.com/2010/10/turtle-breakout-trading-strategy-simulation">
+
+<meta property="og:image" content="">
+
+<meta property="og:site_name" content="Palantir">
+<meta property="og:description" content="">
+
+
+</head>
+<body id="blog" class="blog-post">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=448433878601301&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="site-wrapper">
+    <!-- Header -->
+    
+<header id="site-header">
+  <!-- Nav: Main -->
+  <nav class="navbar" role="navigation">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <h1 id="site-name" class="logo">
+          <a href="/">
+            <div id="logo-svg">
+              <!--[if gte IE 9]><!-->
+                <svg width="100" height="25" viewBox="0 0 100 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.076 2.98h6.237c2.27 0 3.814.139 5.092 1.548.935.992 1.373 2.302 1.373 3.75 0 1.468-.458 2.738-1.469 3.79-.992 1.012-2.27 1.667-5.626 1.667h-3.013v8.611h-2.575v-19.365h-.019zm2.575 8.492h3.071c1.717 0 4.31-.139 4.31-3.294 0-3.036-2.422-3.036-3.776-3.036h-3.605v6.329z"/><path d="M45.132 22.365c-.191-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.558-1.746-4.558-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.441 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.992-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.193v.04zm-1.678-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.439-.04-.801-.079-1.392-.079z" id="a"/><path d="M49.366 2.98h2.422v19.385h-2.422v-19.385z"/><path d="M62.24 22.365c-.172-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.577-1.746-4.577-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.46 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.973-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.174v.04zm-1.697-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.42-.04-.782-.079-1.392-.079z"/><path d="M66.493 10.44l-.019-1.567h2.422l.019 2.183c.286-.556 1.202-2.44 4.158-2.44 1.163 0 4.692.456 4.692 4.583v9.147h-2.479v-8.571c0-.893-.095-1.687-.706-2.302-.629-.615-1.469-.913-2.289-.913-1.755 0-3.376 1.31-3.376 4.028v7.758h-2.422v-11.905z"/><path d="M78.528 8.873h2.289v-2.877l2.403-.813v3.671h2.899v1.845h-2.899v8.036c0 .675 0 1.806 1.736 1.806.496 0 .954-.079 1.163-.139v1.964c-.439.079-1.144.159-2.022.159-2.212 0-3.28-.675-3.28-2.877v-8.909h-2.289v-1.865z"/><path d="M87.816 2.98h2.918v2.817h-2.918v-2.817zm.267 5.893h2.422v13.472h-2.422v-13.472z"/><path d="M92.755 11.611c0-.913-.057-1.845-.134-2.738h2.46l.057 2.599c.458-1.885 2.022-2.5 3.09-2.659.725-.099 1.259-.079 1.678-.06v2.46c-.134-.06-.286-.079-.458-.099-.172-.02-.42-.02-.706-.02-2.861 0-3.547 1.766-3.547 4.087v7.163h-2.441v-10.734z"/><path d="M9.866-.04c-5.211 0-9.45 4.226-9.45 9.464s4.22 9.464 9.45 9.464c5.211 0 9.45-4.226 9.45-9.464s-4.24-9.464-9.45-9.464zm0 16.012c-3.606 0-6.538-2.937-6.538-6.548s2.932-6.548 6.538-6.548c3.606 0 6.538 2.937 6.538 6.548-.02 3.631-2.932 6.548-6.538 6.548zM18.306 18.056l-8.44 3.651-8.46-3.651-1.387 2.698 9.847 4.206 9.847-4.206-1.407-2.698z"/>
+              <!--<![endif]-->
+              </svg>
+            </div>
+          </a>
+        </h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/careers/">Careers</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form role="search" method="get" class="search" action="/search/">
+              <input id="main-search-query" type="text" name="q" value="" class="search-input search_field_main" maxlength="50" placeholder="Search Palantir">
+              <input type="submit" class="search-trigger search_submit_main">
+            </form>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+</header><!-- /header -->
+
+
+    <div id="hero-wrapper-auto" data-image-bg='["/build/images/blog/blog-hero.jpg", "/build/images/blog/blog-hero@2x.jpg"]'>
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-xs-12">
+            <h1 class="main"><a href="/category/blogs">The Palantir Blog</a></h1>
+          </article>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div id="hero-subnav">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <nav>
+                <ul class="blog-meta transparent">
+                  <li class="blog-meta-date"><span class="icon-pt-icon-time"></span> October 26, 2010</li>
+                  <li class="blog-meta-author"><span class="icon-pt-icon-person"></span> <a href="/author/jcheung">Jimmy</a></li>
+                  
+                  <li class="post_tags">
+                    <span class="icon-pt-icon-tag"></span>
+                    
+                    <span class="tags"><a href="/tag/Chart">Chart</a></span>
+                    
+                    <span class="tags"><a href="/tag/Strategy">Strategy</a></span>
+                    
+                    <span class="tags"><a href="/tag/Custom Metric">Custom Metric</a></span>
+                    
+                  </li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#hero-wrapper-auto -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div id="post-content" class="col-md-offset-1 col-md-7">
+          <h1>Turtle Breakout Trading Strategy Simulation</h1>
+          <h2 id="introduction">Introduction</h2>
+<p>The “turtles” are a group of traders in the 1980s formed by <a href="http://en.wikipedia.org/wiki/Richard_Dennis">Richard  Dennis</a> and <a href="http://en.wikipedia.org/wiki/William_Eckhardt_%28trader%29">William Eckhardt</a> to study whether trading ability is  determined by nature or nurture. The group’s story is covered in many books  such as <a href="http://en.wikipedia.org/wiki/Market_Wizards"><em>Market Wizards</em></a> by <a href="http://en.wikipedia.org/wiki/Jack_D._Schwager"> Jack D. Schwager</a>, <em>Way of the Turtle</em> by  Curtis Faith (an original turtle), and <em>The Complete Turtle Trader</em> by <a href="http://en.wikipedia.org/wiki/Michael_Covel"> Michael W. Covel</a>. The turtle traders were taught a specific breakout trading system, based on <a href="http://en.wikipedia.org/wiki/Technical_analysis">technical analysis</a> and <a href="http://en.wikipedia.org/wiki/Trend_following">trend following</a>, that  used the moving 10, 20 and 55 day high’s and low’s as trade signals combined with volatility adjusted position sizes.</p>
+
+<p>The breakout strategy focuses on detecting when a given instrument is likely to make consistently large gains or declines by tracking the price versus a moving high-low range. For example, if Microsoft’s stock is at $25.05 and broke its last 20 day high of $25.00, then it would be a buy signal. The next time the stock crosses a 10 day low it would be a signal to close the position and sell. The strategy also has a set stop loss limit on all positions. The strategy performs well in a market where there is a steady rise or fall in the price, but does poorly when the prices are range bound and very volatilite.  Poor market conditions tend to trigger stop orders  frequently leading to losing trades.</p>
+
+<p>In the end, many of the turtle traders became very successful traders, which implies that nurture is a key factor in trading ability. The turtle breakout system has likely been improved and modified in various ways, but it is interesting to analyze the original system’s performance on various instruments and time periods. To demonstrate the  flexibility of creating and back-testing strategies in Palantir Finance, we have simulated the main rules of the breakout trading strategy in the platform. The rules  are based on “The Original Turtle Trading Rules”, written by Curtis Faith and can be found as a PDF hosted on various websites (<a href="http://www.google.com/search?q=The+Original+Turtle+Trading+Rules">Google results</a>, the original website no longer hosts the paper.)</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>First, one of the basic metrics required by the strategy is determining the true range. The true range is defined by Faith as the maximum difference between either the high and the low, the high and the previous day’s close, or the previous day’s close and the low. True range is a conservative (wider) measure of the price range of an instrument and basically is one way of measuring price volatility. The strategy uses a 20 day exponential moving average of True Range to smooth out any extreme ranges. You can see the relevant charts in Figure 1.</p>
+
+<p><img title="BreakoutFig1" src="/wp-assets/wp-content/static/pf-analysis-blog/2010/10/BreakoutFig1.png" /><br />
+<em>Figure 1.</em> Chart of the close/high/low price of Microsoft [MSFT], True Range metric [MSFT.TrueRange], and the 20 day exponential moving average [MSFT.TrueRange.ema(20)].</p>
+
+<p>We create the custom metric in “<a href="https://docs.palantir.com/pflc/the-hedgehog-language.html">hedgehog language</a>,” a language specific to Palantir Finance and similar to java, to generate a time series of true range for any given instrument. The “max” function takes two time series arguments and generates a third time series, which consists of the max of the two  inputs. The previous day’s close is calculated by lagging the close time series by one day. Once defined, the custom metric can be referenced anywhere in the platform and on any times series object.</p>
+
+<p><img title="BreakoutFig2" src="/wp-assets/wp-content/static/pf-analysis-blog/2010/10/BreakoutFig2.png" /><br />
+<em>Figure 2.</em> Custom metric - Implementation of the True Range time series.</p>
+
+<h2 id="strategy-details">Strategy Details</h2>
+
+<p>The breakout strategy is set to trade on MSFT stock during the period between 10/9/2005-10/8/2010. The entry day range is set to 20 and the exit day range is set to 10. This means that a position will be entered if the 20 day high or low is crossed and profit will be taken when the 10 day low or high is crossed respectively.</p>
+
+<p>Units of trading and price stops are determined by the <strong>N-value</strong>,  which is the 20 day exponential moving average (EMA) of True Range (as defined above in the custom metric), and may be interpreted as an  average volatility for the last 20 days (unrelated to the 20 entry day  range value). Trading units (N-units) are set to 1% of NAV (Net Asset  Value) divided by N-value. For example, if N was $0.50 and NAV was 1,000,000, then N-unit would be 1%<em>$1,000,000/$0.50 or 20,000 shares. The N-unit formula helps calculate an appropriate trade size or exposure based on the risk of each instrument. For instruments without dollar prices, such as futures, one also needs to  convert N-value to a dollar value per contract for calculating the N-unit. The stop loss logic is set to 2</em>N-value price units for new positions and is stepped 0.5*N-value closer on each position increase. Each position is increased by a N-unit when the price moves in the positions favor by 0.5  N-value. This collection of rules creates a complete system for entering and exiting trades.</p>
+
+<p><em>NOTE</em>: Our implementation uses the default Palantir Finance’s built-in EMA formula, which differs slightly from the “The Original  Turtle Trading Rules”. The turtle version used an equation similar to a modified moving average.  If one wants to use the turtle version of the  EMA, it could easily be built as another custom metric.</p>
+
+<p><img title="BreakoutFig3" src="/wp-assets/wp-content/static/pf-analysis-blog/2010/10/BreakoutFig3.png" /><br />
+<em>Figure 3.</em> Screen shot of the strategy component in Palantir Finance.</p>
+
+<h2 id="strategy-code">Strategy Code</h2>
+
+<p><em>Setup code</em>:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Instrument</span> <span class="n">inst</span> <span class="o">=</span> <span class="n">MSFT</span><span class="o">;</span>
+
+<span class="n">TimeSeries</span> <span class="n">series</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="na">close</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Number</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">currentN</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Number</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">unit</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Number</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">stopPrice</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Number</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">entryPrice</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Number</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">addPrice</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Number</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">pos</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Number</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">currentNAV</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Integer</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">entryDayRange</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-object&quot;</span><span class="o">&gt;</span><span class="n">Integer</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="n">exitDayRange</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span></code></pre></div>
+
+<p><em>Loop code</em>:</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//set our N (volatility) measurement.</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="n">currentN</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="na">TrueRange</span><span class="o">.</span><span class="na">ema</span><span class="o">(</span><span class="mi">20</span><span class="o">).</span><span class="na">valueOn</span><span class="o">(</span><span class="n">now</span><span class="o">);</span>
+
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">currentN</span> <span class="o">!=</span> <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="kc">null</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;)</span>
+<span class="o">{</span>
+<span class="n">currentNAV</span> <span class="o">=</span> <span class="n">portfolio</span><span class="o">().</span><span class="na">valueOn</span><span class="o">(</span><span class="n">now</span><span class="o">);</span>
+
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//set unit size based on (1% of portfolio net asset value)/N</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="n">unit</span> <span class="o">=</span> <span class="n">round</span><span class="o">(</span><span class="n">currentNAV</span><span class="o">*</span><span class="mf">0.01</span><span class="o">/</span><span class="n">currentN</span><span class="o">,</span><span class="mi">0</span><span class="o">);</span>
+
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//get position</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="n">pos</span> <span class="o">=</span> <span class="n">numContracts</span><span class="o">(</span><span class="n">inst</span><span class="o">);</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">pos</span> <span class="o">==</span> <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="kc">null</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;)</span>
+  <span class="o">{</span><span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;}</span>
+
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//&lt;span class=&quot;code-object&quot;&gt;long&lt;/span&gt; position</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;(</span><span class="n">pos</span><span class="o">&amp;</span><span class="n">gt</span><span class="o">;</span><span class="mi">0</span><span class="o">)</span>
+<span class="o">{</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//stop limit</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span> <span class="n">series</span><span class="o">.</span><span class="na">movesBelow</span><span class="o">(</span><span class="n">stopprice</span><span class="o">)</span> <span class="o">)</span>
+    <span class="o">{</span><span class="n">exit</span><span class="o">(</span><span class="n">inst</span><span class="o">);}</span> <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">else</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//exit condition, take profit</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">series</span><span class="o">.</span><span class="na">movesAbove</span><span class="o">(</span><span class="n">inst</span><span class="o">.</span><span class="na">rollingHigh</span><span class="o">(</span><span class="n">exitDayRange</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">Days</span><span class="o">).</span><span class="na">lag</span><span class="o">(</span><span class="mi">1</span><span class="o">)))</span>
+    <span class="o">{</span><span class="n">exit</span><span class="o">(</span><span class="n">inst</span><span class="o">);}</span> <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">else</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//add to &lt;span class=&quot;code-object&quot;&gt;long&lt;/span&gt;</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">series</span><span class="o">.</span><span class="na">movesAbove</span><span class="o">(</span><span class="n">addPrice</span><span class="o">)){</span>
+            <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//add to position, adjust stop price and next add price</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>            <span class="nf">buy</span><span class="o">(</span><span class="n">inst</span><span class="o">,</span><span class="n">unit</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">NUM_CONTRACTS</span><span class="o">);</span>
+            <span class="n">stopPrice</span> <span class="o">+=</span> <span class="n">currentN</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+            <span class="n">addPrice</span> <span class="o">+=</span> <span class="n">currentN</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//&lt;span class=&quot;code-object&quot;&gt;short&lt;/span&gt; position</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">else</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">pos</span><span class="o">&amp;</span><span class="n">lt</span><span class="o">;</span><span class="mi">0</span><span class="o">)</span>
+<span class="o">{</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//&lt;span class=&quot;code-object&quot;&gt;short&lt;/span&gt; stop limit</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span> <span class="n">series</span><span class="o">.</span><span class="na">movesAbove</span><span class="o">(</span><span class="n">stopprice</span><span class="o">)</span> <span class="o">)</span>
+    <span class="o">{</span><span class="n">exit</span><span class="o">(</span><span class="n">inst</span><span class="o">);}</span> <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">else</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//exit condition, take profit</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">series</span><span class="o">.</span><span class="na">movesBelow</span><span class="o">(</span><span class="n">inst</span><span class="o">.</span><span class="na">rollingLow</span><span class="o">(</span><span class="n">exitDayRange</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">Days</span><span class="o">).</span><span class="na">lag</span><span class="o">(</span><span class="mi">1</span><span class="o">)))</span>
+    <span class="o">{</span><span class="n">exit</span><span class="o">(</span><span class="n">inst</span><span class="o">);}</span> <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">else</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//add to &lt;span class=&quot;code-object&quot;&gt;short&lt;/span&gt;</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">series</span><span class="o">.</span><span class="na">movesBelow</span><span class="o">(</span><span class="n">addPrice</span><span class="o">)){</span>
+            <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//sell more, adjust stop, and adjust next add Price</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>            <span class="nf">sell</span><span class="o">(</span><span class="n">inst</span><span class="o">,</span><span class="n">unit</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">NUM_CONTRACTS</span><span class="o">);</span>
+            <span class="n">stopPrice</span> <span class="o">-=</span> <span class="n">currentN</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+            <span class="n">addPrice</span> <span class="o">-=</span> <span class="n">currentN</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">else</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+<span class="o">{</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//intiate &lt;span class=&quot;code-object&quot;&gt;long&lt;/span&gt; position</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">series</span><span class="o">.</span><span class="na">movesAbove</span><span class="o">(</span><span class="n">inst</span><span class="o">.</span><span class="na">rollingHigh</span><span class="o">(</span><span class="n">entryDayRange</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">Days</span><span class="o">).</span><span class="na">lag</span><span class="o">(</span><span class="mi">1</span><span class="o">))){</span>
+            <span class="n">buy</span><span class="o">(</span><span class="n">inst</span><span class="o">,</span><span class="n">unit</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">NUM_CONTRACTS</span><span class="o">);</span>
+            <span class="n">entryPrice</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="na">valueOn</span><span class="o">(</span><span class="n">now</span><span class="o">);</span>
+            <span class="n">addPrice</span> <span class="o">=</span> <span class="n">entryPrice</span> <span class="o">+</span> <span class="n">currentN</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+            <span class="n">stopPrice</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="na">valueOn</span><span class="o">(</span><span class="n">now</span><span class="o">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">currentN</span><span class="o">;</span>
+        <span class="o">}</span>
+  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-comment&quot;</span><span class="o">&gt;</span><span class="c1">//initiate &lt;span class=&quot;code-object&quot;&gt;short&lt;/span&gt; position</span>
+<span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">span</span> <span class="n">class</span><span class="o">=</span><span class="s">&quot;code-keyword&quot;</span><span class="o">&gt;</span><span class="k">if</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">series</span><span class="o">.</span><span class="na">movesBelow</span><span class="o">(</span><span class="n">inst</span><span class="o">.</span><span class="na">rollingLow</span><span class="o">(</span><span class="n">entryDayRange</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">Days</span><span class="o">).</span><span class="na">lag</span><span class="o">(</span><span class="mi">1</span><span class="o">))){</span>
+            <span class="n">sell</span><span class="o">(</span><span class="n">inst</span><span class="o">,</span><span class="n">unit</span><span class="o">,</span><span class="n">Enum</span><span class="o">.</span><span class="na">NUM_CONTRACTS</span><span class="o">);</span>
+            <span class="n">entryPrice</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="na">valueOn</span><span class="o">(</span><span class="n">now</span><span class="o">);</span>
+            <span class="n">addPrice</span> <span class="o">=</span> <span class="n">entryPrice</span> <span class="o">-</span> <span class="n">currentN</span><span class="o">/</span><span class="mi">2</span><span class="o">;</span>
+            <span class="n">stopPrice</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="na">valueOn</span><span class="o">(</span><span class="n">now</span><span class="o">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">currentN</span><span class="o">;</span>
+        <span class="o">}</span>
+<span class="o">}}</span></code></pre></div>
+
+<h2 id="performance-statistics">Performance statistics</h2>
+
+<p>Overall, the strategy performed very well with these settings and had a  gain of +63.69% over the S&amp;P 500 benchmark and had a sharpe ratio of  0.55.  The benchmark can be changed to any instrument or index for comparison.  The breakout strategy made 152 total trades and in Figure 4 you can see the breakdown of profitable and losing matched trades by long or short positions. In Figure 5, you can see on the NAV chart that the strategy was profitable in 2007 and in 2009-2010, and lost money  during the volatile periods of 2008.  With detailed results such as these, you can fine tune the strategy to isolate conditions where the strategy is profitable to improve performance.  The next section on Twiddle will show you how to quickly run multiple scenarios based on a set of parameters.</p>
+
+<p><img title="BreakoutFig4" src="/wp-assets/wp-content/static/pf-analysis-blog/2010/10/BreakoutFig4.png" /><br />
+<em>Figure 4.</em> Strategy statistics - The Palantir platform calculates many useful statistics on the performance of the strategy such as Profit and Loss, Sharpe Ratio, and performance versus a benchmark (S&amp;P 500 [SPX]).</p>
+
+<p><img title="BreakoutFig5" src="/wp-assets/wp-content/static/pf-analysis-blog/2010/10/BreakoutFig5.png" /><br />
+<em>Figure 5.</em> Result Charts - The chart tab also shows a graph of strategy NAV by date and also lines up winning trades (green) and losing trades (red) against the price of the stock or instrument.</p>
+
+<h2 id="twiddle">Twiddle</h2>
+
+<p>Twiddle is another great feature that allows you to quickly run a series of simulations based on a range of parameters. In this example, the twiddle feature calculates the strategy results based on entryDayRange values between 10 to 30, in increments of 5, and exitDayRange values of 6  to 14, in increments of 2, to generate the matrix below.  Based on this analysis, the profit maximized setting for this specific period and strategy combination would be a 15 day entryDayRange value and a 12 or 14 exit day range; however, the additional gains do come with a higher sharpe ratio, meaning that the strategy is riskier.</p>
+
+<p><img title="BreakoutFig6" src="/wp-assets/wp-content/static/pf-analysis-blog/2010/10/BreakoutFig6.png" /><br />
+<em>Figure 6.</em> Twiddle matrix - Each matrix cell represents a strategy simulation using the parameters on the horizontal and vertical axes.</p>
+
+<h2 id="summary-and-joyride">Summary and JoyRide</h2>
+
+<p>As you can see, the Palantir Finance platform makes it very easy to  implement, back-test, and twiddle custom strategies. You can test drive Palantir Finance at <a rel="nofollow" href="https://joyride.pfinance.com/welcome/">https://joyride.pfinance.com/welcome/</a>. The custom metric “TrueRange” and strategy “Breakout” are saved and available to all JoyRide users. With a JoyRide account, you can create your own custom metrics and strategies or just explore any feature on the Palantir Finance platform.</p>
+
+<p><em>NOTE</em>: If you change the instrument MSFT to another stock like GLD (Gold ETF) in the strategy, you may need to disambiguate between different instruments of the same symbol by pressing CTRL-period in the code editor to select the correct instrument.</p>
+
+        </div>
+        <aside id="category-links" class="col-md-offset-1 col-md-3">
+          <h4>Categories</h4>
+          <nav id="blog-category-list">
+  <ul>
+  
+    <li class="blog-category tech"><a href="/category/tech/" name="Tech">Tech</a></li>
+  
+    <li class="blog-category analysis"><a href="/category/analysis/" name="Analysis">Analysis</a></li>
+  
+    <li class="blog-category news-events"><a href="/category/news-events/" name="News &amp; Events">News &amp; Events</a></li>
+  
+    <li class="blog-category philanthropy"><a href="/category/philanthropy/" name="Philanthropy">Philanthropy</a></li>
+  
+    <li class="blog-category pcl"><a href="/category/pcl/" name="P/CL">P/CL</a></li>
+  
+  </ul>
+</nav>
+
+          <h4>Save &amp; Share</h4>
+          
+<nav id="blog-share">
+  <ul>
+    <li><a href="/feed/index.xml" class="button button-small no-arrow"><span class="icon-pt-icon-feed"></span> Subscribe via RSS</a></li>
+    <li><div class="fb-share-button" data-href="https://palantir.com/2010/10/turtle-breakout-trading-strategy-simulation" data-type="button_count"></div></li>
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+  </ul>
+</nav>
+
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="" role="contentinfo">
+
+  <div class="container">
+        <div class="row">
+          <nav id="products" class="col-sm-2 footer-menu">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav id="uses" class="col-sm-4 footer-menu">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="people" class="col-sm-2 footer-menu">
+            <h2><a href="/careers/">Careers</a></h2>
+            <ul id="menu-people" class="">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="about" class="col-sm-2 footer-menu">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav id="ancillary-menu" class="col-sm-2 footer-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/partnerships/">Partnerships</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.row -->
+
+        <div id="footer-copyright" class="row">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2015 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a href="https://www.facebook.com/Palantir" class="icon-pt-icon-facebook"></a></li>
+              <li><a href="https://www.twitter.com/palantirtech" class="icon-pt-icon-twitter"></a></li>
+              <li><a href="https://plus.google.com/106671163751935200511" rel="publisher" class="icon-pt-icon-gplus"></a></li>
+              <li><a href="https://www.github.com/Palantir" class="icon-pt-icon-github"></a></li>
+              <li><a href="https://www.youtube.com/user/Palantir" class="icon-pt-icon-youtube"></a></li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+</footer><!-- /footer -->
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- compiled.min -->
+  <script src="/build/js/compiled.min.js?v=20150629162924"></script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+
+
+  <script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'www.fullstory.com';
+  window['_fs_org'] = 'Vcq';
+  (function(m,n,e,t,l,o,g,y){
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+    g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+  })(window,document,'FS','script','user');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+  <html>
+    <head>
+<script src="/careers/static/111213/js/perf/stub.js" type="text/javascript"></script><script src="/careers/jslibrary/1429195372000/sfdc/SfdcCore.js" type="text/javascript"></script><script src="/careers/static/111213/js/picklist.js" type="text/javascript"></script><script src="/careers/jslibrary/1427810574000/sfdc/VFState.js" type="text/javascript"></script><meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+<meta HTTP-EQUIV="Expires" content="Mon, 01 Jan 1990 12:00:00 GMT" />
+
+      <meta charset="utf-8" />
+      <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+      <link href="/favicon.ico" rel="shortcut icon" sizes="16x16 32x32" type="image/x-icon" />
+      <title>Open Positions | Palantir</title>
+      <meta content="width=device-width,user-scalable=no,initial-scale=1.0" name="viewport" />
+      <meta content="yes" name="apple-mobile-web-app-capable" />
+      <meta name="description" />
+      <link href="/build/css/style.css" media="screen" rel="stylesheet" />
+      <link href="https://palantir.com/feed/index.xml" rel="alternate" title="Palantir RSS" type="application/rss+xml" />
+      
+      <script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+      
+      <script src="/build/js/compiled.min.js"></script>
+      
+      
+      <!--[if lt IE 9]>
+      <script src="/build/js/respond-1.4.2.min.js"></script>
+      <link rel="stylesheet" href="/build/css/ie.css" media="screen, projection" type="text/css">
+      <![endif]-->
+    
+      
+      <meta content="Open Positions" property="og:title" />
+      <meta content="website" property="og:type" />
+      <meta content="https://palantir.com/careers/index.html" property="og:url" />
+      <meta property="og:image" />
+      <meta content="Palantir" property="og:site_name" />
+      <meta property="og:description" />
+    </head>    
+
+
+    <body id="page_op-landing">
+      <div id="site-wrapper"><span id="j_id0:OpenPositionTemplate:j_id2">
+<header id="site-header">
+  
+  <nav class="navbar" role="navigation">
+    
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <h1 class="logo" id="site-name">
+              <a href="/">
+                <div id="logo-svg"><svg height="25" viewBox="0 0 99 25" width="99" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.167 2.56h6.155c2.24 0 3.764.139 5.025 1.548.922.992 1.355 2.302 1.355 3.75 0 1.468-.452 2.738-1.449 3.79-.979 1.012-2.24 1.667-5.552 1.667h-2.974v8.611h-2.541v-19.365h-.019zm2.541 8.492h3.03c1.694 0 4.254-.139 4.254-3.294 0-3.036-2.39-3.036-3.727-3.036h-3.557v6.329z"></path><path d="M44.945 21.944c-.188-.675-.226-1.31-.226-2.024-1.148 2.222-2.88 2.44-3.952 2.44-2.936 0-4.498-1.746-4.498-3.968 0-1.071.358-2.798 2.24-3.948 1.374-.813 3.407-.893 4.423-.893.602 0 .998.02 1.732.079 0-1.667 0-2.401-.452-2.976-.489-.675-1.525-.893-2.221-.893-2.409 0-2.541 1.746-2.579 2.282h-2.39c.075-.694.151-1.647.885-2.56.979-1.131 2.786-1.448 4.122-1.448 1.863 0 3.84.615 4.536 1.984.414.813.433 1.448.433 2.063l-.094 6.448c0 .218.019 2.024.207 3.373h-2.164v.04zm-1.656-6.647c-.96 0-4.611 0-4.611 2.738 0 .853.508 2.341 2.654 2.341 1.223 0 2.146-.516 2.729-1.448.527-.913.565-1.667.602-3.552-.433-.04-.79-.079-1.374-.079z"></path><path d="M49.124 2.56h2.39v19.385h-2.39v-19.385z"></path><path d="M61.828 21.944c-.169-.675-.226-1.31-.226-2.024-1.148 2.222-2.88 2.44-3.952 2.44-2.936 0-4.517-1.746-4.517-3.968 0-1.071.358-2.798 2.24-3.948 1.374-.813 3.407-.893 4.423-.893.602 0 .998.02 1.732.079 0-1.667 0-2.401-.452-2.976-.489-.675-1.525-.893-2.221-.893-2.428 0-2.541 1.746-2.579 2.282h-2.39c.075-.694.151-1.647.885-2.56.96-1.131 2.786-1.448 4.122-1.448 1.863 0 3.84.615 4.536 1.984.414.813.433 1.448.433 2.063l-.094 6.448c0 .218.019 2.024.207 3.373h-2.146v.04zm-1.675-6.647c-.96 0-4.611 0-4.611 2.738 0 .853.508 2.341 2.654 2.341 1.223 0 2.146-.516 2.729-1.448.527-.913.565-1.667.602-3.552-.414-.04-.772-.079-1.374-.079z"></path><path d="M66.025 10.02l-.019-1.567h2.39l.019 2.183c.282-.556 1.186-2.44 4.103-2.44 1.148 0 4.63.456 4.63 4.583v9.147h-2.447v-8.571c0-.893-.094-1.687-.696-2.302-.621-.615-1.449-.913-2.259-.913-1.732 0-3.331 1.31-3.331 4.028v7.758h-2.39v-11.905z"></path><path d="M77.901 8.452h2.259v-2.877l2.371-.813v3.671h2.861v1.845h-2.861v8.036c0 .675 0 1.806 1.713 1.806.489 0 .941-.079 1.148-.139v1.964c-.433.079-1.129.159-1.995.159-2.183 0-3.237-.675-3.237-2.877v-8.909h-2.259v-1.865z"></path><path d="M87.067 2.56h2.88v2.817h-2.88v-2.817zm.263 5.893h2.39v13.472h-2.39v-13.472z"></path><path d="M91.942 11.19c0-.913-.056-1.845-.132-2.738h2.428l.056 2.599c.452-1.885 1.995-2.5 3.049-2.659.715-.099 1.242-.079 1.656-.06v2.46c-.132-.06-.282-.079-.452-.099-.169-.02-.414-.02-.696-.02-2.823 0-3.501 1.766-3.501 4.087v7.163h-2.409v-10.734z"></path><path d="M9.373-.04c-4.95 0-8.978 4.226-8.978 9.464s4.009 9.464 8.978 9.464c4.95 0 8.978-4.226 8.978-9.464s-4.028-9.464-8.978-9.464zm0 16.012c-3.425 0-6.211-2.937-6.211-6.548s2.786-6.548 6.211-6.548c3.425 0 6.211 2.937 6.211 6.548-.019 3.631-2.786 6.548-6.211 6.548zM17.391 18.056l-8.018 3.651-8.037-3.651-1.317 2.698 9.354 4.206 9.354-4.206-1.336-2.698z"></path>
+                  </svg>
+              </div>
+            </a>
+          </h1>
+          <button class="navbar-toggle" data-target="#main-navbar" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      </div>
+      
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;#38;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/engineering-culture/">People</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li class="current-page"><a href="/careers/" title="Open Positions">Open Positions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form action="/search/" class="search" method="get" role="search">
+              <input class="search-input search_field_main" id="main-search-query" maxlength="50" name="q" placeholder="Search Palantir" type="text" />
+              <input class="search-trigger search_submit_main" type="submit" />
+            </form>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+
+</nav>
+</header></span>
+    
+    <div data-image-bg="/build/images/careers/open-positions-detail-hero.jpg" id="hero-wrapper-auto">
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-sm-8 col-sm-offset-2">
+            <h3 style="color:#fff;opacity:0.5;">Recruiting</h3>
+            <h1>Campus Specialist</h1><p>
+The focus of the Recruiting team remains squarely centered on the well-being of our colleagues and their future growth. By delivering the best quality of service we can to them, we ensure their ability to deliver that same quality to the rest of the world. And in demonstrating that quality, we attract new members to the family, day by day.
+</p>
+            <p><a class="button button-white button-hover-white button-large" href="/careers/OpenPosApply?id=a0m80000006WULS">Apply for this Position</a></p>
+          </article>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="container page_op-detail">
+<form id="j_id0:OpenPositionTemplate:j_id21" name="j_id0:OpenPositionTemplate:j_id21" method="post" action="/careers/OpenPosDetail?id=a0m80000006WULSAA4" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_id0:OpenPositionTemplate:j_id21" value="j_id0:OpenPositionTemplate:j_id21" />
+<input type="hidden" name="j_id0:OpenPositionTemplate:j_id21:j_id22" value="Public" /><div id="j_id0:OpenPositionTemplate:j_id21:j_id29"></div>
+</form><span id="ajax-view-state-page-container" style="display: none"><span id="ajax-view-state" style="display: none"><input type="hidden"  id="com.salesforce.visualforce.ViewState" name="com.salesforce.visualforce.ViewState" value="i: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" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateVersion" name="com.salesforce.visualforce.ViewStateVersion" value="201506251937480200" /><input type="hidden"  id="com.salesforce.visualforce.ViewStateMAC" name="com.salesforce.visualforce.ViewStateMAC" value="APphRQNoWfMnWR9dfb5seMWGwmKl" /></span></span><p>The Campus Specialist is responsible for designing, developing and executing high-touch recruiting strategies for Palantir¹s target schools, in partnership with College Recruiters. This person will act as the “face” of Palantir, interfacing directly with students and school stakeholders.</p>
+
+<p><b>Responsibilities:</b></p>
+
+<ul><li>Manage all on-campus events for the schools he/she owns, approximately 5 total schools</li><li>Identify which events/opportunities best align with recruiting strategies</li><li>Register for all events</li><li>Manage all event-related logistics including, but not limited to vendor selection, vendor rate negotiation, venue selection, food ordering, and AV setup</li><li>Vet and recommended travel partners for campus attendees (ie hotels, airlines and transportation options)</li><li>Design and distribute advertising and promotional materials on campus</li><li>Travel to events during the peak travel season (September ­through March)</li><li>Host pre-event syncs for each event</li><li>Manage communications to campus attendees and act as POC for them</li><li>Own all aspects of on-campus interview process</li><li>Direct Intern Program Specialist¹s ordering of swag and collateral for events</li><li>Source and triage candidates from Career Fairs, Tech Talks and other core events</li><li>Partner with Recruiters on sourcing for specialized events</li><li>Network with key professors, student organizations and other faculty contacts</li><li>Create and maintain clear documentation around outcomes from recruiting events</li><li>Meet with Campus Ambassadors during travel season to provide support and guidance</li></ul>
+
+<p><b>Requirements:</b></p>
+
+<ul><li>Passion for College Recruiting</li><li>Strong organization and communication skills</li><li>Outgoing and professional personality</li><li>Ability to travel, approximately 50%</li></ul>
+
+<p><b>Preferred Requirements</b></p>
+
+<ul><li>College Recruiting experience</li><li>Experience building relationships at nationally ranked universities</li><li>Coordination experience</li></ul>
+      <p class="type-centered apply-button"><a class="button button-large" href="/careers/OpenPosApply?id=a0m80000006WULS">Apply for this Position</a></p>
+        
+    </div><span id="j_id0:OpenPositionTemplate:j_id25">
+    
+    <footer class="white border-top no-margin-top" role="contentinfo">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="row">
+          <nav class="col-sm-2 footer-menu" id="products">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav class="col-sm-4 footer-menu" id="uses">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;#38;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="people">
+            <h2><a href="/engineering-culture">People</a></h2>
+            <ul id="menu-people">
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li class="current-page"><a href="/careers/" title="Open Positions">Open Positions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="about">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav class="col-sm-2 footer-menu" id="ancillary-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/integrations/">Integrations</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div>
+        
+        <div class="row" id="footer-copyright">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2014 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a class="icon-pt-icon-facebook" href="https://www.facebook.com/Palantir"></a></li>
+              <li><a class="icon-pt-icon-twitter" href="https://www.twitter.com/palantirtech"></a></li>
+              <li><a class="icon-pt-icon-gplus" href="https://plus.google.com/106671163751935200511" rel="publisher"></a></li>
+              <li><a class="icon-pt-icon-youtube" href="https://www.youtube.com/user/Palantir"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+
+  </div>
+
+</footer></span>
+      </div>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+<script>
+    window['_fs_debug'] = false;
+    window['_fs_host'] = 'www.fullstory.com';
+    window['_fs_org'] = 'Vcq';
+    (function(m,n,e,t,l,o,g,y){
+      g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+      o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+      y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+      g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+      g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+      ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+    })(window,document,'FS','script','user');
+  </script>
+
+    </body>
+  </html><script type="text/javascript">Sfdc.onReady(function(){
+	SfdcApp && SfdcApp.Visualforce && SfdcApp.Visualforce.VSManager && SfdcApp.Visualforce.VSManager.vfPrepareForms(["j_id0:OpenPositionTemplate:j_id21"]);
+
+});</script>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:lifeOnEarth xmlns:tns="http://www.palantirtech.com/schema/examples/lifeOnEarth" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.palantirtech.com/schema/examples/lifeOnEarth lifeOnEarth.xsd ">
+  <tns:domain name='Eukaryota'>
+    <tns:kingdom name='Animaliia'>
+      <tns:phylum name='Chordata'>
+        <tns:class name='Mammalia'>
+          <tns:order name='Primates'>
+            <tns:family name='Hominidae'>
+             <tns:genus name="Pan">
+             <tns:species commonName="Chimpanzee" name="P. troglodytes"/>
+                          <tns:species commonName="Bonobo" name="P. paniscus"/>
+             </tns:genus>
+              <tns:genus name='Homo'>
+                <tns:species name='H. Sapiens' commonName="Human"/>
+                                <tns:species name='H. Erectus' commonName="Upright Man"/>
+                                                                <tns:species name='H. neanderthalensis' commonName="Neanderthal Man"/>
+              </tns:genus>
+            </tns:family>
+          </tns:order>
+        </tns:class>
+      </tns:phylum>
+      <tns:phylum name='Arthopoda'>
+        <tns:class name='Insect'>
+          <tns:order name='Diptera'>
+            <tns:family name='Drosophilidae'>
+              <tns:genus name='Drosophila'>
+                <tns:species name='D. melanogaster' commonName="Fruit Fly"/>
+              </tns:genus>
+            </tns:family>
+          </tns:order>
+        </tns:class>
+      </tns:phylum>
+    </tns:kingdom>
+    <tns:kingdom name='Plantae'>
+      <tns:division name='Magnoliophyta'>
+        <tns:class name='Magnoliopsida'>
+          <tns:order name='Fabales'>
+            <tns:family name='Fabaceae'>
+              <tns:genus name='Pisum'>
+                <tns:species name='P. sativum' commonName="Pea"/>
+              </tns:genus>
+            </tns:family>
+          </tns:order>
+        </tns:class>
+    </tns:division>
+  </tns:kingdom>
+      <tns:kingdom name='Fungi'>
+      <tns:phylum name='Basidiomycota'>
+        <tns:class name='Homobasidiomycetae'>
+          <tns:order name='Agaricales'>
+            <tns:family name='Amanitaceae'>
+              <tns:genus name='Amanita'>
+                <tns:species name='A. muscaria' commonName="Fly Agaric"/>
+              </tns:genus>
+            </tns:family>
+          </tns:order>
+        </tns:class>
+      </tns:phylum>
+  </tns:kingdom>
+</tns:domain>
+ <tns:domain name='Bacteria'>
+    <tns:kingdom name='Monera'>
+      <tns:phylum name='Proteobacteria'>
+        <tns:class name='Proteobacteria'>
+          <tns:order name='Enterobacteriales'>
+            <tns:family name='Enterobacteriaceae'>
+              <tns:genus name='Escherichia'>
+                <tns:species name='E. coli' commonName="E. coli"/>
+              </tns:genus>
+            </tns:family>
+          </tns:order>
+        </tns:class>
+      </tns:phylum>
+      </tns:kingdom>
+      </tns:domain>
+</tns:lifeOnEarth>

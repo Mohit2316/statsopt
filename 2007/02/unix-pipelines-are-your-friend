@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Page Rendered At: 2015-06-29 16:29:24 -0700
+   /\\\\\
+  /\\\///\\\          /\\\\\\\\\\\\\      /\\\\\\\\\     /\\\             /\\\\\\\\\     /\\\\\     /\\\  /\\\\\\\\\\\\\\\  /\\\\\\\\\\\    /\\\\\\\\\
+ /\\\/  \///\\\       \/\\\/////////\\\  /\\\\\\\\\\\\\  \/\\\           /\\\\\\\\\\\\\  \/\\\\\\   \/\\\ \///////\\\/////  \/////\\\///   /\\\///////\\\
+ /\\\      \//\\\      \/\\\       \/\\\ /\\\/////////\\\ \/\\\          /\\\/////////\\\ \/\\\/\\\  \/\\\       \/\\\           \/\\\     \/\\\     \/\\\
+ \/\\\       \/\\\      \/\\\\\\\\\\\\\/ \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\//\\\ \/\\\       \/\\\           \/\\\     \/\\\\\\\\\\\/
+  \//\\\      /\\\       \/\\\/////////   \/\\\\\\\\\\\\\\\ \/\\\         \/\\\\\\\\\\\\\\\ \/\\\\//\\\\/\\\       \/\\\           \/\\\     \/\\\//////\\\
+    \///\\\  /\\\         \/\\\            \/\\\/////////\\\ \/\\\         \/\\\/////////\\\ \/\\\ \//\\\/\\\       \/\\\           \/\\\     \/\\\    \//\\\
+       \///\\\\\/          \/\\\            \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\  \//\\\\\\       \/\\\           \/\\\     \/\\\     \//\\\
+  /\\\   \/////   /\\\      \/\\\            \/\\\       \/\\\ \/\\\\\\\\\\\ \/\\\       \/\\\ \/\\\   \//\\\\\       \/\\\        /\\\\\\\\\\\ \/\\\      \//\\\
+    \//\\\       /\\\        \///             \///        \///  \///////////  \///        \///  \///     \/////        \///        \///////////  \///        \///
+      \//\\\    /\\\
+          \//\\\\\
+-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" sizes="16x16 32x32" type="image/x-icon">
+<title>Pipes: using unix pipelines for beautiful answers to quick and dirty questions | Palantir</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="description" content="Palantir builds software that connects data, technologies, humans and environments.">
+
+<meta name="keywords" content="Palantir, home, data, technology, software, solutions, environments, analysis">
+<link rel="stylesheet" href="/build/css/style.css?v=20150629162924" media="screen">
+<link rel="alternate" type="application/rss+xml"  href="https://palantir.com/feed/index.xml" title="Palantir RSS">
+<!-- Modernizr -->
+<script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/build/js/respond-1.4.2.min.js"></script>
+<link rel="stylesheet" href="/build/css/ie.css?v=20150629162924" media="screen, projection" type="text/css">
+<![endif]-->
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Pipes: using unix pipelines for beautiful answers to quick and dirty questions">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palantir.com/2007/02/unix-pipelines-are-your-friend">
+
+<meta property="og:image" content="">
+
+<meta property="og:site_name" content="Palantir">
+<meta property="og:description" content="">
+
+
+</head>
+<body id="blog" class="blog-post">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=448433878601301&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="site-wrapper">
+    <!-- Header -->
+    
+<header id="site-header">
+  <!-- Nav: Main -->
+  <nav class="navbar" role="navigation">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <h1 id="site-name" class="logo">
+          <a href="/">
+            <div id="logo-svg">
+              <!--[if gte IE 9]><!-->
+                <svg width="100" height="25" viewBox="0 0 100 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.076 2.98h6.237c2.27 0 3.814.139 5.092 1.548.935.992 1.373 2.302 1.373 3.75 0 1.468-.458 2.738-1.469 3.79-.992 1.012-2.27 1.667-5.626 1.667h-3.013v8.611h-2.575v-19.365h-.019zm2.575 8.492h3.071c1.717 0 4.31-.139 4.31-3.294 0-3.036-2.422-3.036-3.776-3.036h-3.605v6.329z"/><path d="M45.132 22.365c-.191-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.558-1.746-4.558-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.441 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.992-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.193v.04zm-1.678-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.439-.04-.801-.079-1.392-.079z" id="a"/><path d="M49.366 2.98h2.422v19.385h-2.422v-19.385z"/><path d="M62.24 22.365c-.172-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.577-1.746-4.577-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.46 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.973-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.174v.04zm-1.697-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.42-.04-.782-.079-1.392-.079z"/><path d="M66.493 10.44l-.019-1.567h2.422l.019 2.183c.286-.556 1.202-2.44 4.158-2.44 1.163 0 4.692.456 4.692 4.583v9.147h-2.479v-8.571c0-.893-.095-1.687-.706-2.302-.629-.615-1.469-.913-2.289-.913-1.755 0-3.376 1.31-3.376 4.028v7.758h-2.422v-11.905z"/><path d="M78.528 8.873h2.289v-2.877l2.403-.813v3.671h2.899v1.845h-2.899v8.036c0 .675 0 1.806 1.736 1.806.496 0 .954-.079 1.163-.139v1.964c-.439.079-1.144.159-2.022.159-2.212 0-3.28-.675-3.28-2.877v-8.909h-2.289v-1.865z"/><path d="M87.816 2.98h2.918v2.817h-2.918v-2.817zm.267 5.893h2.422v13.472h-2.422v-13.472z"/><path d="M92.755 11.611c0-.913-.057-1.845-.134-2.738h2.46l.057 2.599c.458-1.885 2.022-2.5 3.09-2.659.725-.099 1.259-.079 1.678-.06v2.46c-.134-.06-.286-.079-.458-.099-.172-.02-.42-.02-.706-.02-2.861 0-3.547 1.766-3.547 4.087v7.163h-2.441v-10.734z"/><path d="M9.866-.04c-5.211 0-9.45 4.226-9.45 9.464s4.22 9.464 9.45 9.464c5.211 0 9.45-4.226 9.45-9.464s-4.24-9.464-9.45-9.464zm0 16.012c-3.606 0-6.538-2.937-6.538-6.548s2.932-6.548 6.538-6.548c3.606 0 6.538 2.937 6.538 6.548-.02 3.631-2.932 6.548-6.538 6.548zM18.306 18.056l-8.44 3.651-8.46-3.651-1.387 2.698 9.847 4.206 9.847-4.206-1.407-2.698z"/>
+              <!--<![endif]-->
+              </svg>
+            </div>
+          </a>
+        </h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/careers/">Careers</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form role="search" method="get" class="search" action="/search/">
+              <input id="main-search-query" type="text" name="q" value="" class="search-input search_field_main" maxlength="50" placeholder="Search Palantir">
+              <input type="submit" class="search-trigger search_submit_main">
+            </form>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+</header><!-- /header -->
+
+
+    <div id="hero-wrapper-auto" data-image-bg='["/build/images/blog/blog-hero.jpg", "/build/images/blog/blog-hero@2x.jpg"]'>
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-xs-12">
+            <h1 class="main"><a href="/category/blogs">The Palantir Blog</a></h1>
+          </article>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div id="hero-subnav">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <nav>
+                <ul class="blog-meta transparent">
+                  <li class="blog-meta-date"><span class="icon-pt-icon-time"></span> February 7, 2007</li>
+                  <li class="blog-meta-author"><span class="icon-pt-icon-person"></span> <a href="/author/regs">Ari Gesher</a></li>
+                  
+                  <li class="post_tags">
+                    <span class="icon-pt-icon-tag"></span>
+                    
+                    <span class="tags"><a href="/tag/coding">coding</a></span>
+                    
+                    <span class="tags"><a href="/tag/development process">development process</a></span>
+                    
+                  </li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#hero-wrapper-auto -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div id="post-content" class="col-md-offset-1 col-md-7">
+          <h1>Pipes: using unix pipelines for beautiful answers to quick and dirty questions</h1>
+          <p><img src="http://sunsite.unc.edu/Dave/Dr-Fun/df9707/df970723.jpg" alt="/loony/bin" /><br />
+As we approach a release at Palantir we usually cut to a stable branch that QA can start testing as a release candidate.  Further bug fixing and testing may continue on trunk by the developers, but we code review changes before committing them to the stable branch.  As the time to really cut the release gets truly imminent we start asking questions like:</p>
+
+<p><em>What changes are on trunk that are <strong>not</strong> in the stable branch?</em></p>
+
+<p>We’re less concerned with what the changes are and more concerned with who owns the changes.  What really want to know is:</p>
+
+<p><em>Do the changes on trunk represent pending changes that should be moved to stable or are they further development that shouldn’t be put into the stable branch for this release?</em></p>
+
+<p>For the most part, the person that can answer that question is the coder who made the changes on trunk.  To that end, what we really would love to have would be a report of all files in trunk that differ from the stable branch and who last touched the file.  There isn’t really an svn command that will do this succintly, so I started thinking about how to accomplish this.  I had an inkling that it could be all solved with a single Unix pipeline and so I set out on my way to craft such a beast.  Here’s what I came up with in about ten minutes:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for</span> name in <span class="sb">`</span>diff -r --brief --exclude<span class="o">=</span>.svn pgstable/src pgtrunk/src  <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span> <span class="p">|</span> grep pgtrunk <span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nv">author</span><span class="o">=</span><span class="sb">`</span>svn info <span class="nv">$name</span> <span class="p">|</span> grep -E <span class="s2">&quot;Last Changed Author&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span><span class="sb">`</span><span class="p">;</span>  
+    <span class="nb">echo</span> <span class="nv">$author</span>    <span class="nv">$name</span><span class="p">;</span>
+<span class="k">done</span> <span class="p">|</span> sort <span class="p">|</span> sed <span class="s1">&#39;s/pgtrunk\/src\///&#39;</span> &gt; difflist.txt</code></pre></div>
+
+<p>Which produces output that looks like this:</p>
+
+<blockquote>
+  <p>gbush com/palantir/foo/Bar.java</p>
+
+  <p>bclinton com/palantir/baz/Fargle.java</p>
+</blockquote>
+
+<p>How did I come up with such a beast?  I deconstruct this inscrutable wonder after the jump.</p>
+
+<p><a id="more"></a><a id="more-30"></a></p>
+
+<p>The first question that I’ll answer is: how do I know how to do this?  I spend the vast majority of my days writing backend Java code for one of our enterprise products but it wasn’t always that way.  In my last job before coming to Palantir, I was working as a senior systems administrator and my work email address was root@sourceforge.net.  <a href="http://sourceforge.net/">SourceForge.net</a> is a complex site with a lot of Linux automation going on behind the scenes, and during the three years I was responsible for the infrastructure, I wrote a lot of <a href="http://heirloom.sourceforge.net/sh/sh.1.html">sh</a> scripts (which, of course, on Linux, is technically <a href="http://www.gnu.org/software/bash/manual/bashref.html">bash</a>).</p>
+
+<p>For those not familiar with Unix pipes, a <a href="http://www.cf.ac.uk/psych/CullingJ/pipes.html">quick overview is available here</a> and the <a href="http://en.wikipedia.org/wiki/Pipeline_(Unix)">Wikipedia entry “Pipeline (Unix)”</a> is also not a bad place to start.</p>
+
+<p>So we start with this snippet:</p>
+
+<pre class="console">
+`diff -r --brief --exclude=.svn pgstable/src pgtrunk/src  | awk '{print $4}' | grep pgtrunk `
+</pre>
+
+<p>First note that this three command pipeline is enclosed in backticks (that key that’s usually below the escape key on your keyboard that also has a ~ on it).  In shell programming, this means, <em>“execute this command in  a subshell and substitute the subshells output here.”</em></p>
+
+<p>The first command is <code>diff -r --brief --exclude=.svn pgstable/src pgtrunk/src</code>.  This is command that actually does the diff.  (Yes, diff will compute the differences between two directory trees). It produces output that looks like this:</p>
+
+<blockquote>
+  <p>Files pgstable/src/com/palantir/foo/Bar.java and pgtrunk/src/com/palantir/foo/Bar.java differ</p>
+
+  <p>Files pgstable/src/com/palantir/baz/Fargle.java and pgtrunk/src/com/palantir/baz/Fargle.java differ</p>
+
+  <p>Only in pgtrunk/src/com/palanrit/foo: NewFile.java</p>
+</blockquote>
+
+<p>We then pipe this through <a href="http://www.gnu.org/software/gawk/manual/gawk.html#Getting-Started">awk</a>, asking awk to only print the fourth field on the line, where fields are defined by the default delimiters of whitespace characters.</p>
+
+<p>At this point, we would have output that looks like this:</p>
+
+<blockquote>
+  <p>pgtrunk/src/com/palantir/foo/Bar.java</p>
+
+  <p>pgtrunk/src/com/palantir/baz/Fargle.java</p>
+
+  <p>NewFile.java</p>
+</blockquote>
+
+<p>We pipe this through grep and keep only the lines that match <em>pgtrunk</em> to filter out the new file case.  We’re left with:</p>
+
+<blockquote>
+  <p>pgtrunk/src/com/palantir/foo/Bar.java</p>
+
+  <p>pgtrunk/src/com/palantir/baz/Fargle.java</p>
+</blockquote>
+
+<p>You’ll note a caveat for would be cut and pasters: we’re ignoring the new file case.  Any new file in trunk and not in stable is not going to show up here.  This is one place where this quick script is not comprehensive, but it was sufficient for our needs at the time so I didn’t jump through the hoops to deal with that case.</p>
+
+<p>So let’s expand our focus a bit to this snippet:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">for</span> name in <span class="sb">`</span>diff -r --brief --exclude<span class="o">=</span>.svn pgstable/src pgtrunk/src  <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span> <span class="p">|</span> grep pgtrunk <span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
+...
+<span class="k">done</span></code></pre></div>
+
+<p>You can see that we’re that the output of that first pipeline was substituted into a looping construct.  The <code>for name in _wordlist_; do ... done</code> construct allows you to loop over a list of words that delimited by whitepace.  In this case, it’s the the line-oriented output for the first pipeline, but it could also be a typed list of words.  The shell will substitute each word in <code>_wordlist_</code> into the shell variable <code>$name</code> and then execute the list of commands between the keywords <code>do</code> and <code>done</code>.</p>
+
+<p>The inner portion of the loop looks like this:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">author</span><span class="o">=</span><span class="sb">`</span>svn info <span class="nv">$name</span> <span class="p">|</span> grep -E <span class="s2">&quot;Last Changed Author&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $4}&#39;</span><span class="sb">`</span><span class="p">;</span>
+<span class="nb">echo</span> <span class="nv">$author</span>    <span class="nv">$name</span><span class="p">;</span></code></pre></div>
+
+<p>The first line sets the shell variables <code>$author</code>.  The three command pipelines is parsing the output of <code>svn info</code> into a particular value and then using backtick substitution to set put the value into a variable.  The output of svn info for a particular path looks like this:</p>
+
+<blockquote>
+  <p>Path: src/com/palantir/foo/Bar.java</p>
+
+  <p>URL: svn://svn/Trunk/</p>
+
+  <p>Revision: 14860</p>
+
+  <p>Last Changed Author: gbush</p>
+
+  <p>Last Changed Rev: 14860</p>
+
+  <p>Last Changed Date: 2006-10-10 00:39:53 -0700 (Tue, 10 Oct 2006)</p>
+</blockquote>
+
+<p>So the pipeline is pulling out the username of the last committer on trunk for the path in <code>$name</code> and placing the value into <code>$author</code>.</p>
+
+<p>Finally, we echo out that information on a single line, author first, path second, like this:</p>
+
+<blockquote>
+  <p>gbush    pgtrunk/src/com/palantir/foo/Bar.java</p>
+</blockquote>
+
+<p>And finally the, whole shebang is run through this command:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sort <span class="p">|</span> sed <span class="s1">&#39;s/pgtrunk\/src\///&#39;</span></code></pre></div>
+
+<p><code>sort</code> will sort the output. Since we have put the usernames first on the line, this has the upshot of clustering all changes by username, giving each developer an easy-to-consult section in the email that gets sent out.  The <a href="http://www.gnu.org/software/sed/manual/html_chapter/sed_toc.html">sed</a> command is doing a regular expression search-and-replace that essentially strips out the leading part of the path, giving us just the raw relative path (to make the report easier to read). (Note that the backslashes in the regular expression replace pattern are there to escape the path elements of <code>/</code>, which are also used as delimiters in the replacement expression; in plain English, the <code>sed 's/pgtrunk/src///'</code> expression reads: <em>replace the first occurrence of <strong>pgtrunk/src</strong> on every line with nothing</em>.</p>
+
+<p>Finally, <code>&gt; difflist.txt</code> directs all output from the script into a file named <strong>difflist.txt</strong>.</p>
+
+<p>I then used this to compose an email to the team, and soon stable and trunk were as in sync as they ever were going to be.  And thus ends another exciting game of Clusenix.</p>
+
+<p><img src="http://www.ibiblio.org/Dave/Dr-Fun/df9707/df970710.jpg" alt="Dr. Fun Clusenix Comic" /></p>
+
+        </div>
+        <aside id="category-links" class="col-md-offset-1 col-md-3">
+          <h4>Categories</h4>
+          <nav id="blog-category-list">
+  <ul>
+  
+    <li class="blog-category tech"><a href="/category/tech/" name="Tech">Tech</a></li>
+  
+    <li class="blog-category analysis"><a href="/category/analysis/" name="Analysis">Analysis</a></li>
+  
+    <li class="blog-category news-events"><a href="/category/news-events/" name="News &amp; Events">News &amp; Events</a></li>
+  
+    <li class="blog-category philanthropy"><a href="/category/philanthropy/" name="Philanthropy">Philanthropy</a></li>
+  
+    <li class="blog-category pcl"><a href="/category/pcl/" name="P/CL">P/CL</a></li>
+  
+  </ul>
+</nav>
+
+          <h4>Save &amp; Share</h4>
+          
+<nav id="blog-share">
+  <ul>
+    <li><a href="/feed/index.xml" class="button button-small no-arrow"><span class="icon-pt-icon-feed"></span> Subscribe via RSS</a></li>
+    <li><div class="fb-share-button" data-href="https://palantir.com/2007/02/unix-pipelines-are-your-friend" data-type="button_count"></div></li>
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+  </ul>
+</nav>
+
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="patterned" role="contentinfo">
+
+  <div class="container">
+        <div class="row">
+          <nav id="products" class="col-sm-2 footer-menu">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav id="uses" class="col-sm-4 footer-menu">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="people" class="col-sm-2 footer-menu">
+            <h2><a href="/careers/">Careers</a></h2>
+            <ul id="menu-people" class="">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="about" class="col-sm-2 footer-menu">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav id="ancillary-menu" class="col-sm-2 footer-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/partnerships/">Partnerships</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.row -->
+
+        <div id="footer-copyright" class="row">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2015 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a href="https://www.facebook.com/Palantir" class="icon-pt-icon-facebook"></a></li>
+              <li><a href="https://www.twitter.com/palantirtech" class="icon-pt-icon-twitter"></a></li>
+              <li><a href="https://plus.google.com/106671163751935200511" rel="publisher" class="icon-pt-icon-gplus"></a></li>
+              <li><a href="https://www.github.com/Palantir" class="icon-pt-icon-github"></a></li>
+              <li><a href="https://www.youtube.com/user/Palantir" class="icon-pt-icon-youtube"></a></li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+</footer><!-- /footer -->
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- compiled.min -->
+  <script src="/build/js/compiled.min.js?v=20150629162924"></script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+
+
+  <script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'www.fullstory.com';
+  window['_fs_org'] = 'Vcq';
+  (function(m,n,e,t,l,o,g,y){
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+    g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+  })(window,document,'FS','script','user');
+</script>
+
+</body>
+</html>

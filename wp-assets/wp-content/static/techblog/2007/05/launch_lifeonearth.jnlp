@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File -->
+<jnlp
+  spec="1.0+"
+  codebase="http://blog.palantirtech.com/wp-content/uploads/2007/05"
+  href="launch_lifeonearth.jnlp">
+  <information>
+    <title>Life On Earth XML Pull Parsing Demo</title>
+    <vendor>Palantir</vendor>
+    <description>An introduction to coding XML Pull Parser-based XML processors.</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="lifeonearth.jar"/>
+  </resources>
+  <application-desc main-class="com.palantir.opensource.blog.xmlPullParsing.LifeOnEarthXMLParser"/>
+</jnlp>
+

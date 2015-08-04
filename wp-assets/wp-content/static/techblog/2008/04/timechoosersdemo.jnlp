@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+"
+  codebase="http://blog.palantirtech.com/wp-content/uploads/2008/04/"
+>
+<information>
+  <title>Time Choosers Demo</title>
+  <homepage href="http://www.palantirtech.com" />
+  <vendor>Palantir Technologies, Inc.</vendor>
+  <description>Demonstration of Time Choosers</description>
+</information>
+<offline-allowed/>
+<resources>
+  <j2se version="1.5+" />
+  <jar href="http://blog.palantirtech.com/wp-content/uploads/2008/04/timechoosers.jar"/>
+</resources>
+<application-desc main-class="com.palantir.TimeChoosersFrame" />
+</jnlp>

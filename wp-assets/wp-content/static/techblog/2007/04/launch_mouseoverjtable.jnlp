@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File -->
+<jnlp
+  spec="1.0+"
+  codebase="http://blog.palantirtech.com/wp-content/uploads/2007/04"
+  href="launch_mouseoverjtable.jnlp">
+  <information>
+    <title>MouseOver JTable Example</title>
+    <vendor>Palantir</vendor>
+    <description>A simple MouseOver JTable</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="mouseoverjtable.jar"/>
+  </resources>
+  <application-desc main-class="com.palantir.MouseoverJTable"/>
+</jnlp>
+

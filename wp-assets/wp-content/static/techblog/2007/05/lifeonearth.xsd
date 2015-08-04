@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.palantirtech.com/schema/examples/lifeOnEarth"
+            xmlns:tns="http://www.palantirtech.com/schema/examples/lifeOnEarth"
+            elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation>This schema is based on alpha taxonomy, he science of describing, categorising and naming organisms.  For a good overview, see http://en.wikipedia.org/wiki/Taxon</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType name="lifeOnEarth">
+        <xsd:sequence>
+            <xsd:element name="domain" type="tns:domain" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="species">
+        <xsd:attribute name="commonName" type="xsd:string"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="genus">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="species" type="tns:species" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="family">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="genus" type="tns:genus" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="order">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="family" type="tns:family" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="class">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="order" maxOccurs="unbounded" type="tns:order"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="phylum">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="class" type="tns:class" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="division">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="class" type="tns:class" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="kingdom">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            <xsd:element name="phylum" type="tns:phylum"></xsd:element>
+            <xsd:element name="division" type="tns:division"></xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:complexType name="domain">
+        <xsd:sequence minOccurs="0">
+            <xsd:element name="kingdom" type="tns:kingdom" maxOccurs="unbounded"></xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+    </xsd:complexType>
+    <xsd:element name="lifeOnEarth" type="tns:lifeOnEarth"></xsd:element>
+</xsd:schema>

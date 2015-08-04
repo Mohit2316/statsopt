@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <!-- Page Rendered At: 2015-06-29 16:29:24 -0700
+   /\\\\\
+  /\\\///\\\          /\\\\\\\\\\\\\      /\\\\\\\\\     /\\\             /\\\\\\\\\     /\\\\\     /\\\  /\\\\\\\\\\\\\\\  /\\\\\\\\\\\    /\\\\\\\\\
+ /\\\/  \///\\\       \/\\\/////////\\\  /\\\\\\\\\\\\\  \/\\\           /\\\\\\\\\\\\\  \/\\\\\\   \/\\\ \///////\\\/////  \/////\\\///   /\\\///////\\\
+ /\\\      \//\\\      \/\\\       \/\\\ /\\\/////////\\\ \/\\\          /\\\/////////\\\ \/\\\/\\\  \/\\\       \/\\\           \/\\\     \/\\\     \/\\\
+ \/\\\       \/\\\      \/\\\\\\\\\\\\\/ \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\//\\\ \/\\\       \/\\\           \/\\\     \/\\\\\\\\\\\/
+  \//\\\      /\\\       \/\\\/////////   \/\\\\\\\\\\\\\\\ \/\\\         \/\\\\\\\\\\\\\\\ \/\\\\//\\\\/\\\       \/\\\           \/\\\     \/\\\//////\\\
+    \///\\\  /\\\         \/\\\            \/\\\/////////\\\ \/\\\         \/\\\/////////\\\ \/\\\ \//\\\/\\\       \/\\\           \/\\\     \/\\\    \//\\\
+       \///\\\\\/          \/\\\            \/\\\       \/\\\ \/\\\         \/\\\       \/\\\ \/\\\  \//\\\\\\       \/\\\           \/\\\     \/\\\     \//\\\
+  /\\\   \/////   /\\\      \/\\\            \/\\\       \/\\\ \/\\\\\\\\\\\ \/\\\       \/\\\ \/\\\   \//\\\\\       \/\\\        /\\\\\\\\\\\ \/\\\      \//\\\
+    \//\\\       /\\\        \///             \///        \///  \///////////  \///        \///  \///     \/////        \///        \///////////  \///        \///
+      \//\\\    /\\\
+          \//\\\\\
+-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="shortcut icon" href="/favicon.ico" sizes="16x16 32x32" type="image/x-icon">
+<title>JavaInvoke allows you to spawn additional Java VMs during testing | Palantir</title>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="description" content="Palantir builds software that connects data, technologies, humans and environments.">
+
+<meta name="keywords" content="Palantir, home, data, technology, software, solutions, environments, analysis">
+<link rel="stylesheet" href="/build/css/style.css?v=20150629162924" media="screen">
+<link rel="alternate" type="application/rss+xml"  href="https://palantir.com/feed/index.xml" title="Palantir RSS">
+<!-- Modernizr -->
+<script src="/build/js/modernizr-custom-2.8.2.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="/build/js/respond-1.4.2.min.js"></script>
+<link rel="stylesheet" href="/build/css/ie.css?v=20150629162924" media="screen, projection" type="text/css">
+<![endif]-->
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="JavaInvoke allows you to spawn additional Java VMs during testing">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://palantir.com/2009/07/javainvoke">
+
+<meta property="og:image" content="">
+
+<meta property="og:site_name" content="Palantir">
+<meta property="og:description" content="">
+
+
+</head>
+<body id="blog" class="blog-post">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=448433878601301&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <div id="site-wrapper">
+    <!-- Header -->
+    
+<header id="site-header">
+  <!-- Nav: Main -->
+  <nav class="navbar" role="navigation">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!-- Logo -->
+        <h1 id="site-name" class="logo">
+          <a href="/">
+            <div id="logo-svg">
+              <!--[if gte IE 9]><!-->
+                <svg width="100" height="25" viewBox="0 0 100 25" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.076 2.98h6.237c2.27 0 3.814.139 5.092 1.548.935.992 1.373 2.302 1.373 3.75 0 1.468-.458 2.738-1.469 3.79-.992 1.012-2.27 1.667-5.626 1.667h-3.013v8.611h-2.575v-19.365h-.019zm2.575 8.492h3.071c1.717 0 4.31-.139 4.31-3.294 0-3.036-2.422-3.036-3.776-3.036h-3.605v6.329z"/><path d="M45.132 22.365c-.191-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.558-1.746-4.558-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.441 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.992-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.193v.04zm-1.678-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.439-.04-.801-.079-1.392-.079z" id="a"/><path d="M49.366 2.98h2.422v19.385h-2.422v-19.385z"/><path d="M62.24 22.365c-.172-.675-.229-1.31-.229-2.024-1.163 2.222-2.918 2.44-4.005 2.44-2.975 0-4.577-1.746-4.577-3.968 0-1.071.362-2.798 2.27-3.948 1.392-.813 3.452-.893 4.482-.893.61 0 1.011.02 1.755.079 0-1.667 0-2.401-.458-2.976-.496-.675-1.545-.893-2.251-.893-2.46 0-2.575 1.746-2.613 2.282h-2.422c.076-.694.153-1.647.896-2.56.973-1.131 2.823-1.448 4.177-1.448 1.888 0 3.891.615 4.596 1.984.42.813.439 1.448.439 2.063l-.095 6.448c0 .218.019 2.024.21 3.373h-2.174v.04zm-1.697-6.647c-.973 0-4.673 0-4.673 2.738 0 .853.515 2.341 2.689 2.341 1.24 0 2.174-.516 2.765-1.448.534-.913.572-1.667.61-3.552-.42-.04-.782-.079-1.392-.079z"/><path d="M66.493 10.44l-.019-1.567h2.422l.019 2.183c.286-.556 1.202-2.44 4.158-2.44 1.163 0 4.692.456 4.692 4.583v9.147h-2.479v-8.571c0-.893-.095-1.687-.706-2.302-.629-.615-1.469-.913-2.289-.913-1.755 0-3.376 1.31-3.376 4.028v7.758h-2.422v-11.905z"/><path d="M78.528 8.873h2.289v-2.877l2.403-.813v3.671h2.899v1.845h-2.899v8.036c0 .675 0 1.806 1.736 1.806.496 0 .954-.079 1.163-.139v1.964c-.439.079-1.144.159-2.022.159-2.212 0-3.28-.675-3.28-2.877v-8.909h-2.289v-1.865z"/><path d="M87.816 2.98h2.918v2.817h-2.918v-2.817zm.267 5.893h2.422v13.472h-2.422v-13.472z"/><path d="M92.755 11.611c0-.913-.057-1.845-.134-2.738h2.46l.057 2.599c.458-1.885 2.022-2.5 3.09-2.659.725-.099 1.259-.079 1.678-.06v2.46c-.134-.06-.286-.079-.458-.099-.172-.02-.42-.02-.706-.02-2.861 0-3.547 1.766-3.547 4.087v7.163h-2.441v-10.734z"/><path d="M9.866-.04c-5.211 0-9.45 4.226-9.45 9.464s4.22 9.464 9.45 9.464c5.211 0 9.45-4.226 9.45-9.464s-4.24-9.464-9.45-9.464zm0 16.012c-3.606 0-6.538-2.937-6.538-6.548s2.932-6.548 6.538-6.548c3.606 0 6.538 2.937 6.538 6.548-.02 3.631-2.932 6.548-6.538 6.548zM18.306 18.056l-8.44 3.651-8.46-3.651-1.387 2.698 9.847 4.206 9.847-4.206-1.407-2.698z"/>
+              <!--<![endif]-->
+              </svg>
+            </div>
+          </a>
+        </h1>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/products/">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/palantir-gotham/">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/">Palantir Metropolis</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/solutions/">Solutions</a>
+            <ul class="dropdown-menu split-menu">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/careers/">Careers</a>
+            <ul class="dropdown-menu">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav secondary">
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/category/blogs/">Blog</a></li>
+          <li class="search-form">
+            <form role="search" method="get" class="search" action="/search/">
+              <input id="main-search-query" type="text" name="q" value="" class="search-input search_field_main" maxlength="50" placeholder="Search Palantir">
+              <input type="submit" class="search-trigger search_submit_main">
+            </form>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+</header><!-- /header -->
+
+
+    <div id="hero-wrapper-auto" data-image-bg='["/build/images/blog/blog-hero.jpg", "/build/images/blog/blog-hero@2x.jpg"]'>
+      <div class="container">
+        <div class="row block block-hero block-centered">
+          <article class="col-xs-12">
+            <h1 class="main"><a href="/category/blogs">The Palantir Blog</a></h1>
+          </article>
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+      <div id="hero-subnav">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <nav>
+                <ul class="blog-meta transparent">
+                  <li class="blog-meta-date"><span class="icon-pt-icon-time"></span> July 28, 2009</li>
+                  <li class="blog-meta-author"><span class="icon-pt-icon-person"></span> <a href="/author/regs">Ari Gesher</a></li>
+                  
+                  <li class="post_tags">
+                    <span class="icon-pt-icon-tag"></span>
+                    
+                    <span class="tags"><a href="/tag/coding">coding</a></span>
+                    
+                    <span class="tags"><a href="/tag/tips and tricks">tips and tricks</a></span>
+                    
+                    <span class="tags"><a href="/tag/unit testing">unit testing</a></span>
+                    
+                  </li>
+                  
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /#hero-wrapper-auto -->
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div id="post-content" class="col-md-offset-1 col-md-7">
+          <h1>JavaInvoke allows you to spawn additional Java VMs during testing</h1>
+          <p><img src="/wp-assets/wp-content/static/techblog/2009/07/junit.png" alt="junit success" /><br />
+Here at Palantir we use <a href="http://en.wikipedia.org/wiki/Test-driven_development">test-driven development (or TDD for short)</a>.  Integrated tools like <a href="http://www.eclipse.org/">Eclipse </a>and <a href="http://junit.org/">JUnit</a> simplify <a href="http://open.ncsu.edu/se/tutorials/junit/">writing and running unit tests</a>.  However, once you need to test a broader swath of functionality, it’s time to write <a href="http://www.ibm.com/developerworks/library/j-test.html#h1">functional</a>, <a href="http://en.wikipedia.org/wiki/Integration_testing">integration</a>, and <a href="http://en.wikipedia.org/wiki/System_testing">system</a> tests.  While technically not ‘unit testing’, the testing framework that JUnit provides is basically the same infrastructure that you want to leverage for writing these more involved types of testing.</p>
+
+<p>When you’re developing enterprise software, functional testing often means getting your clients to talk to your servers.  For the main <a href="http://www.palantir.com/platforms/#gotham">Palantir Government</a> product, we integrate the process of bringing the server up and down with the Ant scripts that run our automated unit tests: our testing tasks bring up the server, <a href="http://ant.apache.org/manual/OptionalTasks/junit.html">run the test suite</a>, and then kill the server. This works great and produces nice results.</p>
+
+<p>When I started working on our authentication server, the pattern that we had used before didn’t work for me.  While the Palantir Government tests ran with a single, static configuration file, I needed to run the authentication server with multiple configurations in the course of running through the all the different functional tests.  I determined that I needed a way to programmatically bring the server up and down for testing. In JUnit parlance, I needed a way to programmatically launch the server component as part of my setup() function for my unit tests and stop it in my teardown().</p>
+
+<p>With my itch-to-scratch firmly in hand (or some other mixed metaphor), I set out to figure out how to invoke new Java processes from inside a unit test.  The solution I came up with (with source code and examples) after the jump.</p>
+
+<h2 id="the-six-ingredients">The Six Ingredients</h2>
+
+<p>So there are six ingredients that go into spawning a new VM:</p>
+
+<ul>
+<li>The classpath to use for the new VM</li>
+<li>The name of the class to run</li>
+<li>The directory to be used as the current directory for the process</li>
+<li>The command line arguments to pass to the process</li>
+<li>The set of Java system properties to use for this process</li>
+<li>The environment to pass to the process</li>
+</ul>
+
+<p>Let’s look at each item individually.</p>
+
+<h3 id="classpath">Classpath</h3>
+
+<p>The classpath will tell the spawned VM where to load classes from.  In JavaInvoke, we use the existing classpath (from the spawning VM) as a starting point and then prepend any new entries to allow overriding the classpath for the spawned VM.</p>
+
+<p>This takes a lot of the tedium out of having to figuring out what to put in the classpath.  Most likely, you want something similar to what you already have, if not completely identical.</p>
+
+<p>We get the classpath from <code>System.getProperty("java.class.path")</code> and can add new entries by prepending the new entry, using the value of  <code>File.pathSeparatorChar</code> as the entry delimiter.  Using <code>File.pathSeparatorChar</code> makes the code cross-platform friendly (since the path separator is ‘;’ on Windows and ‘:’ on Unix (Linux, Solaris, OS/X, etc.).</p>
+
+<p>Caveat: if you change the working directory and your original classpath was constructed using relative paths, you’ll probably have trouble getting anything to run (since your classpath will no longer point to right locations).</p>
+
+<h3 id="class-name">Class name</h3>
+
+<p>Pretty simple: what do you want to run in the spawned VM?  The class must have a <code>static void main(String args[])</code> defined, and it must be available for loading via the classpath.</p>
+
+<h3 id="working-directory">Working Directory</h3>
+
+<p>If it should be different from the current working directory (CWD) of the running process, then set it and JavaInvoke will change it in the environment.</p>
+
+<h3 id="command-line-arguments">Command line arguments</h3>
+
+<p>If the process needs any command line arguments, including VM options, specify them in a string array.  Note that not all of these arguments will necessarily make it to your main method, since the VM executable will parse it first and remove the VM arguments, passing through the program arguments.</p>
+
+<h3 id="java-system-properties">Java System Properties</h3>
+
+<p>System properties can be used to control many aspects of how a VM runs.  You can set them programmatically in your code or you can set set them on the command line by passing
+<em>-Dkey=value</em>.  Our JavaInvoke implementation will take a Map&lt;string,String&gt; of properties as a convenience argument; all it does is rewrite the map into the command line.</p>
+
+<h3 id="process-environment">Process environment</h3>
+
+<p>This is an operating-system level construct.  This is the set of environment variables, also in a Map&lt;string,String&gt; that you would like merged with the current environment.  This would be the place that you set things like LD_LIBRARY_PATH on Unix.</p>
+
+<h2 id="dealing-with-input-and-output">Dealing with input and output</h2>
+
+<p>So you might ask the question, “where does the output from the process go?”  Or more troubling, “How do I send the process some input?”  The Java <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Process.html">Process</a> object has methods to deal with this, allowing you to get streams that give you access to the input, output, and error streams of spawned process. That API is straight-forward to deal with, just like any other use of the java.io streams.</p>
+
+<p>However, we want to make the typical case really easy: pulling the output from the spawned process back to the parent that spawned it.  To that end, we add into the mix a class called OutputPiper.  It fires up a thread that pulls all input from the spawned process, tags it with an identifier, and then outputs to the spawner’s stdout/stderr.</p>
+
+<h3 id="outputpiper">OutputPiper</h3>
+
+<p>(as extracted from <a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/ProcessSpawner.java.html">ProcessSpawner.java</a>)</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">OutputPiper</span> <span class="kd">extends</span> <span class="n">Thread</span>  <span class="o">{</span>
+  		<span class="n">InputStream</span> <span class="n">in</span><span class="o">;</span>
+  		<span class="n">PrintStream</span> <span class="n">out</span><span class="o">;</span>
+  		<span class="n">String</span> <span class="n">tag</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  		<span class="kd">public</span> <span class="nf">OutputPiper</span><span class="o">(</span><span class="n">String</span> <span class="n">tag</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">in</span><span class="o">,</span><span class="n">PrintStream</span> <span class="n">out</span><span class="o">)</span> <span class="o">{</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">in</span> <span class="o">=</span> <span class="n">in</span><span class="o">;</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">;</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">tag</span> <span class="o">=</span> <span class="n">tag</span><span class="o">;</span>
+  			<span class="c1">// make sure that we don&#39;t keep the VM alive</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">setDaemon</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">setName</span><span class="o">(&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span><span class="n">OutputPiper</span><span class="o">-&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">tag</span><span class="o">);</span>
+  			<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span><span class="n">Starting</span> <span class="n">output</span> <span class="n">piper</span> <span class="k">for</span> <span class="nl">tag:</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">tag</span><span class="o">);</span>
+  			<span class="k">this</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+  		<span class="o">}</span>
+  		<span class="nd">@Override</span>
+  		<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+  			<span class="k">try</span> <span class="o">{</span>
+  				<span class="n">BufferedReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">in</span><span class="o">));</span>
+  				<span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  				<span class="k">do</span> <span class="o">{</span>
+  					<span class="n">line</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">line</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+  						<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">tag</span> <span class="o">+</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;:</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">line</span><span class="o">);</span>
+  					<span class="o">}</span>
+  				<span class="o">}</span><span class="k">while</span><span class="o">(</span><span class="n">line</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">);</span>
+  			<span class="o">}</span>
+  			<span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  				<span class="c1">//</span>
+  			<span class="o">}</span>
+  			<span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span><span class="n">Output</span> <span class="n">piper</span> <span class="n">exiting</span> <span class="k">for</span> <span class="nl">tag:</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;</span><span class="n">quot</span><span class="o">;</span> <span class="o">+</span> <span class="n">tag</span><span class="o">);</span>
+  		<span class="o">}</span>
+  		<span class="kd">public</span> <span class="kd">static</span> <span class="n">OutputPiper</span> <span class="nf">createOutputPiper</span><span class="o">(</span><span class="n">String</span> <span class="n">tag</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">in</span><span class="o">,</span> <span class="n">PrintStream</span> <span class="n">out</span><span class="o">)</span> <span class="o">{</span>
+  			<span class="n">OutputPiper</span> <span class="n">rc</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">OutputPiper</span><span class="o">(</span><span class="n">tag</span><span class="o">,</span> <span class="n">in</span><span class="o">,</span><span class="n">out</span><span class="o">);</span>
+  			<span class="k">return</span> <span class="n">rc</span><span class="o">;</span>
+  		<span class="o">}</span>
+  	<span class="o">}</span></code></pre></div>
+
+<p>Outpiper extends <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Thread.html">Thread</a> so that all the output will arrive back to the controlling process in a timely manner.  For each given process, we spawn off two OutputPipers, one for stdout and one for stderr, corresponding to the <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Process.html#getInputStream()">Process.getInputStream()</a> and the <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Process.html#getErrorStream()">Process.getErrorStream()</a>.</p>
+
+<h2 id="processspawner-amp-javainvoke">ProcessSpawner &amp; JavaInvoke</h2>
+
+<p>There are two key classes in the example:</p>
+
+<ul>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/ProcessSpawner.java.html">ProcessSpawner.java</a> - Essentially a wrapper around <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/ProcessBuilder.html">ProcessBuilder</a>, a generic process spawner that makes it simple to invoke processes that that use OutputPipers to forward their output back to their parent. This class allows you to specify the working directory, process environment, and command line for the process to be invoked.</li>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/JavaInvoke.java.html">JavaInvoke.java</a> - a specialized subclass of ProcessSpawner, this class makes spawning new VMs a piece of cake, doing the necessary translation for Java system properties, setting the proper classpath environment variable with potential overrides, and fills in the fully qualified class name to run.</li>
+</ul>
+
+<h2 id="the-example-amp-source-code">The Example &amp; Source Code</h2>
+
+<p>I’ve put together a running example that implements a trivial client and server in JUnit test.  The setup() method spawns the server and then the tests run the client code against the server, tearing it down after each test.  It’s available in the <a href="/wp-assets/wp-content/static/techblog/2009/07/PalantirVMSpawnerExample.zip">PalantirVMSpawnerExample.zip</a> zip file.  Unzip it, run the <i>run.sh</i> or <i>run.bat</i> script as appropriate.  It should generate output that looks like this:</p>
+
+<pre class="console">
+-----------------------------------------------------
+Starting test testAck
+INFO [main] JavaInvoke - CLASSPATH=./lib/devblog-vmspawner.jar
+INFO [main] ProcessSpawner - Build process spawner for the following command line:
+INFO [main] ProcessSpawner - /home/pteng/java/i586/jdk1.5.0_14/jre/bin/java com.palantir.blog.processspawner.Server
+Starting output piper for tag: server-stdout
+Starting output piper for tag: server-stderr
+server-stdout: Waiting for connection
+server-stdout: Spawning socket handler
+server-stdout: Waiting for connection
+server-stdout: Spawning socket handler
+server-stdout: Waiting for connection
+server-stdout: [Socket Handler2]: Got message: some message
+server-stdout: Spawning socket handler
+server-stdout: Waiting for connection
+server-stdout: [Socket Handler3]: Got message: SHUTDOWN
+Output piper exiting for tag: server-stdout
+Output piper exiting for tag: server-stderr
+Finished test testAck
+-----------------------------------------------------
+-----------------------------------------------------
+Starting test testShutdown
+INFO [main] JavaInvoke - CLASSPATH=./lib/devblog-vmspawner.jar
+INFO [main] ProcessSpawner - Build process spawner for the following command line:
+INFO [main] ProcessSpawner - /home/pteng/java/i586/jdk1.5.0_14/jre/bin/java com.palantir.blog.processspawner.Server
+Starting output piper for tag: server-stdout
+Starting output piper for tag: server-stderr
+server-stdout: Waiting for connection
+server-stdout: Spawning socket handler
+server-stdout: Waiting for connection
+server-stdout: Spawning socket handler
+server-stdout: Waiting for connection
+server-stdout: Spawning socket handler
+server-stdout: Waiting for connection
+server-stdout: [Socket Handler3]: Got message: SHUTDOWN
+Output piper exiting for tag: server-stdout
+Output piper exiting for tag: server-stderr
+Took 3 ms to send shutdown.
+Took 335 ms for process to die.
+Finished test testShutdown
+-----------------------------------------------------
+SUCCESS: all 2 tests passed
+</pre>
+
+<p>The source is included in the zip file, but if you wanted to look at it or link to it on the web, here are the classes involved:</p>
+
+<ul>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/Client.java.html">Client.java</a></li>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/Example.java.html">Example.java</a></li>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/JavaInvoke.java.html">JavaInvoke.java</a></li>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/ProcessSpawner.java.html">ProcessSpawner.java</a></li>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/Server.java.html">Server.java</a></li>
+<li><a href="/wp-assets/wp-content/static/techblog/vmspawner_html/com/palantir/blog/processspawner/ServerSpawningTest.java.html">ServerSpawningTest.java</a></li>
+</ul>
+
+<p>And as an added bonus, there’s an Ant <i>build.xml</i> that will let you tweak and rebuild the demo yourself.</p>
+
+<p>Comments and questions welcome.  Enjoy.</p>
+
+        </div>
+        <aside id="category-links" class="col-md-offset-1 col-md-3">
+          <h4>Categories</h4>
+          <nav id="blog-category-list">
+  <ul>
+  
+    <li class="blog-category tech"><a href="/category/tech/" name="Tech">Tech</a></li>
+  
+    <li class="blog-category analysis"><a href="/category/analysis/" name="Analysis">Analysis</a></li>
+  
+    <li class="blog-category news-events"><a href="/category/news-events/" name="News &amp; Events">News &amp; Events</a></li>
+  
+    <li class="blog-category philanthropy"><a href="/category/philanthropy/" name="Philanthropy">Philanthropy</a></li>
+  
+    <li class="blog-category pcl"><a href="/category/pcl/" name="P/CL">P/CL</a></li>
+  
+  </ul>
+</nav>
+
+          <h4>Save &amp; Share</h4>
+          
+<nav id="blog-share">
+  <ul>
+    <li><a href="/feed/index.xml" class="button button-small no-arrow"><span class="icon-pt-icon-feed"></span> Subscribe via RSS</a></li>
+    <li><div class="fb-share-button" data-href="https://palantir.com/2009/07/javainvoke" data-type="button_count"></div></li>
+    <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+  </ul>
+</nav>
+
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="" role="contentinfo">
+
+  <div class="container">
+        <div class="row">
+          <nav id="products" class="col-sm-2 footer-menu">
+            <h2><a href="/products">Products</a></h2>
+            <ul id="menu-products">
+              <li><a href="/palantir-gotham/" title="Palantir Gotham">Palantir Gotham</a></li>
+              <li><a href="/palantir-metropolis/" title="Palantir Metropolis">Palantir Metropolis</a></li>
+            </ul>
+          </nav>
+
+          <nav id="uses" class="col-sm-4 footer-menu">
+            <h2><a href="/solutions">Solutions</a></h2>
+            <ul id="menu-uses">
+              
+              <li><a href="/solutions/anti-fraud/" title="Anti Fraud">Anti Fraud</a></li>
+              
+              <li><a href="/solutions/capital-markets/" title="Capital Markets">Capital Markets</a></li>
+              
+              <li><a href="/solutions/case-management/" title="Case Management">Case Management</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Crisis Response">Crisis Response</a></li>
+              
+              <li><a href="/solutions/cyber/" title="Cyber Security">Cyber Security</a></li>
+              
+              <li><a href="/solutions/defense/" title="Defense">Defense</a></li>
+              
+              <li><a href="/disaster-preparedness/" title="Disaster Preparedness">Disaster Preparedness</a></li>
+              
+              <li><a href="/solutions/disease-response/" title="Disease Response">Disease Response</a></li>
+              
+              <li><a href="/solutions/healthcare-delivery/" title="Healthcare Delivery">Healthcare Delivery</a></li>
+              
+              <li><a href="/solutions/insider-threat/" title="Insider Threat">Insider Threat</a></li>
+              
+              <li><a href="/solutions/insurance-analytics" title="Insurance Analytics">Insurance Analytics</a></li>
+              
+              <li><a href="/solutions/intelligence/" title="Intelligence">Intelligence</a></li>
+              
+              <li><a href="/solutions/law-enforcement/" title="Law Enforcement">Law Enforcement</a></li>
+              
+              <li><a href="/solutions/legal-intelligence/" title="Legal Intelligence">Legal Intelligence</a></li>
+              
+              <li><a href="/solutions/palantir-verus/" title="Palantir Verus">Palantir Verus</a></li>
+              
+              <li><a href="/solutions/pharma/" title="Pharma R&amp;D">Pharma R&amp;D</a></li>
+              
+              <li><a href="/solutions/trader-oversight/" title="Trader Oversight">Trader Oversight</a></li>
+              
+              <li><a href="/solutions/custom-solutions/" title="Custom Solutions">Custom Solutions</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="people" class="col-sm-2 footer-menu">
+            <h2><a href="/careers/">Careers</a></h2>
+            <ul id="menu-people" class="">
+              
+              <li><a href="/engineering-culture/" title="Engineering Culture">Engineering Culture</a></li>
+              
+              <li><a href="/life-at-palantir/" title="Life at Palantir">Life at Palantir</a></li>
+              
+              <li><a href="/getting-hired/" title="Getting Hired">Getting Hired</a></li>
+              
+              <li><a href="/college/" title="Students">Students</a></li>
+              
+              <li><a href="/careers/" title="Explore Careers">Explore Careers</a></li>
+              
+            </ul>
+          </nav>
+
+          <nav id="about" class="col-sm-2 footer-menu">
+            <h2><a href="/about">About</a></h2>
+            <ul id="menu-about">
+              <li><a href="/what-we-believe/">What We Believe</a></li>
+              <li><a href="/philanthropy-engineering/">Philanthropy Engineering</a></li>
+              <li><a href="/library/">Library</a></li>
+              <li><a href="/media/">Media</a></li>
+            </ul>
+          </nav>
+
+          <nav id="ancillary-menu" class="col-sm-2 footer-menu">
+            <ul id="menu-ancillary">
+              <li><a href="https://support.palantir.com/">Support Portal</a></li>
+              <li><a href="/partnerships/">Partnerships</a></li>
+              <li><a href="/site-map/">Site Map</a></li>
+            </ul>
+          </nav>
+        </div><!-- /.row -->
+
+        <div id="footer-copyright" class="row">
+          <div class="col-sm-12 sub-footer">
+            <span class="legalese">&copy; 2015 Palantir Technologies</span>
+            <a class="legalese" href="/terms-and-conditions/">Terms of Use</a>
+            <a class="legalese" href="/privacy-and-security/">Privacy and Security Statement</a>
+            <ul class="social">
+              <li><a href="https://www.facebook.com/Palantir" class="icon-pt-icon-facebook"></a></li>
+              <li><a href="https://www.twitter.com/palantirtech" class="icon-pt-icon-twitter"></a></li>
+              <li><a href="https://plus.google.com/106671163751935200511" rel="publisher" class="icon-pt-icon-gplus"></a></li>
+              <li><a href="https://www.github.com/Palantir" class="icon-pt-icon-github"></a></li>
+              <li><a href="https://www.youtube.com/user/Palantir" class="icon-pt-icon-youtube"></a></li>
+            </ul>
+          </div>
+        </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+</footer><!-- /footer -->
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- compiled.min -->
+  <script src="/build/js/compiled.min.js?v=20150629162924"></script>
+
+  
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-380822-1', 'none');
+  ga('send', 'pageview');
+</script>
+
+
+  <script>
+  window['_fs_debug'] = false;
+  window['_fs_host'] = 'www.fullstory.com';
+  window['_fs_org'] = 'Vcq';
+  (function(m,n,e,t,l,o,g,y){
+    g=m[e]=function(a,b){g.q?g.q.push([a,b]):g._api(a,b);};g.q=[];
+    o=n.createElement(t);o.async=1;o.src='https://'+_fs_host+'/s/fs.js';
+    y=n.getElementsByTagName(t)[0];y.parentNode.insertBefore(o,y);
+    g.identify=function(i,v){g(l,{uid:i});if(v)g(l,v)};g.setUserVars=function(v){FS(l,v)};
+    g.clearUserCookie=function(d,i){d=n.domain;while(1){n.cookie='fs_uid=;domain='+d+
+    ';path=/;expires='+new Date(0);i=d.indexOf('.');if(i<0)break;d=d.slice(i+1)}}
+  })(window,document,'FS','script','user');
+</script>
+
+</body>
+</html>
